@@ -6,638 +6,437 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Estate Executor — Rochester, NY</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #f5f0e8;
-    --surface: #fffdf8;
-    --border: #e0d8cc;
-    --text: #1a1612;
-    --muted: #7a6f63;
-    --accent: #8b5e3c;
-    --accent-light: #f0e6d8;
-    --green: #2d6a4f;
-    --green-light: #d8ede5;
-    --step0: #c0392b;
-    --step0-light: #fdecea;
-    --gold: #b8860b;
-    --gold-light: #fdf6e3;
-    --radius: 14px;
-    --shadow: 0 2px 12px rgba(26,22,18,0.08);
+    --bg: #0f0e0c;
+    --surface: #1a1916;
+    --surface2: #222118;
+    --border: #2e2c27;
+    --border-light: #3a3830;
+    --text: #f0ece4;
+    --text-soft: #c8bfb0;
+    --muted: #7a7368;
+    --cream: #f5f0e6;
+    --red: #e05540;
+    --red-dim: rgba(224,85,64,0.12);
+    --amber: #d4842a;
+    --amber-dim: rgba(212,132,42,0.12);
+    --slate: #6b88b5;
+    --slate-dim: rgba(107,136,181,0.12);
+    --gold: #c9a84c;
+    --gold-dim: rgba(201,168,76,0.12);
+    --green: #4ea87a;
+    --green-dim: rgba(78,168,122,0.12);
+    --radius: 16px;
   }
 
 - { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 
 body {
 background: var(–bg);
-font-family: ‘DM Sans’, sans-serif;
-font-weight: 400;
+font-family: ‘Outfit’, sans-serif;
 color: var(–text);
 min-height: 100vh;
-padding-bottom: 40px;
+padding-bottom: 60px;
 }
 
-/* Header */
-.header {
-background: var(–surface);
-border-bottom: 1px solid var(–border);
-padding: 20px 20px 16px;
-position: sticky;
-top: 0;
-z-index: 100;
-box-shadow: 0 1px 8px rgba(26,22,18,0.06);
-}
-.header-top {
-display: flex;
-align-items: center;
-justify-content: space-between;
-margin-bottom: 4px;
-}
-.header h1 {
-font-family: ‘Playfair Display’, serif;
-font-size: 20px;
-font-weight: 600;
-letter-spacing: -0.3px;
-}
-.location-badge {
-font-size: 11px;
-font-weight: 500;
-color: var(–muted);
-background: var(–accent-light);
-border: 1px solid var(–border);
-border-radius: 20px;
-padding: 3px 10px;
-white-space: nowrap;
-}
-.header-sub {
-font-size: 12px;
-color: var(–muted);
-font-weight: 300;
-}
-
-/* Progress bar */
-.progress-bar {
-height: 3px;
-background: var(–border);
-border-radius: 2px;
-margin-top: 12px;
+/* HERO */
+.hero {
+position: relative;
 overflow: hidden;
+padding: 52px 22px 28px;
+background: linear-gradient(160deg, #1e1b14 0%, #0f0e0c 60%);
 }
-.progress-fill {
-height: 100%;
-background: linear-gradient(90deg, var(–accent), var(–gold));
-border-radius: 2px;
-transition: width 0.5s ease;
+.hero::before {
+content: ‘’;
+position: absolute;
+top: -60px; right: -60px;
+width: 280px; height: 280px;
+background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%);
+pointer-events: none;
 }
-.progress-label {
-font-size: 11px;
-color: var(–muted);
-margin-top: 5px;
-text-align: right;
+.hero::after {
+content: ‘’;
+position: absolute;
+bottom: 0; left: 0; right: 0;
+height: 1px;
+background: linear-gradient(90deg, transparent, var(–gold), transparent);
+opacity: 0.4;
 }
-
-/* Section headers */
-.section-label {
+.hero-eyebrow {
 font-size: 10px;
 font-weight: 500;
+letter-spacing: 2px;
 text-transform: uppercase;
-letter-spacing: 1.2px;
-color: var(–muted);
-padding: 20px 20px 8px;
+color: var(–gold);
+margin-bottom: 10px;
+display: flex;
+align-items: center;
+gap: 8px;
+}
+.hero-eyebrow::before { content: ‘’; width: 20px; height: 1px; background: var(–gold); opacity: 0.6; }
+.hero h1 {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 34px;
+font-weight: 700;
+line-height: 1.1;
+letter-spacing: -0.5px;
+color: var(–cream);
+margin-bottom: 6px;
+}
+.hero-sub { font-size: 13px; color: var(–muted); font-weight: 300; margin-bottom: 22px; }
+.hero-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.badge {
+display: inline-flex; align-items: center; gap: 5px;
+font-size: 11px; font-weight: 500;
+padding: 5px 12px; border-radius: 20px; border: 1px solid;
+}
+.badge-gold { color: var(–gold); border-color: rgba(201,168,76,0.3); background: rgba(201,168,76,0.08); }
+.badge-slate { color: var(–slate); border-color: rgba(107,136,181,0.3); background: rgba(107,136,181,0.08); }
+
+/* PROGRESS */
+.progress-wrap {
+background: var(–surface);
+border-bottom: 1px solid var(–border);
+padding: 14px 22px;
+}
+.progress-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.progress-row span { font-size: 11px; font-weight: 500; color: var(–muted); text-transform: uppercase; letter-spacing: 0.8px; }
+.progress-pct { color: var(–gold) !important; font-weight: 600 !important; }
+.progress-track { height: 4px; background: var(–border); border-radius: 4px; overflow: hidden; }
+.progress-fill {
+height: 100%; border-radius: 4px;
+background: linear-gradient(90deg, var(–amber), var(–gold));
+transition: width 0.6s cubic-bezier(.4,0,.2,1);
+box-shadow: 0 0 8px rgba(201,168,76,0.5);
 }
 
-/* Cards */
+/* SECTION LABEL */
+.section-label {
+font-size: 10px; font-weight: 600;
+text-transform: uppercase; letter-spacing: 1.8px;
+color: var(–muted); padding: 26px 22px 10px;
+}
+
+/* CARDS */
 .card {
+margin: 0 14px 10px;
+border-radius: var(–radius);
 background: var(–surface);
 border: 1px solid var(–border);
-border-radius: var(–radius);
-margin: 0 12px 10px;
 overflow: hidden;
-box-shadow: var(–shadow);
-transition: transform 0.15s ease;
+transition: transform 0.12s ease;
+position: relative;
 }
-.card:active { transform: scale(0.985); }
+.card::before {
+content: ‘’; position: absolute;
+left: 0; top: 0; bottom: 0; width: 3px;
+border-radius: 3px 0 0 3px;
+}
+.card:active { transform: scale(0.982); }
+.card[data-color=“red”]::before    { background: var(–red); }
+.card[data-color=“amber”]::before  { background: var(–amber); }
+.card[data-color=“slate”]::before  { background: var(–slate); }
+.card[data-color=“gold”]::before   { background: var(–gold); }
+.card[data-color=“green”]::before  { background: var(–green); }
 
 .card-header {
-display: flex;
-align-items: flex-start;
-padding: 14px 16px;
-gap: 12px;
-cursor: pointer;
-user-select: none;
+display: flex; align-items: center;
+padding: 15px 16px 15px 19px; gap: 13px;
+cursor: pointer; user-select: none;
 }
 
-/* Step badge */
-.step-badge {
-min-width: 38px;
-height: 38px;
-border-radius: 10px;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-flex-shrink: 0;
+/* Step bubble */
+.step-bubble {
+width: 42px; height: 42px; border-radius: 12px;
+display: flex; flex-direction: column;
+align-items: center; justify-content: center; flex-shrink: 0;
 }
-.step-badge .step-num {
-font-size: 14px;
-font-weight: 600;
-font-family: ‘Playfair Display’, serif;
-line-height: 1;
-}
-.step-badge .step-word {
-font-size: 7px;
-font-weight: 500;
-text-transform: uppercase;
-letter-spacing: 0.5px;
-line-height: 1;
-margin-top: 2px;
-}
+.step-bubble .num { font-family: ‘Cormorant Garamond’, serif; font-size: 20px; font-weight: 700; line-height: 1; }
+.step-bubble .lbl { font-size: 7px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.6px; margin-top: 1px; opacity: 0.8; }
+.bubble-red   { background: var(–red-dim);   color: var(–red); }
+.bubble-amber { background: var(–amber-dim); color: var(–amber); }
+.bubble-slate { background: var(–slate-dim); color: var(–slate); }
+.bubble-gold  { background: var(–gold-dim);  color: var(–gold); }
+.bubble-green { background: var(–green-dim); color: var(–green); }
 
-/* Urgency colors */
-.urgent { background: var(–step0-light); }
-.urgent .step-num, .urgent .step-word { color: var(–step0); }
-.now { background: var(–accent-light); }
-.now .step-num, .now .step-word { color: var(–accent); }
-.later { background: #eef0f5; }
-.later .step-num, .later .step-word { color: #4a5568; }
-.done-style { background: var(–green-light); }
-.done-style .step-num, .done-style .step-word { color: var(–green); }
+.card-body { flex: 1; min-width: 0; }
+.card-title { font-size: 15px; font-weight: 500; line-height: 1.3; color: var(–text); margin-bottom: 3px; }
+.card-sub { font-size: 12px; color: var(–muted); font-weight: 300; }
+.card-actions { display: flex; flex-direction: column; align-items: flex-end; gap: 7px; flex-shrink: 0; }
 
-.card-title-area { flex: 1; min-width: 0; }
-.card-title {
-font-size: 15px;
-font-weight: 500;
-line-height: 1.3;
-margin-bottom: 3px;
-}
-.card-subtitle {
-font-size: 12px;
-color: var(–muted);
-font-weight: 300;
-line-height: 1.3;
-}
-
-.card-right {
-display: flex;
-flex-direction: column;
-align-items: flex-end;
-gap: 6px;
-flex-shrink: 0;
-}
+/* Pill */
+.pill { font-size: 10px; font-weight: 500; padding: 3px 9px; border-radius: 20px; white-space: nowrap; border: 1px solid; }
+.pill-red   { color: var(–red);   background: var(–red-dim);   border-color: rgba(224,85,64,0.25); }
+.pill-amber { color: var(–amber); background: var(–amber-dim); border-color: rgba(212,132,42,0.25); }
+.pill-slate { color: var(–slate); background: var(–slate-dim); border-color: rgba(107,136,181,0.25); }
+.pill-gold  { color: var(–gold);  background: var(–gold-dim);  border-color: rgba(201,168,76,0.25); }
+.pill-green { color: var(–green); background: var(–green-dim); border-color: rgba(78,168,122,0.25); }
 
 /* Checkbox */
-.check-circle {
-width: 24px;
-height: 24px;
-border-radius: 50%;
-border: 2px solid var(–border);
-display: flex;
-align-items: center;
-justify-content: center;
-cursor: pointer;
-transition: all 0.2s ease;
-flex-shrink: 0;
-background: white;
+.check {
+width: 24px; height: 24px; border-radius: 50%;
+border: 1.5px solid var(–border-light);
+display: flex; align-items: center; justify-content: center;
+cursor: pointer; transition: all 0.25s ease; background: transparent; flex-shrink: 0;
 }
-.check-circle.checked {
-background: var(–green);
-border-color: var(–green);
-}
-.check-circle.checked::after {
-content: ‘’;
-width: 6px;
-height: 10px;
-border: 2px solid white;
-border-top: none;
-border-left: none;
+.check.on { background: var(–green); border-color: var(–green); box-shadow: 0 0 10px rgba(78,168,122,0.4); }
+.check.on::after {
+content: ‘’; width: 5px; height: 9px;
+border: 2px solid #fff; border-top: none; border-left: none;
 transform: rotate(45deg) translateY(-1px);
 }
 
-.chevron {
-color: var(–muted);
-font-size: 12px;
-transition: transform 0.25s ease;
-margin-top: 2px;
-}
-.chevron.open { transform: rotate(90deg); }
+/* Chevron */
+.chev { color: var(–muted); font-size: 16px; font-weight: 300; transition: transform 0.25s cubic-bezier(.4,0,.2,1); line-height: 1; }
+.chev.open { transform: rotate(90deg); }
 
-/* Tag chips */
-.tag {
-font-size: 10px;
-font-weight: 500;
-padding: 2px 8px;
-border-radius: 20px;
-white-space: nowrap;
-}
-.tag-urgent { background: var(–step0-light); color: var(–step0); }
-.tag-now { background: var(–accent-light); color: var(–accent); }
-.tag-week { background: #eef0f5; color: #4a5568; }
-.tag-ongoing { background: var(–gold-light); color: var(–gold); }
-.tag-final { background: var(–green-light); color: var(–green); }
+/* Detail panel */
+.detail-panel { display: none; border-top: 1px solid var(–border); background: var(–surface2); padding: 18px 18px 18px 21px; }
+.detail-panel.open { display: block; animation: slideDown 0.22s ease; }
+@keyframes slideDown { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
 
-/* Details section */
-.card-details {
-display: none;
-border-top: 1px solid var(–border);
-background: #faf8f4;
-padding: 16px;
+.detail-section { margin-bottom: 16px; }
+.detail-section:last-child { margin-bottom: 0; }
+.detail-section h4 { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 8px; }
+.detail-section p { font-size: 13px; line-height: 1.7; color: var(–text-soft); font-weight: 300; }
+.detail-section ul { list-style: none; padding: 0; }
+.detail-section ul li {
+font-size: 13px; line-height: 1.65; color: var(–text-soft); font-weight: 300;
+padding: 5px 0 5px 18px; position: relative;
+border-bottom: 1px solid rgba(255,255,255,0.03);
 }
-.card-details.open { display: block; }
+.detail-section ul li:last-child { border-bottom: none; }
+.detail-section ul li::before { content: ‘›’; position: absolute; left: 0; font-size: 14px; line-height: 1.65; }
+.detail-section ul li strong { color: var(–text); font-weight: 500; }
 
-.detail-block {
-margin-bottom: 14px;
-}
-.detail-block:last-child { margin-bottom: 0; }
+.callout { border-radius: 10px; padding: 12px 14px; font-size: 12.5px; line-height: 1.65; margin-top: 12px; border-left: 3px solid; }
+.callout-gold  { background: var(–gold-dim);  border-color: var(–gold);  color: #d4ba70; }
+.callout-slate { background: var(–slate-dim); border-color: var(–slate); color: #8aabd4; }
+.callout-green { background: var(–green-dim); border-color: var(–green); color: #72c49a; }
+.callout-red   { background: var(–red-dim);   border-color: var(–red);   color: #e87b6a; }
+.callout strong { font-weight: 500; }
 
-.detail-block h4 {
-font-size: 11px;
-font-weight: 500;
-text-transform: uppercase;
-letter-spacing: 0.8px;
-color: var(–accent);
-margin-bottom: 6px;
-}
-.detail-block p {
-font-size: 13px;
-line-height: 1.65;
-color: #3d3530;
-font-weight: 300;
-}
-.detail-block ul {
-list-style: none;
-padding: 0;
-}
-.detail-block ul li {
-font-size: 13px;
-line-height: 1.6;
-color: #3d3530;
-font-weight: 300;
-padding-left: 14px;
-position: relative;
-margin-bottom: 4px;
-}
-.detail-block ul li::before {
-content: ‘–’;
-position: absolute;
-left: 0;
-color: var(–muted);
+.map-link {
+display: inline-flex; align-items: center; gap: 5px;
+color: var(–slate); font-size: 12px; font-weight: 500; text-decoration: none;
+margin-top: 8px; padding: 5px 12px;
+background: var(–slate-dim); border: 1px solid rgba(107,136,181,0.2); border-radius: 20px;
 }
 
-.info-box {
-background: var(–gold-light);
-border: 1px solid #e8d07a;
-border-radius: 8px;
-padding: 10px 12px;
-font-size: 12px;
-line-height: 1.6;
-color: #5a4a00;
-margin-top: 10px;
-}
-.info-box strong { font-weight: 500; }
+/* Completed card */
+.card.done .card-title { text-decoration: line-through; color: var(–muted); }
+.card.done { opacity: 0.55; }
 
-.address-link {
-display: inline-flex;
-align-items: center;
-gap: 4px;
-color: var(–accent);
-font-size: 13px;
-font-weight: 500;
-text-decoration: none;
-margin-top: 6px;
-}
+/* CHECKLIST */
+.big-card { margin: 0 14px 10px; border-radius: var(–radius); background: var(–surface); border: 1px solid var(–border); overflow: hidden; }
+.big-card-header { display: flex; align-items: center; justify-content: space-between; padding: 15px 16px; cursor: pointer; user-select: none; }
+.big-card-left { display: flex; align-items: center; gap: 12px; }
+.big-card-icon { width: 42px; height: 42px; border-radius: 12px; background: var(–gold-dim); display: flex; align-items: center; justify-content: center; font-size: 20px; }
+.big-card-title { font-size: 15px; font-weight: 500; margin-bottom: 2px; }
+.big-card-sub { font-size: 12px; color: var(–muted); font-weight: 300; }
+.big-card-body { display: none; border-top: 1px solid var(–border); }
+.big-card-body.open { display: block; }
 
-/* Financial checklist section */
-.checklist-card {
-background: var(–surface);
-border: 1px solid var(–border);
-border-radius: var(–radius);
-margin: 0 12px 10px;
-overflow: hidden;
-box-shadow: var(–shadow);
-}
-.checklist-header {
-display: flex;
-align-items: center;
-justify-content: space-between;
-padding: 14px 16px;
-cursor: pointer;
-user-select: none;
-}
-.checklist-header-left {
-display: flex;
-align-items: center;
-gap: 10px;
-}
-.checklist-icon {
-width: 38px;
-height: 38px;
-background: var(–gold-light);
-border-radius: 10px;
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 18px;
-}
-.checklist-body {
-display: none;
-border-top: 1px solid var(–border);
-padding: 4px 0 8px;
-}
-.checklist-body.open { display: block; }
+.cl-item { display: flex; align-items: center; gap: 13px; padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.03); cursor: pointer; transition: background 0.1s; }
+.cl-item:last-child { border-bottom: none; }
+.cl-item:active { background: rgba(255,255,255,0.03); }
+.cl-item-text { flex: 1; }
+.cl-item-text strong { display: block; font-size: 13px; font-weight: 500; color: var(–text); margin-bottom: 2px; }
+.cl-item-text span { font-size: 11px; color: var(–muted); font-weight: 300; }
+.cl-item.done .cl-item-text strong { text-decoration: line-through; color: var(–muted); }
 
-.checklist-item {
-display: flex;
-align-items: flex-start;
-gap: 12px;
-padding: 10px 16px;
-cursor: pointer;
-border-bottom: 1px solid #f0ebe4;
+/* ATTORNEY */
+.info-panel {
+margin: 0 14px 10px; border-radius: var(–radius);
+background: var(–surface); border: 1px solid var(–border);
+padding: 18px; position: relative; overflow: hidden;
 }
-.checklist-item:last-child { border-bottom: none; }
-.checklist-item:active { background: #f5f0e8; }
-.checklist-item-text { flex: 1; }
-.checklist-item-text strong {
-display: block;
-font-size: 13px;
-font-weight: 500;
-margin-bottom: 2px;
-}
-.checklist-item-text span {
-font-size: 11px;
-color: var(–muted);
-font-weight: 300;
-}
-.item-checked .checklist-item-text strong {
-text-decoration: line-through;
-color: var(–muted);
-}
+.info-panel::before { content: ‘’; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(–slate); }
+.info-panel-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.info-panel-icon { width: 36px; height: 36px; border-radius: 10px; background: var(–slate-dim); display: flex; align-items: center; justify-content: center; font-size: 17px; flex-shrink: 0; }
+.info-panel h3 { font-family: ‘Cormorant Garamond’, serif; font-size: 17px; font-weight: 600; line-height: 1.2; color: var(–text); }
+.info-panel p { font-size: 13px; line-height: 1.7; color: var(–text-soft); font-weight: 300; margin-bottom: 9px; }
+.info-panel p:last-of-type { margin-bottom: 0; }
+.info-panel strong { color: var(–text); font-weight: 500; }
+.script-line { margin-top: 14px; background: rgba(255,255,255,0.04); border: 1px solid var(–border-light); border-radius: 10px; padding: 12px 14px; font-size: 13px; color: var(–gold); font-style: italic; font-weight: 300; line-height: 1.5; }
 
-/* Attorney section */
-.info-card {
-background: var(–surface);
-border: 1px solid var(–border);
-border-radius: var(–radius);
-margin: 0 12px 10px;
-padding: 16px;
-box-shadow: var(–shadow);
-}
-.info-card-header {
-display: flex;
-align-items: center;
-gap: 10px;
-margin-bottom: 12px;
-}
-.info-card-icon {
-width: 36px;
-height: 36px;
-background: #eef0f5;
-border-radius: 9px;
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 17px;
-}
-.info-card h3 {
-font-family: ‘Playfair Display’, serif;
-font-size: 15px;
-font-weight: 600;
-}
-.info-card p {
-font-size: 13px;
-line-height: 1.65;
-color: #3d3530;
-font-weight: 300;
-margin-bottom: 8px;
-}
-.info-card p:last-child { margin-bottom: 0; }
-.highlight-phrase {
-background: var(–gold-light);
-border: 1px solid #e8d07a;
-border-radius: 6px;
-padding: 8px 12px;
-font-size: 13px;
-color: #5a4a00;
-font-style: italic;
-margin-top: 8px;
-}
-
-/* Reassurance footer */
-.reassurance {
-margin: 16px 12px 0;
-background: var(–green-light);
-border: 1px solid #a8d5be;
-border-radius: var(–radius);
-padding: 16px;
-text-align: center;
-}
-.reassurance p {
-font-size: 13px;
-color: var(–green);
-line-height: 1.6;
-font-weight: 300;
-}
-.reassurance strong { font-weight: 500; }
-
-/* Completed state on card */
-.card.completed .card-title {
-text-decoration: line-through;
-color: var(–muted);
-}
-.card.completed .step-badge {
-background: var(–green-light) !important;
-}
-.card.completed .step-num,
-.card.completed .step-word {
-color: var(–green) !important;
-}
+/* FOOTER */
+.footer-card { margin: 0 14px; border-radius: var(–radius); background: var(–green-dim); border: 1px solid rgba(78,168,122,0.2); padding: 20px; text-align: center; }
+.footer-card p { font-size: 13px; line-height: 1.75; color: #72c49a; font-weight: 300; }
+.footer-card strong { color: var(–green); font-weight: 500; }
 </style>
 
 </head>
 <body>
 
-<!-- HEADER -->
-
-<div class="header">
-  <div class="header-top">
-    <h1>Estate Executor Guide</h1>
-    <span class="location-badge">📍 Rochester, NY</span>
+<div class="hero">
+  <div class="hero-eyebrow">Monroe County · New York</div>
+  <h1>Estate<br>Executor Guide</h1>
+  <div class="hero-sub">A step-by-step walkthrough for Rochester, NY probate</div>
+  <div class="hero-meta">
+    <span class="badge badge-gold">⚖️ NY Surrogate's Court</span>
+    <span class="badge badge-slate">📍 Rochester, NY</span>
   </div>
-  <div class="header-sub">Monroe County · New York State Probate</div>
-  <div class="progress-bar">
-    <div class="progress-fill" id="progressFill" style="width:0%"></div>
-  </div>
-  <div class="progress-label" id="progressLabel">0 of 7 steps completed</div>
 </div>
 
-<!-- STEPS -->
+<div class="progress-wrap">
+  <div class="progress-row">
+    <span>Your Progress</span>
+    <span class="progress-pct" id="pctLabel">0%</span>
+  </div>
+  <div class="progress-track">
+    <div class="progress-fill" id="progressFill" style="width:0%"></div>
+  </div>
+</div>
 
 <div class="section-label">The 7 Steps — In Order</div>
 
 <!-- STEP 0 -->
 
-<div class="card" id="card-0">
+<div class="card" id="card-0" data-color="red">
   <div class="card-header" onclick="toggleCard(0)">
-    <div class="step-badge urgent">
-      <span class="step-num">0</span>
-      <span class="step-word">Now</span>
-    </div>
-    <div class="card-title-area">
+    <div class="step-bubble bubble-red"><span class="num">0</span><span class="lbl">Now</span></div>
+    <div class="card-body">
       <div class="card-title">Pre-Probate — Do This First</div>
-      <div class="card-subtitle">Secure the home & gather documents</div>
+      <div class="card-sub">Secure the home & gather documents</div>
     </div>
-    <div class="card-right">
-      <div class="check-circle" id="check-0" onclick="toggleCheck(event, 0)"></div>
-      <span class="tag tag-urgent">🔴 Urgent</span>
-      <span class="chevron" id="chev-0">›</span>
+    <div class="card-actions">
+      <div class="check" id="check-0" onclick="toggleCheck(event,0)"></div>
+      <span class="pill pill-red">🔴 Urgent</span>
+      <span class="chev" id="chev-0">›</span>
     </div>
   </div>
-  <div class="card-details" id="details-0">
-    <div class="detail-block">
-      <h4>What This Step Is</h4>
+  <div class="detail-panel" id="details-0">
+    <div class="detail-section">
+      <h4 style="color:var(--red)">What This Step Is</h4>
       <p>Before anything can happen legally, you need to stabilize the physical estate and gather the documents you'll need at the courthouse. Nothing else can move forward without the original Will and death certificates in hand.</p>
     </div>
-    <div class="detail-block">
-      <h4>Action Items</h4>
+    <div class="detail-section">
+      <h4 style="color:var(--red)">Action Items</h4>
       <ul>
         <li>Go to the house and <strong>secure all entry points</strong> — change locks if needed</li>
-        <li>Set the thermostat to <strong>55°F</strong> to protect pipes (important in Rochester winters)</li>
-        <li>Set up <strong>mail forwarding</strong> to your address (USPS.com or your local post office)</li>
+        <li>Set thermostat to <strong>55°F</strong> to protect pipes (critical in Rochester winters)</li>
+        <li>Set up <strong>mail forwarding</strong> to your address at USPS.com</li>
         <li>Find and safeguard the <strong>original Will</strong> — courts require the physical original, not a copy</li>
-        <li>Ask the funeral home for <strong>10 certified death certificates</strong> — banks and courts each need an original</li>
-        <li>Collect every <strong>bill, statement, or official letter</strong> you find — put them in one box</li>
+        <li>Ask the funeral home for <strong>10 certified death certificates</strong></li>
+        <li>Collect every <strong>bill, statement, or official letter</strong> — put in one box</li>
       </ul>
     </div>
-    <div class="info-box">
-      <strong>Why 10 copies?</strong> Each bank, brokerage, insurance company, and the court requires their own certified original. You'll go through them faster than you think.
-    </div>
+    <div class="callout callout-gold"><strong>Why 10 copies?</strong> Each bank, brokerage, insurance company, and the court requires their own certified original. You'll go through them faster than you think.</div>
   </div>
 </div>
 
 <!-- STEP 1 -->
 
-<div class="card" id="card-1">
+<div class="card" id="card-1" data-color="amber">
   <div class="card-header" onclick="toggleCard(1)">
-    <div class="step-badge now">
-      <span class="step-num">1</span>
-      <span class="step-word">Week 1</span>
-    </div>
-    <div class="card-title-area">
+    <div class="step-bubble bubble-amber"><span class="num">1</span><span class="lbl">Week 1</span></div>
+    <div class="card-body">
       <div class="card-title">File at Surrogate's Court</div>
-      <div class="card-subtitle">Submit Will & Petition at Monroe County</div>
+      <div class="card-sub">Submit Will & Petition at Monroe County</div>
     </div>
-    <div class="card-right">
-      <div class="check-circle" id="check-1" onclick="toggleCheck(event, 1)"></div>
-      <span class="tag tag-now">Next Week</span>
-      <span class="chevron" id="chev-1">›</span>
+    <div class="card-actions">
+      <div class="check" id="check-1" onclick="toggleCheck(event,1)"></div>
+      <span class="pill pill-amber">Next Week</span>
+      <span class="chev" id="chev-1">›</span>
     </div>
   </div>
-  <div class="card-details" id="details-1">
-    <div class="detail-block">
-      <h4>What This Step Is</h4>
-      <p>This is when the estate officially enters the legal system. You file the original Will along with a "Petition for Probate" form at Monroe County Surrogate's Court. The court then formally recognizes you as the Executor.</p>
+  <div class="detail-panel" id="details-1">
+    <div class="detail-section">
+      <h4 style="color:var(--amber)">What This Step Is</h4>
+      <p>This is when the estate officially enters the legal system. You file the original Will along with a Petition for Probate at Monroe County Surrogate's Court. The court formally recognizes you as the Executor.</p>
     </div>
-    <div class="detail-block">
-      <h4>Where To Go</h4>
-      <p>Monroe County Surrogate's Court<br>
-      <strong>99 Exchange Blvd, Room 514</strong><br>
-      Rochester, NY 14614<br>
-      Hours: Mon–Fri, 9am–5pm</p>
-      <a href="https://maps.apple.com/?address=99+Exchange+Blvd,+Rochester,+NY+14614" class="address-link">📍 Open in Maps</a>
+    <div class="detail-section">
+      <h4 style="color:var(--amber)">Where To Go</h4>
+      <p><strong>Monroe County Surrogate's Court</strong><br>99 Exchange Blvd, Room 514<br>Rochester, NY 14614<br>Mon–Fri, 9am–5pm · (585) 371-3609</p>
+      <a href="https://maps.apple.com/?address=99+Exchange+Blvd,+Rochester,+NY+14614" class="map-link">📍 Open in Maps</a>
     </div>
-    <div class="detail-block">
-      <h4>What You Need To Bring</h4>
+    <div class="detail-section">
+      <h4 style="color:var(--amber)">What To Bring</h4>
       <ul>
         <li>The <strong>original Will</strong> (not a copy)</li>
         <li>At least <strong>2–3 certified death certificates</strong></li>
-        <li>A completed <strong>Petition for Probate</strong> form (available at the clerk's window or online at nycourts.gov)</li>
-        <li>Filing fee — typically <strong>$45–$1,250</strong> depending on estate size (paid from estate funds)</li>
-        <li>Names and addresses of all beneficiaries named in the Will</li>
+        <li>Completed <strong>Petition for Probate</strong> form (clerk's window or nycourts.gov)</li>
+        <li>Filing fee: <strong>$45–$1,250</strong> depending on estate size (paid from estate)</li>
+        <li>Names and addresses of all beneficiaries in the Will</li>
       </ul>
     </div>
-    <div class="info-box">
-      <strong>Tip:</strong> Call ahead at (585) 371-3609 to confirm current hours and ask if there's a checklist for first-time filers. The clerks are generally helpful.
-    </div>
+    <div class="callout callout-slate"><strong>Tip:</strong> Call (585) 371-3609 ahead to confirm hours and ask if there's a checklist for first-time filers. Clerks are generally very helpful.</div>
   </div>
 </div>
 
 <!-- STEP 2 -->
 
-<div class="card" id="card-2">
+<div class="card" id="card-2" data-color="slate">
   <div class="card-header" onclick="toggleCard(2)">
-    <div class="step-badge now">
-      <span class="step-num">2</span>
-      <span class="step-word">Court</span>
-    </div>
-    <div class="card-title-area">
+    <div class="step-bubble bubble-slate"><span class="num">2</span><span class="lbl">Court</span></div>
+    <div class="card-body">
       <div class="card-title">Receive Letters Testamentary</div>
-      <div class="card-subtitle">Your official legal authority as Executor</div>
+      <div class="card-sub">Your official legal authority as Executor</div>
     </div>
-    <div class="card-right">
-      <div class="check-circle" id="check-2" onclick="toggleCheck(event, 2)"></div>
-      <span class="tag tag-week">Weeks 2–4</span>
-      <span class="chevron" id="chev-2">›</span>
+    <div class="card-actions">
+      <div class="check" id="check-2" onclick="toggleCheck(event,2)"></div>
+      <span class="pill pill-slate">Weeks 2–4</span>
+      <span class="chev" id="chev-2">›</span>
     </div>
   </div>
-  <div class="card-details" id="details-2">
-    <div class="detail-block">
-      <h4>What This Step Is</h4>
-      <p>"Letters Testamentary" is the official document issued by the court that proves you have legal authority to act on behalf of the estate. Without this document, banks and financial institutions will not speak with you about the accounts.</p>
+  <div class="detail-panel" id="details-2">
+    <div class="detail-section">
+      <h4 style="color:var(--slate)">What This Step Is</h4>
+      <p>"Letters Testamentary" is the official document issued by the court proving you have legal authority to act on behalf of the estate. Without it, banks will not speak with you about accounts.</p>
     </div>
-    <div class="detail-block">
-      <h4>What Happens</h4>
+    <div class="detail-section">
+      <h4 style="color:var(--slate)">What Happens</h4>
       <ul>
-        <li>After filing, the court typically takes <strong>2–4 weeks</strong> to process and issue Letters</li>
+        <li>Court typically takes <strong>2–4 weeks</strong> to process and issue Letters after filing</li>
         <li>You'll receive a certified document with an official court seal</li>
-        <li>Order <strong>multiple certified copies</strong> — each institution (bank, brokerage, DMV) will want one</li>
-        <li>The court may require notifying beneficiaries by mail before issuing</li>
+        <li>Order <strong>multiple certified copies</strong> — each institution wants their own</li>
+        <li>Court may require notifying beneficiaries by mail before issuing</li>
       </ul>
     </div>
-    <div class="info-box">
-      <strong>This is the "golden ticket."</strong> Once you have it, you can legally access, manage, and eventually distribute all estate assets. Keep originals safe — make photocopies for reference.
-    </div>
+    <div class="callout callout-gold"><strong>This is the "golden ticket."</strong> Once you have it, you can legally access, manage, and eventually distribute all estate assets. Keep originals safe.</div>
   </div>
 </div>
 
 <!-- STEP 3 -->
 
-<div class="card" id="card-3">
+<div class="card" id="card-3" data-color="gold">
   <div class="card-header" onclick="toggleCard(3)">
-    <div class="step-badge later">
-      <span class="step-num">3</span>
-      <span class="step-word">Inventory</span>
-    </div>
-    <div class="card-title-area">
+    <div class="step-bubble bubble-gold"><span class="num">3</span><span class="lbl">Inventory</span></div>
+    <div class="card-body">
       <div class="card-title">Inventory All Assets</div>
-      <div class="card-subtitle">List accounts, property, and notify institutions</div>
+      <div class="card-sub">List accounts, property & notify institutions</div>
     </div>
-    <div class="card-right">
-      <div class="check-circle" id="check-3" onclick="toggleCheck(event, 3)"></div>
-      <span class="tag tag-ongoing">Ongoing</span>
-      <span class="chevron" id="chev-3">›</span>
+    <div class="card-actions">
+      <div class="check" id="check-3" onclick="toggleCheck(event,3)"></div>
+      <span class="pill pill-gold">Ongoing</span>
+      <span class="chev" id="chev-3">›</span>
     </div>
   </div>
-  <div class="card-details" id="details-3">
-    <div class="detail-block">
-      <h4>What This Step Is</h4>
-      <p>You need to create a complete picture of everything she owned — every bank account, investment, property, and insurance policy. The last 2 years of tax returns are the single best "map" of all her accounts.</p>
+  <div class="detail-panel" id="details-3">
+    <div class="detail-section">
+      <h4 style="color:var(--gold)">What This Step Is</h4>
+      <p>Create a complete picture of everything she owned — every account, property, and policy. Her last 2 years of tax returns are the single best "map" of all her financial accounts.</p>
     </div>
-    <div class="detail-block">
-      <h4>What To Find</h4>
+    <div class="detail-section">
+      <h4 style="color:var(--gold)">What To Find</h4>
       <ul>
-        <li><strong>Bank accounts:</strong> Checking, savings, CDs — note if any are "Joint" or "POD" (payable on death), as those transfer automatically outside probate</li>
-        <li><strong>Investments:</strong> 401(k), IRA, brokerage accounts, or physical stock certificates</li>
+        <li><strong>Bank accounts:</strong> Checking, savings, CDs — note Joint or POD designations (those transfer automatically outside probate)</li>
+        <li><strong>Investments:</strong> 401(k), IRA, brokerage accounts, physical stock certificates</li>
         <li><strong>Life insurance:</strong> Call each company with the policy number to file a claim</li>
-        <li><strong>Real estate:</strong> Mortgage statements, property tax bills, any HELOC loans</li>
-        <li><strong>Vehicle:</strong> Title, registration — contact NYS DMV to transfer</li>
+        <li><strong>Real estate:</strong> Mortgage statements, property tax bills, HELOC loans</li>
+        <li><strong>Vehicle:</strong> Title and registration — contact NYS DMV to transfer</li>
         <li><strong>Debts:</strong> Credit cards, car loans, recent medical bills</li>
       </ul>
     </div>
-    <div class="detail-block">
-      <h4>Notify These Locally</h4>
+    <div class="detail-section">
+      <h4 style="color:var(--gold)">Notify Locally</h4>
       <ul>
-        <li><strong>Utilities — keep ON:</strong> RG&E (585-546-1900), Monroe County Water, trash pickup</li>
-        <li><strong>Social Security Administration</strong> — notify of death to stop payments (return any received after death)</li>
-        <li><strong>Post office</strong> — continue mail forwarding</li>
+        <li><strong>RG&amp;E</strong> (Electric/Gas) — keep ON: (585) 546-1900</li>
+        <li><strong>Monroe County Water</strong> — keep ON</li>
+        <li><strong>Social Security Administration</strong> — notify of death; return any post-death payments</li>
       </ul>
     </div>
   </div>
@@ -645,128 +444,113 @@ color: var(–green) !important;
 
 <!-- STEP 4 -->
 
-<div class="card" id="card-4">
+<div class="card" id="card-4" data-color="gold">
   <div class="card-header" onclick="toggleCard(4)">
-    <div class="step-badge later">
-      <span class="step-num">4</span>
-      <span class="step-word">Bank</span>
-    </div>
-    <div class="card-title-area">
+    <div class="step-bubble bubble-gold"><span class="num">4</span><span class="lbl">Bank</span></div>
+    <div class="card-body">
       <div class="card-title">Open an Estate Bank Account</div>
-      <div class="card-subtitle">Keep estate money separate from yours</div>
+      <div class="card-sub">Keep estate money separate from yours</div>
     </div>
-    <div class="card-right">
-      <div class="check-circle" id="check-4" onclick="toggleCheck(event, 4)"></div>
-      <span class="tag tag-week">After Letters</span>
-      <span class="chevron" id="chev-4">›</span>
+    <div class="card-actions">
+      <div class="check" id="check-4" onclick="toggleCheck(event,4)"></div>
+      <span class="pill pill-gold">After Letters</span>
+      <span class="chev" id="chev-4">›</span>
     </div>
   </div>
-  <div class="card-details" id="details-4">
-    <div class="detail-block">
-      <h4>What This Step Is</h4>
-      <p>You must open a bank account specifically in the name of the estate (e.g., "Estate of [Name]"). All estate money flows through this account — this keeps things clean, protects you legally, and makes accounting easy when it's time to close.</p>
+  <div class="detail-panel" id="details-4">
+    <div class="detail-section">
+      <h4 style="color:var(--gold)">What This Step Is</h4>
+      <p>Open a bank account in the name of the estate (e.g., "Estate of [Name]"). All estate money flows through here — this protects you legally and makes the final accounting straightforward.</p>
     </div>
-    <div class="detail-block">
-      <h4>How To Do It</h4>
+    <div class="detail-section">
+      <h4 style="color:var(--gold)">How To Do It</h4>
       <ul>
         <li>Bring your <strong>Letters Testamentary</strong> and your own ID to any bank</li>
-        <li>Request a basic <strong>estate checking account</strong> — no need for anything fancy</li>
-        <li>Get an <strong>EIN (Employer ID Number)</strong> for the estate at IRS.gov — takes 5 minutes online, free</li>
-        <li>Transfer her existing bank accounts into this estate account</li>
+        <li>Request a basic <strong>estate checking account</strong> — nothing fancy needed</li>
+        <li>Get an <strong>EIN</strong> for the estate at IRS.gov — free, takes 5 minutes online</li>
+        <li>Transfer her existing accounts into this new estate account</li>
       </ul>
     </div>
-    <div class="info-box">
-      <strong>Important:</strong> Never mix estate money with your personal money. Even reimbursing yourself for expenses should be documented and paid from the estate account with a receipt.
-    </div>
+    <div class="callout callout-red"><strong>Never mix funds.</strong> Even reimbursing yourself for expenses should come from the estate account with a documented receipt.</div>
   </div>
 </div>
 
 <!-- STEP 5 -->
 
-<div class="card" id="card-5">
+<div class="card" id="card-5" data-color="amber">
   <div class="card-header" onclick="toggleCard(5)">
-    <div class="step-badge later">
-      <span class="step-num">5</span>
-      <span class="step-word">Debts</span>
-    </div>
-    <div class="card-title-area">
+    <div class="step-bubble bubble-amber"><span class="num">5</span><span class="lbl">Debts</span></div>
+    <div class="card-body">
       <div class="card-title">Settle Debts &amp; Taxes</div>
-      <div class="card-subtitle">Pay valid claims from estate funds — not yours</div>
+      <div class="card-sub">Pay valid claims from estate funds — not yours</div>
     </div>
-    <div class="card-right">
-      <div class="check-circle" id="check-5" onclick="toggleCheck(event, 5)"></div>
-      <span class="tag tag-ongoing">Months 1–6</span>
-      <span class="chevron" id="chev-5">›</span>
+    <div class="card-actions">
+      <div class="check" id="check-5" onclick="toggleCheck(event,5)"></div>
+      <span class="pill pill-amber">Months 1–6</span>
+      <span class="chev" id="chev-5">›</span>
     </div>
   </div>
-  <div class="card-details" id="details-5">
-    <div class="detail-block">
-      <h4>What This Step Is</h4>
-      <p>Before distributing anything to heirs, valid debts must be paid from the estate account. You are <strong>not personally responsible</strong> for her debts — creditors can only claim against estate assets, not yours.</p>
+  <div class="detail-panel" id="details-5">
+    <div class="detail-section">
+      <h4 style="color:var(--amber)">What This Step Is</h4>
+      <p>Before distributing anything to heirs, valid debts must be paid from the estate account. You are <strong style="color:var(--text)">not personally responsible</strong> for her debts — creditors can only claim against estate assets, not yours.</p>
     </div>
-    <div class="detail-block">
-      <h4>What To Pay</h4>
+    <div class="detail-section">
+      <h4 style="color:var(--amber)">What To Pay</h4>
       <ul>
-        <li><strong>Funeral and burial costs</strong> — these are paid first, by law</li>
-        <li><strong>Final utility bills and mortgage</strong> — keep property expenses current</li>
-        <li><strong>Valid credit card and medical debts</strong> — verify each one is legitimate</li>
-        <li><strong>Federal and NY State final income taxes</strong> — file her last tax return (Form 1040) for the year she died</li>
-        <li><strong>NY Estate Tax</strong> — only applies if estate exceeds ~$7.16 million (2024 threshold)</li>
+        <li><strong>Funeral and burial costs</strong> — paid first, by law</li>
+        <li><strong>Final utility bills and mortgage</strong> — keep property current</li>
+        <li><strong>Valid credit card and medical debts</strong> — verify each one</li>
+        <li><strong>Federal &amp; NY State final income taxes</strong> — file her last Form 1040</li>
+        <li><strong>NY Estate Tax</strong> — only if estate exceeds ~$7.16M (2024 threshold)</li>
       </ul>
     </div>
-    <div class="detail-block">
-      <h4>New York Notice to Creditors</h4>
-      <p>NY law allows you to publish a "Notice to Creditors" in a local newspaper (like the Democrat &amp; Chronicle). This starts a 7-month clock — creditors who don't file within that window lose their claim, protecting you when distributing.</p>
+    <div class="detail-section">
+      <h4 style="color:var(--amber)">NY Notice to Creditors</h4>
+      <p>You can publish a "Notice to Creditors" in a local paper (Democrat &amp; Chronicle). This starts a 7-month clock — creditors who don't file within that window lose their claim, protecting you at distribution.</p>
     </div>
-    <div class="info-box">
-      <strong>If a debt seems wrong</strong> — inflated medical bills, accounts you don't recognize — you have the right to dispute them. An estate attorney can help if needed.
-    </div>
+    <div class="callout callout-slate"><strong>If a debt seems wrong</strong> — inflated bills, unrecognized accounts — you have the right to dispute. An estate attorney can help.</div>
   </div>
 </div>
 
 <!-- STEP 6 -->
 
-<div class="card" id="card-6">
+<div class="card" id="card-6" data-color="green">
   <div class="card-header" onclick="toggleCard(6)">
-    <div class="step-badge done-style">
-      <span class="step-num">6</span>
-      <span class="step-word">Final</span>
-    </div>
-    <div class="card-title-area">
+    <div class="step-bubble bubble-green"><span class="num">6</span><span class="lbl">Final</span></div>
+    <div class="card-body">
       <div class="card-title">Distribute Assets &amp; Close Estate</div>
-      <div class="card-subtitle">Follow the Will, then file final court papers</div>
+      <div class="card-sub">Follow the Will, then file final court papers</div>
     </div>
-    <div class="card-right">
-      <div class="check-circle" id="check-6" onclick="toggleCheck(event, 6)"></div>
-      <span class="tag tag-final">✓ Finish Line</span>
-      <span class="chevron" id="chev-6">›</span>
+    <div class="card-actions">
+      <div class="check" id="check-6" onclick="toggleCheck(event,6)"></div>
+      <span class="pill pill-green">✓ Finish Line</span>
+      <span class="chev" id="chev-6">›</span>
     </div>
   </div>
-  <div class="card-details" id="details-6">
-    <div class="detail-block">
-      <h4>What This Step Is</h4>
-      <p>Once all debts are paid and the creditor notice period has passed, you distribute what remains to the beneficiaries exactly as the Will directs. Then you file a final accounting with the court and formally close the estate.</p>
+  <div class="detail-panel" id="details-6">
+    <div class="detail-section">
+      <h4 style="color:var(--green)">What This Step Is</h4>
+      <p>Once all debts are paid and the creditor notice period has passed, distribute what remains to beneficiaries exactly as the Will directs. Then file a final accounting with the court and formally close the estate.</p>
     </div>
-    <div class="detail-block">
-      <h4>Distribution Process</h4>
+    <div class="detail-section">
+      <h4 style="color:var(--green)">Distribution Process</h4>
       <ul>
-        <li>Pay each heir their share — get a signed <strong>receipt and release</strong> from each one</li>
-        <li>For real estate: you'll need to file a new <strong>deed at Monroe County Clerk's Office</strong> (39 W. Main St)</li>
-        <li>For vehicles: transfer title at the <strong>Monroe County DMV</strong></li>
+        <li>Pay each heir — get a signed <strong>receipt and release</strong> from everyone</li>
+        <li>Real estate: file a new <strong>deed at Monroe County Clerk's Office</strong> (39 W. Main St)</li>
+        <li>Vehicles: transfer title at <strong>Monroe County DMV</strong></li>
         <li>Transfer remaining investment accounts per Will instructions</li>
       </ul>
     </div>
-    <div class="detail-block">
-      <h4>Closing the Estate</h4>
+    <div class="detail-section">
+      <h4 style="color:var(--green)">Closing the Estate</h4>
       <ul>
-        <li>File a <strong>Final Account</strong> with Surrogate's Court showing all income, expenses, and distributions</li>
-        <li>Get the court's approval — they'll issue a discharge releasing you from Executor duties</li>
+        <li>File a <strong>Final Account</strong> with Surrogate's Court — all income, expenses, distributions</li>
+        <li>Court issues a discharge order — your official release from all Executor duties</li>
         <li>Close the estate bank account</li>
       </ul>
     </div>
-    <div class="info-box">
-      <strong>You're done.</strong> The discharge order is your official release from all Executor responsibilities. Keep all your records for at least 3–5 years.
-    </div>
+    <div class="callout callout-green"><strong>You're done.</strong> Keep all records for at least 3–5 years after the court discharge.</div>
   </div>
 </div>
 
@@ -774,62 +558,59 @@ color: var(–green) !important;
 
 <div class="section-label">Financial Checklist</div>
 
-<div class="checklist-card">
-  <div class="checklist-header" onclick="toggleChecklist()">
-    <div class="checklist-header-left">
-      <div class="checklist-icon">💼</div>
+<div class="big-card">
+  <div class="big-card-header" onclick="toggleChecklist()">
+    <div class="big-card-left">
+      <div class="big-card-icon">💼</div>
       <div>
-        <div style="font-size:15px;font-weight:500;">What To Look For</div>
-        <div style="font-size:12px;color:var(--muted);font-weight:300;">Tap items as you find them</div>
+        <div class="big-card-title">What To Look For</div>
+        <div class="big-card-sub">Tap items as you find them</div>
       </div>
     </div>
-    <span class="chevron" id="chev-cl">›</span>
+    <span class="chev" id="chev-cl">›</span>
   </div>
-  <div class="checklist-body" id="checklist-body">
-    <div id="cl-items">
-      <!-- Items injected by JS -->
-    </div>
+  <div class="big-card-body" id="checklist-body">
+    <div id="cl-items"></div>
   </div>
 </div>
 
-<!-- ATTORNEY SECTION -->
+<!-- ATTORNEY -->
 
 <div class="section-label">If You Hire an Attorney</div>
 
-<div class="info-card">
-  <div class="info-card-header">
-    <div class="info-card-icon">⚖️</div>
+<div class="info-panel">
+  <div class="info-panel-header">
+    <div class="info-panel-icon">⚖️</div>
     <h3>Estate Attorney Fees — Monroe County</h3>
   </div>
-  <p><strong>Hourly billing:</strong> Most Rochester estate attorneys charge <strong>$200–$500/hour.</strong> For a simple, uncontested estate this often runs $1,500–$3,000 total.</p>
-  <p><strong>Flat fee:</strong> Some offer a flat fee of <strong>$3,500+</strong> for straightforward probate cases — often the better deal for peace of mind.</p>
-  <p><strong>Who pays?</strong> Attorney fees are paid directly from the estate account — not from your personal money.</p>
-  <div class="highlight-phrase">
-    Ask: "Do you offer a flat fee for a simple probate in Monroe County?"
-  </div>
+  <p><strong>Hourly billing:</strong> Most Rochester estate attorneys charge <strong>$200–$500/hr.</strong> Simple estates typically run $1,500–$3,000 total.</p>
+  <p><strong>Flat fee:</strong> Some offer <strong>$3,500+</strong> for straightforward probate — often the better deal.</p>
+  <p><strong>Who pays?</strong> Attorney fees are paid from the estate account — <strong>not your personal money.</strong></p>
+  <div class="script-line">"Do you offer a flat fee for a simple probate in Monroe County?"</div>
 </div>
 
-<!-- REASSURANCE -->
+<!-- FOOTER -->
 
-<div class="reassurance">
-  <p>Remember: <strong>this is a marathon, not a sprint.</strong><br>You only need to handle Step 0 right now. Each step unlocks the next. You've got this — and you're not alone.</p>
+<div class="section-label">Remember</div>
+<div class="footer-card">
+  <p>This is a <strong>marathon, not a sprint.</strong><br>
+  You only need to handle Step 0 right now.<br>
+  Each step unlocks the next. You've got this.</p>
 </div>
 
 <script>
-  // --- State ---
   const STEPS = 7;
   let stepsDone = new Array(STEPS).fill(false);
 
-  // Financial checklist items
   const clItems = [
     { label: "Bank Accounts", detail: "Checking, Savings, CDs — note Joint or POD designations" },
     { label: "Investments", detail: "401(k), IRA, brokerage accounts, stock certificates" },
     { label: "Life Insurance Policies", detail: "Call each company with policy number to file a claim" },
-    { label: "Tax Returns (last 2 yrs)", detail: "Best 'map' of every account she owned" },
+    { label: "Tax Returns (last 2 yrs)", detail: "Best map of every account she owned" },
     { label: "Mortgage Statement", detail: "Most recent — note balance and lender" },
-    { label: "Property Tax Bills", detail: "Check for any unpaid Monroe County property taxes" },
-    { label: "HELOC / Home Equity Loans", detail: "Any lines of credit secured against the home" },
-    { label: "Credit Card Statements", detail: "All active cards — needed to notify and close accounts" },
+    { label: "Property Tax Bills", detail: "Check for unpaid Monroe County property taxes" },
+    { label: "HELOC / Home Equity Loans", detail: "Lines of credit secured against the home" },
+    { label: "Credit Card Statements", detail: "All active cards — needed to notify and close" },
     { label: "Medical Bills", detail: "Recent and outstanding — verify before paying" },
     { label: "Vehicle Title & Registration", detail: "Needed to transfer at Monroe County DMV" },
     { label: "Original Will", detail: "Court requires physical original — keep it safe" },
@@ -837,13 +618,11 @@ color: var(–green) !important;
   ];
   let clDone = new Array(clItems.length).fill(false);
 
-  // --- Render checklist ---
   function renderChecklist() {
-    const container = document.getElementById('cl-items');
-    container.innerHTML = clItems.map((item, i) => `
-      <div class="checklist-item ${clDone[i] ? 'item-checked' : ''}" onclick="toggleClItem(${i})">
-        <div class="check-circle ${clDone[i] ? 'checked' : ''}"></div>
-        <div class="checklist-item-text">
+    document.getElementById('cl-items').innerHTML = clItems.map((item, i) => `
+      <div class="cl-item ${clDone[i] ? 'done' : ''}" onclick="toggleCl(${i})">
+        <div class="check ${clDone[i] ? 'on' : ''}"></div>
+        <div class="cl-item-text">
           <strong>${item.label}</strong>
           <span>${item.detail}</span>
         </div>
@@ -851,75 +630,59 @@ color: var(–green) !important;
     `).join('');
   }
 
-  function toggleClItem(i) {
-    clDone[i] = !clDone[i];
-    renderChecklist();
-    saveState();
-  }
+  function toggleCl(i) { clDone[i] = !clDone[i]; renderChecklist(); save(); }
 
-  // --- Toggle step cards ---
   function toggleCard(i) {
-    const details = document.getElementById(`details-${i}`);
-    const chev = document.getElementById(`chev-${i}`);
-    details.classList.toggle('open');
-    chev.classList.toggle('open');
+    document.getElementById(`details-${i}`).classList.toggle('open');
+    document.getElementById(`chev-${i}`).classList.toggle('open');
   }
 
-  // --- Toggle checklist ---
   function toggleChecklist() {
-    const body = document.getElementById('checklist-body');
-    const chev = document.getElementById('chev-cl');
-    body.classList.toggle('open');
-    chev.classList.toggle('open');
+    document.getElementById('checklist-body').classList.toggle('open');
+    document.getElementById('chev-cl').classList.toggle('open');
   }
 
-  // --- Check/uncheck a step ---
-  function toggleCheck(event, i) {
-    event.stopPropagation();
+  function toggleCheck(e, i) {
+    e.stopPropagation();
     stepsDone[i] = !stepsDone[i];
-    const circle = document.getElementById(`check-${i}`);
-    circle.classList.toggle('checked', stepsDone[i]);
-    const card = document.getElementById(`card-${i}`);
-    card.classList.toggle('completed', stepsDone[i]);
+    document.getElementById(`check-${i}`).classList.toggle('on', stepsDone[i]);
+    document.getElementById(`card-${i}`).classList.toggle('done', stepsDone[i]);
     updateProgress();
-    saveState();
+    save();
   }
 
   function updateProgress() {
     const done = stepsDone.filter(Boolean).length;
     const pct = Math.round((done / STEPS) * 100);
     document.getElementById('progressFill').style.width = pct + '%';
-    document.getElementById('progressLabel').textContent = `${done} of ${STEPS} steps completed`;
+    document.getElementById('pctLabel').textContent = pct + '%';
   }
 
-  // --- Persist to localStorage ---
-  function saveState() {
+  function save() {
     try {
-      localStorage.setItem('executor_steps', JSON.stringify(stepsDone));
-      localStorage.setItem('executor_cl', JSON.stringify(clDone));
+      localStorage.setItem('exec_steps', JSON.stringify(stepsDone));
+      localStorage.setItem('exec_cl', JSON.stringify(clDone));
     } catch(e) {}
   }
 
-  function loadState() {
+  function load() {
     try {
-      const s = localStorage.getItem('executor_steps');
-      const c = localStorage.getItem('executor_cl');
+      const s = localStorage.getItem('exec_steps');
+      const c = localStorage.getItem('exec_cl');
       if (s) stepsDone = JSON.parse(s);
       if (c) clDone = JSON.parse(c);
     } catch(e) {}
-    // Apply loaded state
     stepsDone.forEach((done, i) => {
       if (done) {
-        document.getElementById(`check-${i}`)?.classList.add('checked');
-        document.getElementById(`card-${i}`)?.classList.add('completed');
+        document.getElementById(`check-${i}`)?.classList.add('on');
+        document.getElementById(`card-${i}`)?.classList.add('done');
       }
     });
     updateProgress();
     renderChecklist();
   }
 
-  // --- Init ---
-  loadState();
+  load();
 </script>
 
 </body>
