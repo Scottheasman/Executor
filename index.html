@@ -8,596 +8,250 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Estate Executor — Rochester, NY</title>
-
-<!-- Preconnect for speed -->
-
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<!-- Load fonts with display=swap so fallback renders immediately -->
-
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-
 <style>
-/* Force dark bg instantly — before any font or render */
-html, body {
-  background-color: #0f0e0c !important;
-  color: #f0ece4;
-}
-
+html, body { background-color: #0f0e0c !important; color: #f0ece4; }
 :root {
-  --bg: #0f0e0c;
-  --surface: #1c1a17;
-  --surface2: #232119;
-  --border: #2f2d28;
-  --border-light: #3c3a32;
-  --text: #f0ece4;
-  --text-soft: #c8bfb0;
-  --muted: #7a7368;
-  --cream: #f5f0e6;
-
-  --red: #e05540;
-  --red-dim: rgba(224,85,64,0.13);
-  --amber: #d4842a;
-  --amber-dim: rgba(212,132,42,0.13);
-  --slate: #6b88b5;
-  --slate-dim: rgba(107,136,181,0.13);
-  --gold: #c9a84c;
-  --gold-dim: rgba(201,168,76,0.13);
-  --green: #4ea87a;
-  --green-dim: rgba(78,168,122,0.13);
-
+  --bg: #0f0e0c; --surface: #1c1a17; --surface2: #232119;
+  --border: #2f2d28; --border-light: #3c3a32;
+  --text: #f0ece4; --text-soft: #c8bfb0; --muted: #7a7368; --cream: #f5f0e6;
+  --red: #e05540; --red-dim: rgba(224,85,64,0.13);
+  --amber: #d4842a; --amber-dim: rgba(212,132,42,0.13);
+  --slate: #6b88b5; --slate-dim: rgba(107,136,181,0.13);
+  --gold: #c9a84c; --gold-dim: rgba(201,168,76,0.13);
+  --green: #4ea87a; --green-dim: rgba(78,168,122,0.13);
+  --purple: #9b7ec8; --purple-dim: rgba(155,126,200,0.13);
   --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
   --font-body: 'Outfit', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
   --radius: 16px;
 }
-
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  -webkit-tap-highlight-color: transparent;
-}
-
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 body {
-  font-family: var(--font-body);
-  font-weight: 400;
-  color: var(--text);
-  background-color: var(--bg);
-  min-height: 100vh;
-  min-height: -webkit-fill-available;
-  padding-bottom: env(safe-area-inset-bottom, 40px);
+  font-family: var(--font-body); font-weight: 400; color: var(--text);
+  background-color: var(--bg); min-height: 100vh; min-height: -webkit-fill-available;
   padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 60px);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
 }
 
-/* ── HERO ── */
-.hero {
-  position: relative;
-  overflow: hidden;
-  padding: 56px 22px 30px;
-  background-color: #1a1710;
-  background-image: radial-gradient(ellipse at 85% 20%, rgba(201,168,76,0.18) 0%, transparent 55%),
-                    linear-gradient(170deg, #201d14 0%, #0f0e0c 65%);
-}
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(201,168,76,0.5) 50%, transparent 100%);
-}
-.hero-eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 2.2px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 12px;
-  font-family: var(--font-body);
-}
-.hero-eyebrow::before {
-  content: '';
-  display: block;
-  width: 22px; height: 1px;
-  background-color: var(--gold);
-  opacity: 0.7;
-  flex-shrink: 0;
-}
-.hero h1 {
-  font-family: var(--font-display);
-  font-size: 38px;
-  font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.5px;
-  color: var(--cream);
-  margin-bottom: 10px;
-}
-.hero-sub {
-  font-size: 13px;
-  color: var(--muted);
-  font-weight: 300;
-  margin-bottom: 24px;
-  line-height: 1.5;
-}
+/* HERO */
+.hero { position: relative; overflow: hidden; padding: 56px 22px 30px;
+background-color: #1a1710;
+background-image: radial-gradient(ellipse at 85% 20%, rgba(201,168,76,0.18) 0%, transparent 55%),
+linear-gradient(170deg, #201d14 0%, #0f0e0c 65%); }
+.hero::after { content: ‘’; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+background: linear-gradient(90deg, transparent 0%, rgba(201,168,76,0.5) 50%, transparent 100%); }
+.hero-eyebrow { display: flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 600;
+letter-spacing: 2.2px; text-transform: uppercase; color: var(–gold); margin-bottom: 12px; }
+.hero-eyebrow::before { content: ‘’; display: block; width: 22px; height: 1px;
+background-color: var(–gold); opacity: 0.7; flex-shrink: 0; }
+.hero h1 { font-family: var(–font-display); font-size: 38px; font-weight: 700;
+line-height: 1.05; letter-spacing: -0.5px; color: var(–cream); margin-bottom: 10px; }
+.hero-sub { font-size: 13px; color: var(–muted); font-weight: 300; margin-bottom: 24px; line-height: 1.5; }
 .hero-badges { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 11px;
-  font-weight: 500;
-  padding: 6px 14px;
-  border-radius: 999px;
-  border: 1px solid;
-  font-family: var(--font-body);
-  white-space: nowrap;
-}
-.badge-gold {
-  color: var(--gold);
-  border-color: rgba(201,168,76,0.35);
-  background-color: rgba(201,168,76,0.09);
-}
-.badge-slate {
-  color: var(--slate);
-  border-color: rgba(107,136,181,0.35);
-  background-color: rgba(107,136,181,0.09);
-}
+.badge { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 500;
+padding: 6px 14px; border-radius: 999px; border: 1px solid; white-space: nowrap; }
+.badge-gold { color: var(–gold); border-color: rgba(201,168,76,0.35); background-color: rgba(201,168,76,0.09); }
+.badge-slate { color: var(–slate); border-color: rgba(107,136,181,0.35); background-color: rgba(107,136,181,0.09); }
 
-/* ── PROGRESS ── */
-.progress-wrap {
-  background-color: var(--surface);
-  border-bottom: 1px solid var(--border);
-  padding: 16px 22px;
-}
-.progress-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-}
-.progress-label {
-  font-size: 10px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: var(--muted);
-  font-family: var(--font-body);
-}
-.progress-pct {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--gold);
-  font-family: var(--font-body);
-}
-.progress-track {
-  height: 5px;
-  background-color: var(--border);
-  border-radius: 999px;
-  overflow: hidden;
-}
-.progress-fill {
-  height: 100%;
-  border-radius: 999px;
-  background-image: linear-gradient(90deg, #d4842a, #c9a84c);
-  box-shadow: 0 0 10px rgba(201,168,76,0.45);
-  transition: width 0.55s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: width;
-}
+/* PROGRESS */
+.progress-wrap { background-color: var(–surface); border-bottom: 1px solid var(–border); padding: 16px 22px; }
+.progress-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.progress-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(–muted); }
+.progress-pct { font-size: 12px; font-weight: 600; color: var(–gold); }
+.progress-track { height: 5px; background-color: var(–border); border-radius: 999px; overflow: hidden; }
+.progress-fill { height: 100%; border-radius: 999px; background-image: linear-gradient(90deg, #d4842a, #c9a84c);
+box-shadow: 0 0 10px rgba(201,168,76,0.45); transition: width 0.55s cubic-bezier(0.4,0,0.2,1); will-change: width; }
 
-/* ── SECTION LABEL ── */
-.section-label {
-  font-size: 10px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--muted);
-  padding: 28px 22px 10px;
-  font-family: var(--font-body);
-}
+/* SECTION LABEL */
+.section-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px;
+color: var(–muted); padding: 28px 22px 10px; }
 
-/* ── STEP CARDS ── */
-.card {
-  position: relative;
-  margin: 0 14px 10px;
-  border-radius: var(--radius);
-  background-color: var(--surface);
-  border: 1px solid var(--border);
-  overflow: hidden;
-  -webkit-transform: translateZ(0); /* GPU layer for iOS */
-  transform: translateZ(0);
-  transition: opacity 0.2s ease;
-}
-.card::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 3px;
-}
-.card[data-color="red"]::before    { background-color: var(--red); }
-.card[data-color="amber"]::before  { background-color: var(--amber); }
-.card[data-color="slate"]::before  { background-color: var(--slate); }
-.card[data-color="gold"]::before   { background-color: var(--gold); }
-.card[data-color="green"]::before  { background-color: var(--green); }
-
+/* CARDS */
+.card { position: relative; margin: 0 14px 10px; border-radius: var(–radius);
+background-color: var(–surface); border: 1px solid var(–border); overflow: hidden;
+-webkit-transform: translateZ(0); transform: translateZ(0); transition: opacity 0.2s ease; }
+.card::before { content: ‘’; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; }
+.card[data-color=“red”]::before    { background-color: var(–red); }
+.card[data-color=“amber”]::before  { background-color: var(–amber); }
+.card[data-color=“slate”]::before  { background-color: var(–slate); }
+.card[data-color=“gold”]::before   { background-color: var(–gold); }
+.card[data-color=“green”]::before  { background-color: var(–green); }
+.card[data-color=“purple”]::before { background-color: var(–purple); }
 .card:active { opacity: 0.85; }
-
-.card-header {
-  display: flex;
-  align-items: center;
-  padding: 15px 15px 15px 18px;
-  gap: 13px;
-  cursor: pointer;
-  -webkit-user-select: none;
-  user-select: none;
-}
+.card-header { display: flex; align-items: center; padding: 15px 15px 15px 18px;
+gap: 13px; cursor: pointer; -webkit-user-select: none; user-select: none; }
 
 /* Step bubble */
-.step-bubble {
-  width: 44px; height: 44px;
-  border-radius: 13px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-.step-bubble .num {
-  font-family: var(--font-display);
-  font-size: 22px;
-  font-weight: 700;
-  line-height: 1;
-}
-.step-bubble .lbl {
-  font-family: var(--font-body);
-  font-size: 7px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.7px;
-  margin-top: 2px;
-  opacity: 0.75;
-}
-.bubble-red   { background-color: var(--red-dim);   color: var(--red); }
-.bubble-amber { background-color: var(--amber-dim); color: var(--amber); }
-.bubble-slate { background-color: var(--slate-dim); color: var(--slate); }
-.bubble-gold  { background-color: var(--gold-dim);  color: var(--gold); }
-.bubble-green { background-color: var(--green-dim); color: var(--green); }
+.step-bubble { width: 44px; height: 44px; border-radius: 13px; display: flex;
+flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0; }
+.step-bubble .num { font-family: var(–font-display); font-size: 22px; font-weight: 700; line-height: 1; }
+.step-bubble .lbl { font-size: 7px; font-weight: 600; text-transform: uppercase;
+letter-spacing: 0.7px; margin-top: 2px; opacity: 0.75; }
+.bubble-red    { background-color: var(–red-dim);    color: var(–red); }
+.bubble-amber  { background-color: var(–amber-dim);  color: var(–amber); }
+.bubble-slate  { background-color: var(–slate-dim);  color: var(–slate); }
+.bubble-gold   { background-color: var(–gold-dim);   color: var(–gold); }
+.bubble-green  { background-color: var(–green-dim);  color: var(–green); }
+.bubble-purple { background-color: var(–purple-dim); color: var(–purple); }
 
 .card-body { flex: 1; min-width: 0; }
-.card-title {
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 1.3;
-  color: var(--text);
-  margin-bottom: 3px;
-  font-family: var(--font-body);
-}
-.card-sub {
-  font-size: 12px;
-  color: var(--muted);
-  font-weight: 300;
-  line-height: 1.3;
-  font-family: var(--font-body);
-}
-.card-actions {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 7px;
-  flex-shrink: 0;
-}
+.card-title { font-size: 15px; font-weight: 500; line-height: 1.3; color: var(–text); margin-bottom: 3px; }
+.card-sub { font-size: 12px; color: var(–muted); font-weight: 300; line-height: 1.3; }
+.card-actions { display: flex; flex-direction: column; align-items: flex-end; gap: 7px; flex-shrink: 0; }
 
-/* Pill tags */
-.pill {
-  font-size: 10px;
-  font-weight: 500;
-  padding: 3px 10px;
-  border-radius: 999px;
-  white-space: nowrap;
-  border: 1px solid;
-  font-family: var(--font-body);
-}
-.pill-red   { color: var(--red);   background-color: var(--red-dim);   border-color: rgba(224,85,64,0.3); }
-.pill-amber { color: var(--amber); background-color: var(--amber-dim); border-color: rgba(212,132,42,0.3); }
-.pill-slate { color: var(--slate); background-color: var(--slate-dim); border-color: rgba(107,136,181,0.3); }
-.pill-gold  { color: var(--gold);  background-color: var(--gold-dim);  border-color: rgba(201,168,76,0.3); }
-.pill-green { color: var(--green); background-color: var(--green-dim); border-color: rgba(78,168,122,0.3); }
+/* Pills */
+.pill { font-size: 10px; font-weight: 500; padding: 3px 10px; border-radius: 999px;
+white-space: nowrap; border: 1px solid; }
+.pill-red    { color: var(–red);    background-color: var(–red-dim);    border-color: rgba(224,85,64,0.3); }
+.pill-amber  { color: var(–amber);  background-color: var(–amber-dim);  border-color: rgba(212,132,42,0.3); }
+.pill-slate  { color: var(–slate);  background-color: var(–slate-dim);  border-color: rgba(107,136,181,0.3); }
+.pill-gold   { color: var(–gold);   background-color: var(–gold-dim);   border-color: rgba(201,168,76,0.3); }
+.pill-green  { color: var(–green);  background-color: var(–green-dim);  border-color: rgba(78,168,122,0.3); }
+.pill-purple { color: var(–purple); background-color: var(–purple-dim); border-color: rgba(155,126,200,0.3); }
 
-/* Checkbox circle */
-.check-btn {
-  width: 26px; height: 26px;
-  border-radius: 999px;
-  border: 1.5px solid var(--border-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  background-color: transparent;
-  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-  flex-shrink: 0;
-  -webkit-appearance: none;
-  appearance: none;
-}
-.check-btn.on {
-  background-color: var(--green);
-  border-color: var(--green);
-  box-shadow: 0 0 12px rgba(78,168,122,0.45);
-}
-.check-btn.on::after {
-  content: '';
-  display: block;
-  width: 6px; height: 10px;
-  border: 2px solid #fff;
-  border-top: none;
-  border-left: none;
-  transform: rotate(45deg) translateY(-1px);
-}
+/* Checkbox */
+.check-btn { width: 26px; height: 26px; border-radius: 999px; border: 1.5px solid var(–border-light);
+display: flex; align-items: center; justify-content: center; cursor: pointer;
+background-color: transparent; transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+flex-shrink: 0; -webkit-appearance: none; appearance: none; }
+.check-btn.on { background-color: var(–green); border-color: var(–green); box-shadow: 0 0 12px rgba(78,168,122,0.45); }
+.check-btn.on::after { content: ‘’; display: block; width: 6px; height: 10px;
+border: 2px solid #fff; border-top: none; border-left: none; transform: rotate(45deg) translateY(-1px); }
 
 /* Chevron */
-.chev {
-  display: block;
-  color: var(--muted);
-  font-size: 18px;
-  font-weight: 300;
-  line-height: 1;
-  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  font-family: var(--font-body);
-}
+.chev { display: block; color: var(–muted); font-size: 18px; font-weight: 300; line-height: 1;
+transition: transform 0.25s cubic-bezier(0.4,0,0.2,1); }
 .chev.open { transform: rotate(90deg); }
 
 /* Detail panel */
-.detail-panel {
-  display: none;
-  border-top: 1px solid var(--border);
-  background-color: var(--surface2);
-  padding: 18px 18px 20px 20px;
-}
-.detail-panel.open {
-  display: block;
-  -webkit-animation: panelIn 0.2s ease;
-  animation: panelIn 0.2s ease;
-}
-@-webkit-keyframes panelIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-@keyframes panelIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
+.detail-panel { display: none; border-top: 1px solid var(–border);
+background-color: var(–surface2); padding: 18px 18px 20px 20px; }
+.detail-panel.open { display: block; -webkit-animation: panelIn 0.2s ease; animation: panelIn 0.2s ease; }
+@-webkit-keyframes panelIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes panelIn { from { opacity: 0; } to { opacity: 1; } }
 
 .detail-section { margin-bottom: 16px; }
 .detail-section:last-child { margin-bottom: 0; }
-
-.detail-section h4 {
-  font-family: var(--font-body);
-  font-size: 10px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1.3px;
-  margin-bottom: 9px;
-}
-.detail-section p {
-  font-family: var(--font-body);
-  font-size: 13.5px;
-  line-height: 1.72;
-  color: var(--text-soft);
-  font-weight: 300;
-}
+.detail-section h4 { font-size: 10px; font-weight: 600; text-transform: uppercase;
+letter-spacing: 1.3px; margin-bottom: 9px; }
+.detail-section p { font-size: 13.5px; line-height: 1.72; color: var(–text-soft); font-weight: 300; }
 .detail-section ul { list-style: none; padding: 0; }
-.detail-section ul li {
-  font-family: var(--font-body);
-  font-size: 13.5px;
-  line-height: 1.65;
-  color: var(--text-soft);
-  font-weight: 300;
-  padding: 6px 0 6px 18px;
-  position: relative;
-  border-bottom: 1px solid rgba(255,255,255,0.035);
-}
+.detail-section ul li { font-size: 13.5px; line-height: 1.65; color: var(–text-soft); font-weight: 300;
+padding: 6px 0 6px 18px; position: relative; border-bottom: 1px solid rgba(255,255,255,0.035); }
 .detail-section ul li:last-child { border-bottom: none; }
-.detail-section ul li::before {
-  content: '›';
-  position: absolute; left: 2px;
-  color: var(--muted);
-  font-size: 15px;
-  line-height: 1.65;
-}
-.detail-section ul li strong { color: var(--text); font-weight: 500; }
+.detail-section ul li::before { content: ‘›’; position: absolute; left: 2px; color: var(–muted);
+font-size: 15px; line-height: 1.65; }
+.detail-section ul li strong { color: var(–text); font-weight: 500; }
 
-/* Callout boxes */
-.callout {
-  border-radius: 10px;
-  padding: 13px 14px;
-  font-family: var(--font-body);
-  font-size: 12.5px;
-  line-height: 1.65;
-  margin-top: 13px;
-  border-left: 3px solid;
-}
+/* Callouts */
+.callout { border-radius: 10px; padding: 13px 14px; font-size: 12.5px; line-height: 1.65;
+margin-top: 13px; border-left: 3px solid; }
 .callout strong { font-weight: 500; }
-.callout-gold  { background-color: var(--gold-dim);  border-color: var(--gold);  color: #d4ba70; }
-.callout-slate { background-color: var(--slate-dim); border-color: var(--slate); color: #8aabd4; }
-.callout-green { background-color: var(--green-dim); border-color: var(--green); color: #6ec495; }
-.callout-red   { background-color: var(--red-dim);   border-color: var(--red);   color: #e87b6a; }
+.callout-gold   { background-color: var(–gold-dim);   border-color: var(–gold);   color: #d4ba70; }
+.callout-slate  { background-color: var(–slate-dim);  border-color: var(–slate);  color: #8aabd4; }
+.callout-green  { background-color: var(–green-dim);  border-color: var(–green);  color: #6ec495; }
+.callout-red    { background-color: var(–red-dim);    border-color: var(–red);    color: #e87b6a; }
+.callout-purple { background-color: var(–purple-dim); border-color: var(–purple); color: #b89de0; }
 
-.map-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  color: var(--slate);
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 500;
-  text-decoration: none;
-  margin-top: 10px;
-  padding: 6px 14px;
-  background-color: var(--slate-dim);
-  border: 1px solid rgba(107,136,181,0.25);
-  border-radius: 999px;
-}
+.map-link { display: inline-flex; align-items: center; gap: 5px; color: var(–slate);
+font-size: 12px; font-weight: 500; text-decoration: none; margin-top: 10px;
+padding: 6px 14px; background-color: var(–slate-dim);
+border: 1px solid rgba(107,136,181,0.25); border-radius: 999px; }
+
+/* Sub-accordion (nested inside detail panel) */
+.sub-accordion { margin-top: 14px; border-radius: 10px; border: 1px solid var(–border-light); overflow: hidden; }
+.sub-accordion-header { display: flex; align-items: center; justify-content: space-between;
+padding: 12px 14px; cursor: pointer; -webkit-user-select: none; user-select: none;
+background-color: rgba(255,255,255,0.03); gap: 10px; }
+.sub-accordion-header:active { background-color: rgba(255,255,255,0.06); }
+.sub-accordion-title { font-size: 12px; font-weight: 500; color: var(–text-soft); line-height: 1.3; flex: 1; }
+.sub-accordion-title span { display: block; font-size: 10px; font-weight: 400; color: var(–muted); margin-top: 2px; }
+.sub-chev { color: var(–muted); font-size: 15px; font-weight: 300; line-height: 1;
+transition: transform 0.22s cubic-bezier(0.4,0,0.2,1); flex-shrink: 0; }
+.sub-chev.open { transform: rotate(90deg); }
+.sub-accordion-body { display: none; border-top: 1px solid var(–border);
+background-color: rgba(0,0,0,0.18); padding: 4px 0 10px; }
+.sub-accordion-body.open { display: block; }
+.q-group { padding: 10px 14px 4px; }
+.q-group-label { font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.4px;
+color: var(–muted); margin-bottom: 8px; padding-bottom: 5px; border-bottom: 1px solid var(–border); }
+.q-item { display: flex; align-items: flex-start; gap: 10px; padding: 7px 0;
+border-bottom: 1px solid rgba(255,255,255,0.03); }
+.q-item:last-child { border-bottom: none; }
+.q-num { font-size: 11px; font-weight: 600; color: var(–red); min-width: 18px;
+padding-top: 1px; flex-shrink: 0; font-family: var(–font-display); }
+.q-text { font-size: 12.5px; line-height: 1.6; color: var(–text-soft); font-weight: 300; }
+.q-text strong { color: var(–text); font-weight: 500; }
+.q-why { font-size: 11px; color: var(–muted); font-weight: 300; margin-top: 3px; font-style: italic; }
+
+/* Fee table */
+.fee-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+.fee-table tr { border-bottom: 1px solid rgba(255,255,255,0.05); }
+.fee-table tr:last-child { border-bottom: none; }
+.fee-table td { font-size: 12.5px; padding: 7px 4px; color: var(–text-soft); font-weight: 300; }
+.fee-table td:last-child { text-align: right; color: var(–gold); font-weight: 500; font-size: 12.5px; }
+.fee-table tr.fee-highlight td { color: var(–text); font-weight: 500; }
+
+/* Forms reference grid */
+.forms-grid { display: flex; flex-direction: column; gap: 0; margin-top: 4px; }
+.form-row { display: flex; align-items: flex-start; gap: 12px; padding: 9px 0;
+border-bottom: 1px solid rgba(255,255,255,0.04); }
+.form-row:last-child { border-bottom: none; }
+.form-tag { font-size: 10px; font-weight: 600; color: var(–amber); background-color: var(–amber-dim);
+border: 1px solid rgba(212,132,42,0.25); border-radius: 6px; padding: 3px 7px;
+white-space: nowrap; flex-shrink: 0; min-width: 46px; text-align: center; }
+.form-desc { font-size: 12.5px; color: var(–text-soft); font-weight: 300; line-height: 1.5; }
+.form-desc strong { color: var(–text); font-weight: 500; }
 
 /* Completed card */
 .card.done { opacity: 0.5; }
-.card.done .card-title {
-  text-decoration: line-through;
-  color: var(--muted);
-}
+.card.done .card-title { text-decoration: line-through; color: var(–muted); }
 
-/* ── CHECKLIST ── */
-.big-card {
-  margin: 0 14px 10px;
-  border-radius: var(--radius);
-  background-color: var(--surface);
-  border: 1px solid var(--border);
-  overflow: hidden;
-}
-.big-card-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px 16px;
-  cursor: pointer;
-  -webkit-user-select: none;
-  user-select: none;
-}
+/* CHECKLIST */
+.big-card { margin: 0 14px 10px; border-radius: var(–radius);
+background-color: var(–surface); border: 1px solid var(–border); overflow: hidden; }
+.big-card-header { display: flex; align-items: center; justify-content: space-between;
+padding: 15px 16px; cursor: pointer; -webkit-user-select: none; user-select: none; }
 .big-card-left { display: flex; align-items: center; gap: 13px; }
-.big-card-icon {
-  width: 44px; height: 44px;
-  border-radius: 13px;
-  background-color: var(--gold-dim);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 20px;
-  flex-shrink: 0;
-}
-.big-card-title {
-  font-family: var(--font-body);
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--text);
-  margin-bottom: 3px;
-}
-.big-card-sub {
-  font-family: var(--font-body);
-  font-size: 12px;
-  color: var(--muted);
-  font-weight: 300;
-}
-.big-card-body { display: none; border-top: 1px solid var(--border); }
+.big-card-icon { width: 44px; height: 44px; border-radius: 13px; background-color: var(–gold-dim);
+display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+.big-card-title { font-size: 15px; font-weight: 500; color: var(–text); margin-bottom: 3px; }
+.big-card-sub { font-size: 12px; color: var(–muted); font-weight: 300; }
+.big-card-body { display: none; border-top: 1px solid var(–border); }
 .big-card-body.open { display: block; }
-
-.cl-item {
-  display: flex;
-  align-items: center;
-  gap: 13px;
-  padding: 13px 16px;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-  cursor: pointer;
-}
+.cl-item { display: flex; align-items: center; gap: 13px; padding: 13px 16px;
+border-bottom: 1px solid rgba(255,255,255,0.04); cursor: pointer; }
 .cl-item:last-child { border-bottom: none; }
 .cl-item:active { background-color: rgba(255,255,255,0.03); }
 .cl-item-text { flex: 1; min-width: 0; }
-.cl-item-text strong {
-  display: block;
-  font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--text);
-  margin-bottom: 2px;
-}
-.cl-item-text span {
-  font-family: var(--font-body);
-  font-size: 11px;
-  color: var(--muted);
-  font-weight: 300;
-}
-.cl-item.done .cl-item-text strong {
-  text-decoration: line-through;
-  color: var(--muted);
-}
+.cl-item-text strong { display: block; font-size: 13px; font-weight: 500; color: var(–text); margin-bottom: 2px; }
+.cl-item-text span { font-size: 11px; color: var(–muted); font-weight: 300; }
+.cl-item.done .cl-item-text strong { text-decoration: line-through; color: var(–muted); }
 
-/* ── ATTORNEY PANEL ── */
-.info-panel {
-  position: relative;
-  overflow: hidden;
-  margin: 0 14px 10px;
-  border-radius: var(--radius);
-  background-color: var(--surface);
-  border: 1px solid var(--border);
-  padding: 18px 18px 18px 21px;
-}
-.info-panel::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 3px;
-  background-color: var(--slate);
-}
-.info-panel-header {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  margin-bottom: 14px;
-}
-.info-panel-icon {
-  width: 38px; height: 38px;
-  border-radius: 11px;
-  background-color: var(--slate-dim);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 17px;
-  flex-shrink: 0;
-}
-.info-panel h3 {
-  font-family: var(--font-display);
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 1.2;
-  color: var(--text);
-}
-.info-panel p {
-  font-family: var(--font-body);
-  font-size: 13.5px;
-  line-height: 1.72;
-  color: var(--text-soft);
-  font-weight: 300;
-  margin-bottom: 9px;
-}
+/* Info panel */
+.info-panel { position: relative; overflow: hidden; margin: 0 14px 10px;
+border-radius: var(–radius); background-color: var(–surface); border: 1px solid var(–border);
+padding: 18px 18px 18px 21px; }
+.info-panel::before { content: ‘’; position: absolute; left: 0; top: 0; bottom: 0;
+width: 3px; background-color: var(–slate); }
+.info-panel-header { display: flex; align-items: center; gap: 11px; margin-bottom: 14px; }
+.info-panel-icon { width: 38px; height: 38px; border-radius: 11px; background-color: var(–slate-dim);
+display: flex; align-items: center; justify-content: center; font-size: 17px; flex-shrink: 0; }
+.info-panel h3 { font-family: var(–font-display); font-size: 18px; font-weight: 600; line-height: 1.2; color: var(–text); }
+.info-panel p { font-size: 13.5px; line-height: 1.72; color: var(–text-soft); font-weight: 300; margin-bottom: 9px; }
 .info-panel p:last-of-type { margin-bottom: 0; }
-.info-panel strong { color: var(--text); font-weight: 500; }
-.script-line {
-  margin-top: 14px;
-  background-color: rgba(255,255,255,0.04);
-  border: 1px solid var(--border-light);
-  border-radius: 10px;
-  padding: 12px 15px;
-  font-family: var(--font-body);
-  font-size: 13px;
-  color: var(--gold);
-  font-style: italic;
-  font-weight: 300;
-  line-height: 1.5;
-}
+.info-panel strong { color: var(–text); font-weight: 500; }
+.script-line { margin-top: 14px; background-color: rgba(255,255,255,0.04);
+border: 1px solid var(–border-light); border-radius: 10px; padding: 12px 15px;
+font-size: 13px; color: var(–gold); font-style: italic; font-weight: 300; line-height: 1.5; }
 
-/* ── FOOTER ── */
-.footer-card {
-  margin: 0 14px;
-  border-radius: var(--radius);
-  background-color: rgba(78,168,122,0.1);
-  border: 1px solid rgba(78,168,122,0.22);
-  padding: 22px 20px;
-  text-align: center;
-}
-.footer-card p {
-  font-family: var(--font-body);
-  font-size: 13.5px;
-  line-height: 1.8;
-  color: #6ec495;
-  font-weight: 300;
-}
-.footer-card strong { color: var(--green); font-weight: 500; }
+/* Footer */
+.footer-card { margin: 0 14px; border-radius: var(–radius); background-color: rgba(78,168,122,0.1);
+border: 1px solid rgba(78,168,122,0.22); padding: 22px 20px; text-align: center; }
+.footer-card p { font-size: 13.5px; line-height: 1.8; color: #6ec495; font-weight: 300; }
+.footer-card strong { color: var(–green); font-weight: 500; }
 </style>
 
 </head>
@@ -627,7 +281,7 @@ body {
   </div>
 </div>
 
-<!-- STEPS -->
+<!-- ═══ STEPS ═══ -->
 
 <div class="section-label">The 7 Steps — In Order</div>
 
@@ -662,7 +316,161 @@ body {
         <li>Collect every <strong>bill, statement, or official letter</strong> — one box</li>
       </ul>
     </div>
-    <div class="callout callout-gold"><strong>Why 10 copies?</strong> Each bank, brokerage, insurance company, and the court requires their own certified original. You'll go through them faster than you think.</div>
+    <div class="detail-section">
+      <h4 style="color:var(--red)">Find the Will's Witnesses</h4>
+      <div class="callout callout-green" style="margin-top:0;margin-bottom:12px;"><strong>Check this first:</strong> Look at the very end of the Will for a notarized <strong>self-proving affidavit</strong> signed by the witnesses at the time the Will was executed. If one is attached, the court can admit the Will without any witness tracking — <strong>skip the steps below entirely.</strong> Ask the attorney holding the Will: "Was a self-proving affidavit attached at signing?"</div>
+      <p>If there is <strong>no self-proving affidavit</strong>, the court requires a sworn <strong>Affidavit of Attesting Witnesses</strong> (Form P-3) from each person who signed the Will as a witness. Start tracking them down now — this takes time.</p>
+      <ul>
+        <li>Check the Will itself — witness names and sometimes addresses are listed at the end</li>
+        <li>If a witness <strong>cannot be found</strong>, you'll file Form P-8 to ask the court to dispense with their testimony</li>
+        <li>If a witness is <strong>deceased</strong>, file both Form P-8 and Form P-9 (Affidavit Proving Handwriting)</li>
+        <li>Note: a witness <strong>cannot notarize another witness's</strong> affidavit — use a separate notary</li>
+      </ul>
+    </div>
+    <div class="callout callout-gold"><strong>Why 10 death certificates?</strong> Each bank, brokerage, insurance company, and the court requires their own certified original. You'll go through them faster than you think.</div>
+
+```
+<!-- SUB-ACCORDION: Attorney Questions -->
+<div class="sub-accordion">
+  <div class="sub-accordion-header" onclick="toggleSub('atty-q')">
+    <div class="sub-accordion-title">
+      📞 Questions to Ask the Attorney Holding the Will
+      <span>Tap to expand · 14 questions in chronological order</span>
+    </div>
+    <span class="sub-chev" id="sub-chev-atty-q">›</span>
+  </div>
+  <div class="sub-accordion-body" id="sub-body-atty-q">
+
+    <div class="q-group">
+      <div class="q-group-label">First — Establish the Relationship</div>
+      <div class="q-item">
+        <span class="q-num">1</span>
+        <div class="q-text">
+          Are you currently <strong>representing the estate</strong>, or just holding the Will for safekeeping?
+          <div class="q-why">Sets the tone — determines if you need to hire someone new.</div>
+        </div>
+      </div>
+      <div class="q-item">
+        <span class="q-num">2</span>
+        <div class="q-text">
+          Do you have any <strong>conflict of interest</strong> that would prevent you from representing me as Executor?
+          <div class="q-why">An attorney who is also a beneficiary cannot represent you.</div>
+        </div>
+      </div>
+      <div class="q-item">
+        <span class="q-num">3</span>
+        <div class="q-text">
+          Were you or anyone at your firm <strong>involved in drafting this Will</strong>?
+          <div class="q-why">A drafting attorney who is also a beneficiary triggers extra court scrutiny (SCPA §2307-a).</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-group">
+      <div class="q-group-label">About the Will Itself</div>
+      <div class="q-item">
+        <span class="q-num">4</span>
+        <div class="q-text">
+          Is this the <strong>most recent Will</strong> you have on file, or were earlier versions also drafted?
+          <div class="q-why">Only the most recent valid Will governs the estate.</div>
+        </div>
+      </div>
+      <div class="q-item">
+        <span class="q-num">5</span>
+        <div class="q-text">
+          Are there any <strong>codicils</strong> (amendments to the Will) — and do you have those as well?
+          <div class="q-why">Codicils must be filed and probated alongside the original Will.</div>
+        </div>
+      </div>
+      <div class="q-item">
+        <span class="q-num">6</span>
+        <div class="q-text">
+          Who were the <strong>attesting witnesses</strong>, and do you have their contact information?
+          <div class="q-why">You need a sworn affidavit (Form P-3) from each one to file probate.</div>
+        </div>
+      </div>
+      <div class="q-item">
+        <span class="q-num">7</span>
+        <div class="q-text">
+          Was a <strong>self-proving affidavit</strong> attached at signing?
+          <div class="q-why">⭐ Ask this first — if yes, you don't need to track down witnesses at all. The court can admit the Will without them.</div>
+        </div>
+      </div>
+      <div class="q-item">
+        <span class="q-num">8</span>
+        <div class="q-text">
+          Did she have a <strong>living trust or testamentary trust</strong> created inside or alongside the Will?
+          <div class="q-why">Trust assets bypass probate entirely — changes the scope of what you're managing.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-group">
+      <div class="q-group-label">About the Estate</div>
+      <div class="q-item">
+        <span class="q-num">9</span>
+        <div class="q-text">
+          Did she discuss the <strong>approximate size of the estate</strong> with you?
+          <div class="q-why">Determines the filing fee tier and whether NY Estate Tax applies.</div>
+        </div>
+      </div>
+      <div class="q-item">
+        <span class="q-num">10</span>
+        <div class="q-text">
+          Are you aware of any <strong>known creditors, disputes, or potential contests</strong> to the Will?
+          <div class="q-why">Forewarned is forearmed — contested probate is a different process entirely.</div>
+        </div>
+      </div>
+      <div class="q-item">
+        <span class="q-num">11</span>
+        <div class="q-text">
+          Are any beneficiaries <strong>minors, incapacitated, or charities</strong>?
+          <div class="q-why">Each triggers additional required steps — Guardian Ad Litem, or AG notification.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-group">
+      <div class="q-group-label">Practical Handoff</div>
+      <div class="q-item">
+        <span class="q-num">12</span>
+        <div class="q-text">
+          Can you <strong>transfer the original Will to me today</strong>, or must we schedule a formal handoff?
+          <div class="q-why">You need the physical original to file at Surrogate's Court.</div>
+        </div>
+      </div>
+      <div class="q-item">
+        <span class="q-num">13</span>
+        <div class="q-text">
+          Do you have any <strong>notes or correspondence from her</strong> about wishes not captured in the Will?
+          <div class="q-why">Side letters or instructions may affect how you handle distributions.</div>
+        </div>
+      </div>
+      <div class="q-item">
+        <span class="q-num">14</span>
+        <div class="q-text">
+          Will you send a <strong>written confirmation</strong> of the date and condition of the Will when transferred?
+          <div class="q-why">Creates a clear record of custody — important if anything is later disputed.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-group">
+      <div class="q-group-label">If You Want Them to Represent You Going Forward</div>
+      <div class="q-item">
+        <span class="q-num">+</span>
+        <div class="q-text">
+          <strong>"Do you offer a flat fee for a simple probate in Monroe County?"</strong>
+          <div class="q-why">Most charge $200–$500/hr or a flat $3,500+. Fees are paid from the estate, not you personally.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- end sub-accordion -->
+```
+
   </div>
 </div>
 
@@ -673,7 +481,7 @@ body {
     <div class="step-bubble bubble-amber"><span class="num">1</span><span class="lbl">Week 1</span></div>
     <div class="card-body">
       <div class="card-title">File at Surrogate's Court</div>
-      <div class="card-sub">Submit Will &amp; Petition at Monroe County</div>
+      <div class="card-sub">Submit Will, Petition &amp; all required forms</div>
     </div>
     <div class="card-actions">
       <div class="check-btn" id="check-1" onclick="toggleCheck(event,1)"></div>
@@ -694,14 +502,39 @@ body {
     <div class="detail-section">
       <h4 style="color:var(--amber)">What To Bring</h4>
       <ul>
-        <li>The <strong>original Will</strong> (not a copy)</li>
-        <li>At least <strong>2–3 certified death certificates</strong></li>
-        <li>Completed <strong>Petition for Probate</strong> form (clerk's window or nycourts.gov)</li>
-        <li>Filing fee: <strong>$45–$1,250</strong> depending on estate size (paid from estate)</li>
-        <li>Names and addresses of all beneficiaries in the Will</li>
+        <li>The <strong>original Will</strong> (not a copy — they keep it)</li>
+        <li><strong>2–3 certified death certificates</strong> minimum</li>
+        <li>Completed <strong>Petition for Probate</strong> (Form P-1) — from clerk's window or nycourts.gov</li>
+        <li><strong>Affidavit of Attesting Witnesses</strong> (Form P-3) from each Will witness</li>
+        <li><strong>Affidavit of Comparison</strong> (Form P-13) — swears a copy matches the original Will</li>
+        <li>Names, addresses, and relationships of <strong>all beneficiaries and distributees</strong></li>
+        <li>Filing fee (see exact schedule below)</li>
       </ul>
     </div>
-    <div class="callout callout-slate"><strong>Tip:</strong> Call (585) 371-3609 ahead to confirm hours and ask if there's a checklist for first-time filers. Clerks are generally very helpful.</div>
+    <div class="detail-section">
+      <h4 style="color:var(--amber)">Exact Filing Fee Schedule (SCPA §2402)</h4>
+      <p style="font-size:12px;margin-bottom:8px;">Based on the gross value of assets the decedent owned individually:</p>
+      <table class="fee-table">
+        <tr><td>Under $10,000</td><td>$45</td></tr>
+        <tr><td>$10,000 – $19,999</td><td>$75</td></tr>
+        <tr><td>$20,000 – $49,999</td><td>$215</td></tr>
+        <tr><td>$50,000 – $99,999</td><td>$280</td></tr>
+        <tr><td>$100,000 – $249,999</td><td>$420</td></tr>
+        <tr><td>$250,000 – $499,999</td><td>$625</td></tr>
+        <tr class="fee-highlight"><td>$500,000 and over</td><td>$1,250</td></tr>
+      </table>
+      <p style="font-size:11.5px;margin-top:8px;color:var(--muted);">+ $6 per certified copy of Letters Testamentary. Order at least 8–10 copies.</p>
+    </div>
+    <div class="detail-section">
+      <h4 style="color:var(--amber)">Bond — A Critical Decision</h4>
+      <p>Unless <strong>every</strong> interested party signs a Waiver of Bond (Form P-11 / CTA-3), the court will require you to purchase a <strong>surety bond</strong> — an insurance policy protecting the estate. Bonds cost money (a % of estate value) and take time to obtain.</p>
+      <ul>
+        <li>Get <strong>Consent to Dispense with Bond</strong> signed by all adult beneficiaries before filing</li>
+        <li>Each person signs their own form, notarized, and you file them all together</li>
+        <li>If even one person refuses to sign, a bond will likely be required</li>
+      </ul>
+    </div>
+    <div class="callout callout-slate"><strong>Tip:</strong> Call (585) 371-3609 ahead to confirm hours. Ask: "Is there a first-time filer checklist?" Clerks are generally very helpful.</div>
   </div>
 </div>
 
@@ -726,12 +559,21 @@ body {
       <p>"Letters Testamentary" is the official document issued by the court proving you have legal authority to act on behalf of the estate. Without it, banks will not speak with you about accounts.</p>
     </div>
     <div class="detail-section">
-      <h4 style="color:var(--slate)">What Happens</h4>
+      <h4 style="color:var(--slate)">The Notice of Probate — A Blocker</h4>
+      <p>The court <strong>will not deliver your Letters</strong> until you complete this step. After filing, you must:</p>
       <ul>
-        <li>Court typically takes <strong>2–4 weeks</strong> to process and issue Letters after filing</li>
-        <li>You'll receive a certified document with an official court seal</li>
-        <li>Order <strong>multiple certified copies</strong> — each institution wants their own</li>
-        <li>Court may require notifying beneficiaries by mail before issuing</li>
+        <li>Mail a <strong>Notice of Probate</strong> (Form P-6) to every beneficiary and legatee who hasn't already signed a waiver</li>
+        <li>File an <strong>Affidavit of Mailing</strong> with the court proving you sent it</li>
+        <li>Each mailing must include a copy of the Will</li>
+        <li>Proofs of service of any citation must be filed <strong>at least 2 working days</strong> before the return date</li>
+      </ul>
+    </div>
+    <div class="detail-section">
+      <h4 style="color:var(--slate)">What Happens After That</h4>
+      <ul>
+        <li>Court typically takes <strong>2–4 weeks</strong> total to issue Letters after all filings are complete</li>
+        <li>Order <strong>8–10 certified copies</strong> at $6 each — every bank and institution wants their own</li>
+        <li>If anyone is under disability (minor, incapacitated), the court will appoint a <strong>Guardian Ad Litem</strong> before proceeding</li>
       </ul>
     </div>
     <div class="callout callout-gold"><strong>This is the "golden ticket."</strong> Once you have it, you can legally access, manage, and eventually distribute all estate assets. Keep originals safe.</div>
@@ -768,6 +610,20 @@ body {
         <li><strong>Vehicle:</strong> Title and registration — contact NYS DMV to transfer</li>
         <li><strong>Debts:</strong> Credit cards, car loans, recent medical bills</li>
       </ul>
+    </div>
+    <div class="detail-section">
+      <h4 style="color:var(--gold)">The Distributee Family Tree</h4>
+      <p>The petition requires classifying surviving relatives in legal priority order. The court needs to know who falls into each category:</p>
+      <ul>
+        <li><strong>1st:</strong> Spouse</li>
+        <li><strong>2nd:</strong> Children (including adopted, non-marital, and their descendants)</li>
+        <li><strong>3rd:</strong> Parents</li>
+        <li><strong>4th:</strong> Siblings and their descendants (nieces/nephews)</li>
+        <li><strong>5th:</strong> Grandparents</li>
+        <li><strong>6th:</strong> Aunts/Uncles and first cousins</li>
+        <li><strong>7th:</strong> First cousins once removed</li>
+      </ul>
+      <p style="margin-top:8px;">If only distant relatives survive (grandparents or further), an <strong>Affidavit of Heirship</strong> is also required.</p>
     </div>
     <div class="detail-section">
       <h4 style="color:var(--gold)">Notify Locally</h4>
@@ -892,10 +748,140 @@ body {
   </div>
 </div>
 
-<!-- FINANCIAL CHECKLIST -->
+<!-- ═══ SPECIAL SITUATIONS ═══ -->
+
+<div class="section-label">Special Situations — Read If They Apply</div>
+
+<!-- SURVIVING SPOUSE -->
+
+<div class="card" id="card-sp1" data-color="purple">
+  <div class="card-header" onclick="toggleSpecial('sp1')">
+    <div class="step-bubble bubble-purple"><span class="num" style="font-size:18px;">💍</span><span class="lbl">Spouse</span></div>
+    <div class="card-body">
+      <div class="card-title">Surviving Spouse's Right of Election</div>
+      <div class="card-sub">Applies if she was married at time of death</div>
+    </div>
+    <div class="card-actions">
+      <span class="pill pill-purple">If Applicable</span>
+      <span class="chev" id="chev-sp1">›</span>
+    </div>
+  </div>
+  <div class="detail-panel" id="details-sp1">
+    <div class="detail-section">
+      <h4 style="color:var(--purple)">What This Is</h4>
+      <p>Under New York law (EPTL §5-1.1), a surviving spouse has the right to <strong>elect against the Will</strong> — meaning they can claim a statutory share of the estate (roughly 1/3) regardless of what the Will says. This must be addressed before distributing anything.</p>
+    </div>
+    <div class="detail-section">
+      <h4 style="color:var(--purple)">What To Do</h4>
+      <ul>
+        <li>The surviving spouse must file a <strong>Notice of Election</strong> within 6 months of Letters being issued (or 2 years from death, whichever is earlier)</li>
+        <li>If the spouse waives this right, they sign a <strong>Waiver or Release of the Right of Election</strong></li>
+        <li>This is one area where consulting an estate attorney is strongly recommended</li>
+      </ul>
+    </div>
+    <div class="callout callout-purple"><strong>Don't distribute to other heirs</strong> until the spouse's election period has passed or they have signed a formal waiver.</div>
+  </div>
+</div>
+
+<!-- CHARITY BENEFICIARY -->
+
+<div class="card" id="card-sp2" data-color="purple">
+  <div class="card-header" onclick="toggleSpecial('sp2')">
+    <div class="step-bubble bubble-purple"><span class="num" style="font-size:18px;">🏛️</span><span class="lbl">Charity</span></div>
+    <div class="card-body">
+      <div class="card-title">Charity Named in the Will</div>
+      <div class="card-sub">Triggers mandatory NY Attorney General notice</div>
+    </div>
+    <div class="card-actions">
+      <span class="pill pill-purple">If Applicable</span>
+      <span class="chev" id="chev-sp2">›</span>
+    </div>
+  </div>
+  <div class="detail-panel" id="details-sp2">
+    <div class="detail-section">
+      <h4 style="color:var(--purple)">What This Is</h4>
+      <p>If any charity receives a share of the estate (especially a residuary share), New York law requires you to send a <strong>Notice of Probate to the NY State Attorney General</strong>. This is a hard legal requirement, not optional.</p>
+    </div>
+    <div class="detail-section">
+      <h4 style="color:var(--purple)">What To Do</h4>
+      <ul>
+        <li>Review the Will carefully for any charitable gifts or bequests</li>
+        <li>If found, the court clerk can provide the correct form and mailing address for the AG</li>
+        <li>File proof of mailing with the court</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- MINORS / DISABLED BENEFICIARIES -->
+
+<div class="card" id="card-sp3" data-color="purple">
+  <div class="card-header" onclick="toggleSpecial('sp3')">
+    <div class="step-bubble bubble-purple"><span class="num" style="font-size:18px;">👶</span><span class="lbl">Minor</span></div>
+    <div class="card-body">
+      <div class="card-title">Minor or Disabled Beneficiary</div>
+      <div class="card-sub">Requires Guardian Ad Litem &amp; extra court steps</div>
+    </div>
+    <div class="card-actions">
+      <span class="pill pill-purple">If Applicable</span>
+      <span class="chev" id="chev-sp3">›</span>
+    </div>
+  </div>
+  <div class="detail-panel" id="details-sp3">
+    <div class="detail-section">
+      <h4 style="color:var(--purple)">What This Is</h4>
+      <p>If any beneficiary is a minor (under 18) or legally disabled (incapacitated, in an institution), the court automatically appoints a <strong>Guardian Ad Litem</strong> to represent their interests before proceeding.</p>
+    </div>
+    <div class="detail-section">
+      <h4 style="color:var(--purple)">What The Petition Must Include For Each Minor</h4>
+      <ul>
+        <li>Name, <strong>birth date</strong>, relationship to decedent, and home address</li>
+        <li>Name of person they live with</li>
+        <li>Whether a <strong>court-appointed guardian</strong> exists (if so, submit proof of appointment)</li>
+        <li>Whether parents are living</li>
+        <li>A copy of the birth certificate may be required</li>
+      </ul>
+    </div>
+    <div class="callout callout-purple"><strong>You cannot distribute a minor's inheritance directly to them.</strong> The Guardian Ad Litem or a custodian account must receive it on their behalf.</div>
+  </div>
+</div>
+
+<!-- EXECUTOR CAN'T SERVE -->
+
+<div class="card" id="card-sp4" data-color="purple">
+  <div class="card-header" onclick="toggleSpecial('sp4')">
+    <div class="step-bubble bubble-purple"><span class="num" style="font-size:18px;">📋</span><span class="lbl">c.t.a.</span></div>
+    <div class="card-body">
+      <div class="card-title">If the Named Executor Can't Serve</div>
+      <div class="card-sub">Administrator c.t.a. — a different process</div>
+    </div>
+    <div class="card-actions">
+      <span class="pill pill-purple">If Applicable</span>
+      <span class="chev" id="chev-sp4">›</span>
+    </div>
+  </div>
+  <div class="detail-panel" id="details-sp4">
+    <div class="detail-section">
+      <h4 style="color:var(--purple)">What This Is</h4>
+      <p>If the Executor named in the Will has died, resigned, or been removed — and you are stepping in to complete administration — you are not filing a standard Probate Petition. Instead you file for <strong>Letters of Administration c.t.a.</strong> (with the will annexed) using Form CTA-1 under SCPA §1418 and §1419.</p>
+    </div>
+    <div class="detail-section">
+      <h4 style="color:var(--purple)">Key Differences</h4>
+      <ul>
+        <li>Flat filing fee of <strong>$45</strong> (not the standard estate-value schedule)</li>
+        <li>You must prove the original executor's office is vacant — by death certificate, proof of resignation, or court removal order</li>
+        <li>Petitioner must be a <strong>beneficiary or residuary beneficiary</strong> of the Will to be eligible</li>
+        <li>File using <strong>Form CTA-1</strong> instead of P-1, and renunciation Form <strong>CTA-3</strong> instead of P-11</li>
+        <li>The file number stays the same as the original probate proceeding</li>
+      </ul>
+    </div>
+    <div class="callout callout-purple"><strong>Still have the original probate file number?</strong> You'll need it — all new filings must reference the same case number as the original proceeding.</div>
+  </div>
+</div>
+
+<!-- ═══ FINANCIAL CHECKLIST ═══ -->
 
 <div class="section-label">Financial Checklist</div>
-
 <div class="big-card">
   <div class="big-card-header" onclick="toggleChecklist()">
     <div class="big-card-left">
@@ -912,17 +898,94 @@ body {
   </div>
 </div>
 
-<!-- ATTORNEY -->
+<!-- ═══ COURT FORMS REFERENCE ═══ -->
+
+<div class="section-label">Court Forms Quick Reference</div>
+<div class="big-card">
+  <div class="big-card-header" onclick="toggleForms()">
+    <div class="big-card-left">
+      <div class="big-card-icon" style="background-color:var(--amber-dim);">📄</div>
+      <div>
+        <div class="big-card-title">Required &amp; Common Forms</div>
+        <div class="big-card-sub">From the NY Surrogate's Court checklists</div>
+      </div>
+    </div>
+    <span class="chev" id="chev-forms">›</span>
+  </div>
+  <div class="big-card-body" id="forms-body">
+    <div style="padding: 6px 16px 12px;">
+      <div class="forms-grid">
+        <div class="form-row">
+          <span class="form-tag">P-1</span>
+          <span class="form-desc"><strong>Petition for Probate</strong> — the main filing document. Always required.</span>
+        </div>
+        <div class="form-row">
+          <span class="form-tag">P-3</span>
+          <span class="form-desc"><strong>Affidavit of Attesting Witnesses</strong> — sworn statement from each Will witness. Always required.</span>
+        </div>
+        <div class="form-row">
+          <span class="form-tag">P-13</span>
+          <span class="form-desc"><strong>Affidavit of Comparison</strong> — confirms photocopy matches original Will. Always required (unless waived).</span>
+        </div>
+        <div class="form-row">
+          <span class="form-tag">P-4</span>
+          <span class="form-desc"><strong>Waiver of Process / Consent to Probate</strong> — signed by each adult beneficiary who agrees without a court hearing.</span>
+        </div>
+        <div class="form-row">
+          <span class="form-tag">P-6</span>
+          <span class="form-desc"><strong>Notice of Probate &amp; Affidavit of Mailing</strong> — proof you notified all parties. <strong>Letters not issued until this is filed.</strong></span>
+        </div>
+        <div class="form-row">
+          <span class="form-tag">P-11</span>
+          <span class="form-desc"><strong>Renunciation of Letters / Waiver of Bond</strong> — each beneficiary signs to waive the bond requirement.</span>
+        </div>
+        <div class="form-row">
+          <span class="form-tag">P-12</span>
+          <span class="form-desc"><strong>Affidavit of No Debt</strong> — sworn statement on outstanding debts against the estate.</span>
+        </div>
+        <div class="form-row">
+          <span class="form-tag">P-8</span>
+          <span class="form-desc"><strong>Application to Dispense with Witness Testimony</strong> — if a Will witness is dead, missing, or disabled.</span>
+        </div>
+        <div class="form-row">
+          <span class="form-tag">P-9</span>
+          <span class="form-desc"><strong>Affidavit Proving Handwriting</strong> — used when a witness is deceased, alongside P-8.</span>
+        </div>
+        <div class="form-row">
+          <span class="form-tag">P-5</span>
+          <span class="form-desc"><strong>Citation on Probate</strong> — court-issued summons for parties who haven't signed a waiver.</span>
+        </div>
+        <div class="form-row">
+          <span class="form-tag">P-10</span>
+          <span class="form-desc"><strong>Renunciation of Nominated Executor</strong> — if the named executor declines and someone else is stepping in.</span>
+        </div>
+        <div class="form-row">
+          <span class="form-tag">CTA-1</span>
+          <span class="form-desc"><strong>Petition for Letters of Administration c.t.a.</strong> — use instead of P-1 if original executor died/resigned.</span>
+        </div>
+        <div class="form-row">
+          <span class="form-tag">CTA-3</span>
+          <span class="form-desc"><strong>Renunciation / Waiver / Consent to Dispense with Bond</strong> — c.t.a. version of P-11.</span>
+        </div>
+        <div class="form-row">
+          <span class="form-tag">FT-1</span>
+          <span class="form-desc"><strong>Family Tree Chart</strong> — sometimes required by the court to map all distributees.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ ATTORNEY ═══ -->
 
 <div class="section-label">If You Hire an Attorney</div>
-
 <div class="info-panel">
   <div class="info-panel-header">
     <div class="info-panel-icon">⚖️</div>
     <h3>Estate Attorney Fees — Monroe County</h3>
   </div>
   <p><strong>Hourly billing:</strong> Most Rochester estate attorneys charge <strong>$200–$500/hr.</strong> Simple estates typically run $1,500–$3,000 total.</p>
-  <p><strong>Flat fee:</strong> Some offer <strong>$3,500+</strong> for straightforward probate — often the better deal.</p>
+  <p><strong>Flat fee:</strong> Some offer <strong>$3,500+</strong> for straightforward probate — often the better deal for peace of mind.</p>
   <p><strong>Who pays?</strong> Attorney fees are paid from the estate account — <strong>not your personal money.</strong></p>
   <div class="script-line">"Do you offer a flat fee for a simple probate in Monroe County?"</div>
 </div>
@@ -943,6 +1006,9 @@ body {
   for (var i = 0; i < STEPS; i++) stepsDone.push(false);
 
   var clItems = [
+    { label: "Original Will", detail: "Court requires physical original — courts keep it on file" },
+    { label: "10 Death Certificates", detail: "Request certified copies from funeral home" },
+    { label: "Will Witness Names & Addresses", detail: "Need sworn affidavit (Form P-3) from each — start tracking now" },
     { label: "Bank Accounts", detail: "Checking, Savings, CDs — note Joint or POD designations" },
     { label: "Investments", detail: "401(k), IRA, brokerage accounts, stock certificates" },
     { label: "Life Insurance Policies", detail: "Call each company with policy number to file a claim" },
@@ -953,8 +1019,7 @@ body {
     { label: "Credit Card Statements", detail: "All active cards — needed to notify and close" },
     { label: "Medical Bills", detail: "Recent and outstanding — verify before paying" },
     { label: "Vehicle Title & Registration", detail: "Needed to transfer at Monroe County DMV" },
-    { label: "Original Will", detail: "Court requires physical original — keep it safe" },
-    { label: "10 Death Certificates", detail: "Request certified copies from funeral home" }
+    { label: "Bond Waivers (Form P-11)", detail: "Get signed & notarized by every adult beneficiary before filing" }
   ];
   for (var j = 0; j < clItems.length; j++) clDone.push(false);
 
@@ -969,34 +1034,41 @@ body {
     document.getElementById('cl-items').innerHTML = html;
   }
 
-  function toggleCl(i) {
-    clDone[i] = !clDone[i];
-    renderChecklist();
-    save();
+  function toggleCl(i) { clDone[i] = !clDone[i]; renderChecklist(); save(); }
+
+  function toggleSub(id) {
+    var b = document.getElementById('sub-body-' + id);
+    var c = document.getElementById('sub-chev-' + id);
+    if (b.classList.contains('open')) { b.classList.remove('open'); c.classList.remove('open'); }
+    else { b.classList.add('open'); c.classList.add('open'); }
   }
 
   function toggleCard(i) {
     var d = document.getElementById('details-' + i);
     var c = document.getElementById('chev-' + i);
-    if (d.classList.contains('open')) {
-      d.classList.remove('open');
-      c.classList.remove('open');
-    } else {
-      d.classList.add('open');
-      c.classList.add('open');
-    }
+    if (d.classList.contains('open')) { d.classList.remove('open'); c.classList.remove('open'); }
+    else { d.classList.add('open'); c.classList.add('open'); }
+  }
+
+  function toggleSpecial(id) {
+    var d = document.getElementById('details-' + id);
+    var c = document.getElementById('chev-' + id);
+    if (d.classList.contains('open')) { d.classList.remove('open'); c.classList.remove('open'); }
+    else { d.classList.add('open'); c.classList.add('open'); }
   }
 
   function toggleChecklist() {
     var b = document.getElementById('checklist-body');
     var c = document.getElementById('chev-cl');
-    if (b.classList.contains('open')) {
-      b.classList.remove('open');
-      c.classList.remove('open');
-    } else {
-      b.classList.add('open');
-      c.classList.add('open');
-    }
+    if (b.classList.contains('open')) { b.classList.remove('open'); c.classList.remove('open'); }
+    else { b.classList.add('open'); c.classList.add('open'); }
+  }
+
+  function toggleForms() {
+    var b = document.getElementById('forms-body');
+    var c = document.getElementById('chev-forms');
+    if (b.classList.contains('open')) { b.classList.remove('open'); c.classList.remove('open'); }
+    else { b.classList.add('open'); c.classList.add('open'); }
   }
 
   function toggleCheck(e, i) {
@@ -1004,13 +1076,8 @@ body {
     stepsDone[i] = !stepsDone[i];
     var btn = document.getElementById('check-' + i);
     var card = document.getElementById('card-' + i);
-    if (stepsDone[i]) {
-      btn.classList.add('on');
-      card.classList.add('done');
-    } else {
-      btn.classList.remove('on');
-      card.classList.remove('done');
-    }
+    if (stepsDone[i]) { btn.classList.add('on'); card.classList.add('done'); }
+    else { btn.classList.remove('on'); card.classList.remove('done'); }
     updateProgress();
     save();
   }
