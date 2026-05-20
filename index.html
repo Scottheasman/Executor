@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#0f0e0c">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>Estate Executor — Rochester, NY</title>
+<title>Estate of Elaine M. Wall</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -25,34 +25,56 @@ html, body { background-color: #0f0e0c !important; color: #f0ece4; overflow-x: h
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 body { font-family: var(--font-body); font-weight: 400; color: var(--text);
   background-color: var(--bg); min-height: 100vh;
-  padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 60px);
+  padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 80px);
   -webkit-font-smoothing: antialiased; }
-.hero { position: relative; overflow: hidden; padding: 56px 22px 30px;
+
+/* ── HERO ── */
+.hero { position: relative; overflow: hidden; padding: 52px 22px 24px;
   background-color: #1a1710;
   background-image: radial-gradient(ellipse at 85% 20%, rgba(201,168,76,0.18) 0%, transparent 55%),
     linear-gradient(170deg, #201d14 0%, #0f0e0c 65%); }
 .hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
   background: linear-gradient(90deg, transparent 0%, rgba(201,168,76,0.5) 50%, transparent 100%); }
 .hero-eyebrow { display: flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 600;
-  letter-spacing: 2.2px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+  letter-spacing: 2.2px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
 .hero-eyebrow::before { content: ''; display: block; width: 22px; height: 1px; background-color: var(--gold); opacity: 0.7; }
-.hero h1 { font-family: var(--font-display); font-size: 38px; font-weight: 700;
-  line-height: 1.05; letter-spacing: -0.5px; color: var(--cream); margin-bottom: 10px; }
-.hero-sub { font-size: 13px; color: var(--muted); font-weight: 300; margin-bottom: 24px; line-height: 1.5; }
-.hero-badges { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-.badge { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 500;
-  padding: 6px 14px; border-radius: 999px; border: 1px solid; white-space: nowrap; }
-.badge-gold  { color: #c9a84c; border-color: rgba(201,168,76,0.35); background-color: rgba(201,168,76,0.09); }
-.badge-slate { color: #6b88b5; border-color: rgba(107,136,181,0.35); background-color: rgba(107,136,181,0.09); }
-.progress-wrap { background-color: var(--surface); border-bottom: 1px solid var(--border); padding: 16px 22px; }
-.progress-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-.progress-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); }
-.progress-pct { font-size: 12px; font-weight: 600; color: var(--gold); }
-.progress-track { height: 5px; background-color: var(--border); border-radius: 999px; overflow: hidden; }
-.progress-fill { height: 100%; border-radius: 999px; background-image: linear-gradient(90deg, #d4842a, #c9a84c);
-  box-shadow: 0 0 10px rgba(201,168,76,0.45); transition: width 0.55s cubic-bezier(0.4,0,0.2,1); }
+.hero h1 { font-family: var(--font-display); font-size: 34px; font-weight: 700;
+  line-height: 1.05; letter-spacing: -0.5px; color: var(--cream); margin-bottom: 6px; }
+.hero-sub { font-size: 12px; color: var(--muted); font-weight: 300; margin-bottom: 18px; line-height: 1.5; }
+.hero-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.hero-btn { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 500;
+  padding: 6px 14px; border-radius: 999px; border: 1px solid; white-space: nowrap; cursor: pointer;
+  background: none; font-family: var(--font-body); }
+.hero-btn-gold  { color: #c9a84c; border-color: rgba(201,168,76,0.35); background-color: rgba(201,168,76,0.09); }
+.hero-btn-slate { color: #6b88b5; border-color: rgba(107,136,181,0.35); background-color: rgba(107,136,181,0.09); }
+
+/* ── TAB BAR ── */
+.tab-bar { position: sticky; top: 0; z-index: 100; background-color: #161410;
+  border-bottom: 1px solid var(--border); padding: 0 6px;
+  display: flex; gap: 2px; overflow-x: auto; -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; }
+.tab-bar::-webkit-scrollbar { display: none; }
+.tab-btn { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 3px;
+  padding: 10px 16px 8px; cursor: pointer; border: none; background: none;
+  font-family: var(--font-body); color: var(--muted); border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s; -webkit-user-select: none; user-select: none; }
+.tab-btn .tab-icon { font-size: 18px; }
+.tab-btn .tab-label { font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+.tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+.tab-btn.active-family  { color: #9b7ec8; border-bottom-color: #9b7ec8; }
+.tab-btn.active-lawyer  { color: #d4842a; border-bottom-color: #d4842a; }
+.tab-btn.active-finance { color: #6b88b5; border-bottom-color: #6b88b5; }
+.tab-btn.active-checklist { color: #4ea87a; border-bottom-color: #4ea87a; }
+
+/* ── TAB PANELS ── */
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ── SECTION LABEL ── */
 .section-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px;
-  color: var(--muted); padding: 28px 22px 10px; }
+  color: var(--muted); padding: 24px 22px 10px; }
+
+/* ── CARDS ── */
 .card { position: relative; margin: 0 14px 10px; border-radius: var(--radius);
   background-color: var(--surface); border: 1px solid var(--border); overflow: hidden; transition: opacity 0.2s; }
 .card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; }
@@ -191,8 +213,17 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
 .footer-card p { font-size: 13.5px; line-height: 1.8; color: #6ec495; font-weight: 300; }
 .footer-card strong { color: #4ea87a; font-weight: 500; }
 
-/* ══ FAMILY TREE ══ */
-.tree-outer { margin: 0 14px 10px; border-radius: 16px; background-color: #1c1a17; border: 1px solid #2f2d28; overflow: hidden; max-width: 100%; }
+/* ── PROGRESS ── */
+.progress-wrap { background-color: var(--surface); border-bottom: 1px solid var(--border); padding: 14px 22px; }
+.progress-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.progress-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); }
+.progress-pct { font-size: 12px; font-weight: 600; color: var(--gold); }
+.progress-track { height: 5px; background-color: var(--border); border-radius: 999px; overflow: hidden; }
+.progress-fill { height: 100%; border-radius: 999px; background-image: linear-gradient(90deg, #d4842a, #c9a84c);
+  box-shadow: 0 0 10px rgba(201,168,76,0.45); transition: width 0.55s cubic-bezier(0.4,0,0.2,1); }
+
+/* ── FAMILY TREE ── */
+.tree-outer { margin: 0 14px 10px; border-radius: 16px; background-color: #1c1a17; border: 1px solid #2f2d28; overflow: hidden; }
 .tree-toggle-hdr { display: flex; align-items: center; justify-content: space-between;
   padding: 15px 16px; cursor: pointer; -webkit-user-select: none; user-select: none; }
 .tree-toggle-left { display: flex; align-items: center; gap: 13px; }
@@ -200,13 +231,10 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
   display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
 .tree-panel { display: none; border-top: 1px solid #2f2d28; padding: 20px 14px 24px; overflow: hidden; max-width: 100%; }
 .tree-panel.open { display: block; }
-.tree-scroll { overflow-x: auto; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
-@media (orientation: portrait) {
-  .tree-scroll { overflow-x: scroll; max-width: 100%; }
-  .tree-scroll::-webkit-scrollbar { height: 4px; }
-  .tree-scroll::-webkit-scrollbar-track { background: #2f2d28; border-radius: 999px; }
-  .tree-scroll::-webkit-scrollbar-thumb { background: #c9a84c; border-radius: 999px; }
-}
+.tree-scroll { overflow-x: auto; padding-bottom: 8px; -webkit-overflow-scrolling: touch; }
+.tree-scroll::-webkit-scrollbar { height: 4px; }
+.tree-scroll::-webkit-scrollbar-track { background: #2f2d28; border-radius: 999px; }
+.tree-scroll::-webkit-scrollbar-thumb { background: #c9a84c; border-radius: 999px; }
 .trow { display: flex; justify-content: center; align-items: flex-start; gap: 8px; }
 .tcol { display: flex; flex-direction: column; align-items: center; }
 .tnode { border-radius: 10px; padding: 8px 10px; min-width: 86px; text-align: center; border: 1px solid; }
@@ -226,8 +254,6 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
 .tnode-poa .tnode-name { color: #8aabd4; }
 .tnode-dem   { background-color: rgba(212,132,42,0.10); border-color: rgba(212,132,42,0.4); }
 .tnode-dem .tnode-name { color: #e0a060; }
-.tnode-friend { background-color: rgba(107,136,181,0.07); border-color: rgba(107,136,181,0.25); }
-.tnode-friend .tnode-name { color: #8aabd4; }
 .ttag-exec    { background-color: rgba(201,168,76,0.25);  color: #c9a84c; }
 .ttag-deceased{ background-color: rgba(224,85,64,0.25);   color: #e87b6a; }
 .ttag-poa     { background-color: rgba(107,136,181,0.25); color: #8aabd4; }
@@ -249,977 +275,835 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
 .tnote-gold   { background-color: rgba(201,168,76,0.08);  border-color: #c9a84c; color: #d4ba70; }
 .tnote-purple { background-color: rgba(155,126,200,0.08); border-color: #9b7ec8; color: #b89de0; }
 .tnote-slate  { background-color: rgba(107,136,181,0.08); border-color: #6b88b5; color: #8aabd4; }
+
+/* ── PULL TO REFRESH ── */
+#pullIndicator { display:none; position:fixed; top:0; left:0; right:0; z-index:999;
+  background:linear-gradient(180deg,rgba(201,168,76,0.25),transparent);
+  padding:14px; text-align:center; pointer-events:none; }
+@keyframes spin { from { display:inline-block; transform:rotate(0deg); } to { transform:rotate(360deg); } }
 </style>
 </head>
 <body>
 
+<!-- PULL INDICATOR -->
+<div id="pullIndicator"><div style="font-size:11px;font-weight:600;color:#c9a84c;letter-spacing:1px;" id="pullText">↓ Pull to refresh</div></div>
+
+<!-- HERO -->
 <div class="hero">
   <div class="hero-eyebrow">Monroe County · New York</div>
-  <h1>Estate<br>Executor Guide</h1>
-  <p class="hero-sub">A step-by-step walkthrough for Rochester, NY probate</p>
-  <div class="hero-badges">
-    <span class="badge badge-gold">⚖️ NY Surrogate's Court</span>
-    <span class="badge badge-slate">📍 Rochester, NY</span>
-    <button id="updateBtn" onclick="checkForUpdate()" style="display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:500;padding:6px 14px;border-radius:999px;border:1px solid rgba(107,136,181,0.35);background:rgba(107,136,181,0.09);color:#6b88b5;cursor:pointer;font-family:var(--font-body);">
+  <h1>Estate of<br>Elaine M. Wall</h1>
+  <p class="hero-sub">Rochester, NY · Will dated July 22, 2024</p>
+  <div class="hero-actions">
+    <button id="updateBtn" onclick="checkForUpdate()" class="hero-btn hero-btn-slate">
       <span id="updateIcon">🔄</span><span id="updateLabel">Check for Updates</span>
     </button>
   </div>
 </div>
 
-<!-- PULL TO REFRESH INDICATOR -->
-<div id="pullIndicator" style="display:none;position:fixed;top:0;left:0;right:0;z-index:999;background:linear-gradient(180deg,rgba(201,168,76,0.25),transparent);padding:14px;text-align:center;pointer-events:none;">
-  <div style="font-size:11px;font-weight:600;color:#c9a84c;letter-spacing:1px;" id="pullText">↓ Pull to refresh</div>
+<!-- TAB BAR -->
+<div class="tab-bar" id="tabBar">
+  <button class="tab-btn" id="tab-family" onclick="switchTab('family')">
+    <span class="tab-icon">👨‍👩‍👧</span>
+    <span class="tab-label">Family</span>
+  </button>
+  <button class="tab-btn" id="tab-lawyer" onclick="switchTab('lawyer')">
+    <span class="tab-icon">⚖️</span>
+    <span class="tab-label">Lawyer</span>
+  </button>
+  <button class="tab-btn" id="tab-finance" onclick="switchTab('finance')">
+    <span class="tab-icon">🏦</span>
+    <span class="tab-label">Financial</span>
+  </button>
+  <button class="tab-btn" id="tab-checklist" onclick="switchTab('checklist')">
+    <span class="tab-icon">✅</span>
+    <span class="tab-label">Checklist</span>
+  </button>
 </div>
 
-<div class="progress-wrap">
-  <div class="progress-row">
-    <span class="progress-label">Your Progress</span>
-    <span class="progress-pct" id="pctLabel">0%</span>
-  </div>
-  <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
-</div>
+<!-- ═══════════════════════════════════════
+     TAB 1 — FAMILY
+═══════════════════════════════════════ -->
+<div class="tab-panel" id="panel-family">
 
-<!-- ══ FAMILY TREE ══ -->
-<div class="section-label">Family Tree &amp; Will Summary</div>
-<div class="tree-outer">
-  <div class="tree-toggle-hdr" onclick="toggleTree()">
-    <div class="tree-toggle-left">
-      <div class="tree-icon">🌳</div>
-      <div>
-        <div class="big-card-title">Wall Estate — Family Tree</div>
-        <div class="big-card-sub">4 generations · from Will dated July 22, 2024</div>
+  <!-- WHO GETS WHAT — top of family tab, most important -->
+  <div class="section-label">Who Gets What</div>
+
+  <div style="margin: 0 14px 10px; border-radius: 16px; overflow: hidden; border: 1px solid #2f2d28; background:#1c1a17;">
+    <div style="background:linear-gradient(135deg,rgba(201,168,76,0.2),rgba(201,168,76,0.05));padding:14px 16px;border-bottom:1px solid #2f2d28;">
+      <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:#c9a84c;margin-bottom:2px;">⚡ At a Glance — Confirmed from Will</div>
+      <div style="font-size:11px;color:#7a7368;font-weight:300;">Dated July 22, 2024 · 32 Morrow Drive, Greece NY</div>
+    </div>
+
+    <!-- Stephen / Chelsea / Phillip -->
+    <div style="padding:14px 16px;border-bottom:1px solid #2f2d28;">
+      <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1.3px;color:#4ea87a;margin-bottom:10px;">Stephen · Chelsea · Phillip — Each receive 1/3 of:</div>
+      <div style="display:flex;flex-direction:column;gap:7px;">
+
+        <div style="display:flex;align-items:flex-start;gap:10px;padding:10px;background:rgba(78,168,122,0.08);border-radius:8px;border:1px solid rgba(78,168,122,0.2);">
+          <span style="font-size:16px;">🏦</span>
+          <div style="flex:1;">
+            <div style="font-size:12px;font-weight:600;color:#f0ece4;margin-bottom:4px;">Roth IRA — 1/3 each</div>
+            <div style="font-size:11px;color:#c8bfb0;font-weight:300;line-height:1.6;margin-bottom:6px;">Named beneficiaries confirmed — passes directly outside probate.</div>
+            <div style="background:rgba(107,136,181,0.12);border:1px solid rgba(107,136,181,0.3);border-radius:6px;padding:8px 10px;">
+              <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:#6b88b5;margin-bottom:5px;">What to ask the broker</div>
+              <div style="font-size:11px;color:#c8bfb0;font-weight:300;line-height:1.6;">Ask for the <strong style="color:#f0ece4;">"Beneficiary Designation Form"</strong> or <strong style="color:#f0ece4;">"TOD — Transfer on Death Designation"</strong>. Ask for the <strong style="color:#f0ece4;">Deceased Account Holder</strong> department. Bring death certificate + Letters Testamentary.</div>
+              <div style="margin-top:8px;background:rgba(0,0,0,0.2);border-radius:6px;padding:8px 10px;font-size:11px;color:#c9a84c;font-style:italic;line-height:1.5;">"I am the Executrix of the estate of Elaine M. Wall. I need the beneficiary designation on file for her Roth IRA. The account holder is deceased and I have Letters Testamentary."</div>
+              <div style="margin-top:6px;font-size:10px;color:#7a7368;">Don't know which broker? Check her last tax return for Form 1099-R or 5498.</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:flex-start;gap:10px;padding:10px;background:rgba(78,168,122,0.08);border-radius:8px;border:1px solid rgba(78,168,122,0.2);">
+          <span style="font-size:16px;">🏦</span>
+          <div><div style="font-size:12px;font-weight:600;color:#f0ece4;">All Bank Accounts</div>
+          <div style="font-size:10px;color:#7a7368;font-weight:300;margin-top:2px;">Checking, savings, CDs — after debts paid</div></div>
+        </div>
+
+        <div style="display:flex;align-items:flex-start;gap:10px;padding:10px;background:rgba(78,168,122,0.08);border-radius:8px;border:1px solid rgba(78,168,122,0.2);">
+          <span style="font-size:16px;">🚗</span>
+          <div style="flex:1;">
+            <div style="font-size:12px;font-weight:600;color:#f0ece4;margin-bottom:4px;">Car &amp; Vehicle(s) — 1/3 each</div>
+            <div style="font-size:11px;color:#c8bfb0;font-weight:300;line-height:1.6;margin-bottom:6px;">Sale proceeds into estate account then split equally.</div>
+            <div style="background:rgba(212,132,42,0.10);border:1px solid rgba(212,132,42,0.3);border-radius:6px;padding:8px 10px;">
+              <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:#d4842a;margin-bottom:5px;">How to sell</div>
+              <div style="font-size:11px;color:#c8bfb0;font-weight:300;line-height:1.7;"><strong style="color:#f0ece4;">1.</strong> Letters Testamentary first.<br><strong style="color:#f0ece4;">2.</strong> Monroe County DMV — 200 E Henrietta Rd · (585) 753-1600.<br><strong style="color:#f0ece4;">3.</strong> Complete <strong style="color:#f0ece4;">Form MV-349</strong> (Executor's Certificate).<br><strong style="color:#f0ece4;">4.</strong> Chelsea signs as <em style="color:#c9a84c;">"Chelsea Heasman, Executrix of the Estate of Elaine M. Wall"</em>.<br><strong style="color:#f0ece4;">5.</strong> Cancel insurance — refund into estate account.</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:10px;padding:8px 10px;background:rgba(78,168,122,0.08);border-radius:8px;border:1px solid rgba(78,168,122,0.2);">
+          <span style="font-size:16px;">📈</span>
+          <div><div style="font-size:12px;font-weight:600;color:#f0ece4;">Investments &amp; Brokerage</div>
+          <div style="font-size:10px;color:#7a7368;font-weight:300;margin-top:2px;">Stocks, bonds, brokerage accounts</div></div>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:10px;padding:8px 10px;background:rgba(78,168,122,0.08);border-radius:8px;border:1px solid rgba(78,168,122,0.2);">
+          <span style="font-size:16px;">💍</span>
+          <div><div style="font-size:12px;font-weight:600;color:#f0ece4;">Personal Property</div>
+          <div style="font-size:10px;color:#7a7368;font-weight:300;margin-top:2px;">Jewellery, furniture, belongings</div></div>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:10px;padding:8px 10px;background:rgba(78,168,122,0.08);border-radius:8px;border:1px solid rgba(78,168,122,0.2);">
+          <span style="font-size:16px;">💵</span>
+          <div><div style="font-size:12px;font-weight:600;color:#f0ece4;">Everything Else</div>
+          <div style="font-size:10px;color:#7a7368;font-weight:300;margin-top:2px;">Any other asset — Clause FIFTH covers all of it</div></div>
+        </div>
       </div>
     </div>
-    <span class="chev" id="chev-tree">›</span>
+
+    <!-- House only kids -->
+    <div style="padding:14px 16px;border-bottom:1px solid #2f2d28;">
+      <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1.3px;color:#9b7ec8;margin-bottom:10px;">Kenneth · Nicholas · Brielle · Siilen · Ninjin — House proceeds ONLY</div>
+      <div style="display:flex;align-items:flex-start;gap:10px;padding:10px;background:rgba(155,126,200,0.08);border-radius:8px;border:1px solid rgba(155,126,200,0.25);">
+        <span style="font-size:22px;flex-shrink:0;">🏠</span>
+        <div>
+          <div style="font-size:12px;font-weight:600;color:#f0ece4;margin-bottom:4px;">32 Morrow Drive sale proceeds only</div>
+          <div style="font-size:11px;color:#c8bfb0;font-weight:300;line-height:1.6;">First $5,000 → Siilen · First $5,000 → Ninjin<br>Remaining: 1/3 Kenneth (adult, direct) · 1/3 Nicholas (minor, held to 30) · 1/3 Brielle (minor, held to 30)<br><span style="color:#9b7ec8;">Siilen &amp; Ninjin also minors — held to age 30</span></div>
+        </div>
+      </div>
+      <div style="margin-top:10px;padding:10px;background:rgba(224,85,64,0.08);border-radius:8px;border:1px solid rgba(224,85,64,0.25);">
+        <div style="font-size:11px;font-weight:600;color:#e05540;margin-bottom:3px;">⚠️ These five have NO claim on anything else</div>
+        <div style="font-size:11px;color:#c8bfb0;font-weight:300;line-height:1.6;">The car, bank accounts, Roth IRA, investments and all personal property go entirely to Stephen, Chelsea and Phillip.</div>
+      </div>
+    </div>
+
+    <!-- Kenneth note -->
+    <div style="padding:12px 16px;">
+      <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1.3px;color:#c9a84c;margin-bottom:6px;">Kenneth Tokarz — Special Note</div>
+      <div style="font-size:11px;color:#c8bfb0;font-weight:300;line-height:1.6;"><strong style="color:#f0ece4;">Age 21 — adult.</strong> Receives his 1/3 of house proceeds directly at distribution. Nicholas, Brielle, Siilen and Ninjin wait until age 30.</div>
+    </div>
   </div>
-  <div class="tree-panel" id="tree-panel">
-    <div style="font-size:9px;color:#7a7368;text-align:right;margin-bottom:6px;font-style:italic;">← swipe to scroll →</div><div class="tree-scroll"><div style="min-width:580px;width:max-content;">
 
-      <!-- GEN 1 -->
-      <div class="trow">
-        <div class="tnode tnode-dem" style="min-width:130px;">
-          <div class="tnode-name">Mary Lou Borrelli</div>
-          <div class="tnode-role">Mother (Living)</div>
-          <div class="tnode-tags">
-            <span class="ttag ttag-dem">Dementia</span>
-            <span class="ttag ttag-poa">POA → Thomas Borrelli<br>277 Moxon Dr</span>
-          </div>
+  <!-- FAMILY TREE -->
+  <div class="section-label">Family Tree</div>
+  <div class="tree-outer">
+    <div class="tree-toggle-hdr" onclick="toggleTree()">
+      <div class="tree-toggle-left">
+        <div class="tree-icon">🌳</div>
+        <div>
+          <div class="big-card-title">Wall · Borrelli · Tokarz Family</div>
+          <div class="big-card-sub">4 generations · tap to expand</div>
         </div>
       </div>
-      <div class="trow"><div class="vl" style="height:18px;"></div></div>
+      <span class="chev" id="chev-tree">›</span>
+    </div>
+    <div class="tree-panel" id="tree-panel">
+      <div style="font-size:9px;color:#7a7368;text-align:right;margin-bottom:6px;font-style:italic;">← swipe to scroll →</div>
+      <div class="tree-scroll"><div style="min-width:580px;width:max-content;">
 
-      <!-- H-bar gen1→gen2: Tommy | Elaine | Susan -->
-      <div style="display:flex;justify-content:center;">
-        <div style="position:relative;width:340px;height:14px;">
-          <div class="hl" style="width:100%;position:absolute;top:0;left:0;"></div>
-          <div class="vl" style="height:14px;position:absolute;top:0;left:0;"></div>
-          <div class="vl" style="height:14px;position:absolute;top:0;left:50%;transform:translateX(-50%);"></div>
-          <div class="vl" style="height:14px;position:absolute;top:0;right:0;"></div>
-        </div>
-      </div>
-      <div style="display:flex;justify-content:center;">
-        <div style="display:flex;width:340px;">
-          <div style="flex:1;display:flex;justify-content:flex-start;padding-left:1px;"><div class="vl" style="height:14px;"></div></div>
-          <div style="flex:1;display:flex;justify-content:center;"><div class="vl" style="height:14px;"></div></div>
-          <div style="flex:1;display:flex;justify-content:flex-end;padding-right:1px;"><div class="vl" style="height:14px;"></div></div>
-        </div>
-      </div>
-
-      <!-- GEN 2 -->
-      <div class="trow" style="gap:20px;">
-        <!-- Tommy -->
-        <div class="tcol">
-          <div class="tnode tnode-poa" style="min-width:86px;">
-            <div class="tnode-name">Thomas Borrelli</div>
-            <div class="tnode-role">Brother · No children</div>
-            <div class="tnode-tags"><span class="ttag ttag-poa">POA for Mary Lou Borrelli</span></div>
-            <div style="font-size:8px;color:#7a7368;margin-top:4px;line-height:1.4;">114 Henley St<br>Rochester NY 14612</div>
-          </div>
-        </div>
-        <!-- Elaine -->
-        <div class="tcol">
-          <div class="tnode tnode-deceased" style="min-width:110px;">
-            <div class="tnode-name">Elaine M. Wall</div>
-            <div class="tnode-role">Testatrix</div>
-            <div class="tnode-tags"><span class="ttag ttag-deceased">Deceased</span></div>
-          </div>
-        </div>
-        <!-- Susan + her children below -->
-        <div class="tcol">
-          <div class="tnode tnode-poa" style="min-width:86px;">
-            <div class="tnode-name">Susan Tokarz</div>
-            <div class="tnode-role">Sister</div>
-            <div style="font-size:8px;color:#7a7368;margin-top:4px;line-height:1.4;">626 Beach Ave<br>Rochester NY 14612</div>
-          </div>
-          <div class="vl" style="height:16px;"></div>
-          <!-- H-bar Susan→3 children -->
-          <div style="display:flex;align-items:flex-start;">
-            <div style="width:92px;display:flex;flex-direction:column;align-items:flex-end;">
-              <div class="hl" style="width:92px;"></div>
+        <!-- GEN 1 -->
+        <div class="trow">
+          <div class="tnode tnode-dem" style="min-width:140px;">
+            <div class="tnode-name">Mary Lou Borrelli</div>
+            <div class="tnode-role">Mother (Living)</div>
+            <div class="tnode-tags">
+              <span class="ttag ttag-dem">Dementia</span>
+              <span class="ttag ttag-poa">POA → Thomas Borrelli</span>
             </div>
-            <div class="vl" style="height:14px;"></div>
-            <div style="width:92px;"><div class="hl" style="width:92px;"></div></div>
           </div>
-          <div style="display:flex;gap:0;">
-            <div style="width:92px;display:flex;justify-content:flex-end;"><div class="vl" style="height:14px;"></div></div>
-            <div style="width:2px;"><div class="vl" style="height:14px;"></div></div>
-            <div style="width:92px;"><div class="vl" style="height:14px;"></div></div>
+        </div>
+        <div class="trow"><div class="vl" style="height:18px;"></div></div>
+
+        <!-- H-bar gen1→gen2 -->
+        <div style="display:flex;justify-content:center;">
+          <div style="position:relative;width:340px;height:14px;">
+            <div class="hl" style="width:100%;position:absolute;top:0;left:0;"></div>
+            <div class="vl" style="height:14px;position:absolute;top:0;left:0;"></div>
+            <div class="vl" style="height:14px;position:absolute;top:0;left:50%;transform:translateX(-50%);"></div>
+            <div class="vl" style="height:14px;position:absolute;top:0;right:0;"></div>
           </div>
+        </div>
+        <div style="display:flex;justify-content:center;">
+          <div style="display:flex;width:340px;">
+            <div style="flex:1;display:flex;justify-content:flex-start;padding-left:1px;"><div class="vl" style="height:14px;"></div></div>
+            <div style="flex:1;display:flex;justify-content:center;"><div class="vl" style="height:14px;"></div></div>
+            <div style="flex:1;display:flex;justify-content:flex-end;padding-right:1px;"><div class="vl" style="height:14px;"></div></div>
+          </div>
+        </div>
 
-          <!-- GEN 3: Stephen | Chelsea | Phill -->
-          <div style="display:flex;gap:8px;align-items:flex-start;">
-
-            <!-- Stephen + his kids -->
-            <div class="tcol">
-              <div class="tnode tnode-heir" style="min-width:86px;">
-                <div class="tnode-name">Stephen Tokarz</div>
-                <div class="tnode-role">Nephew</div>
-                <div class="tnode-tags"><span class="ttag ttag-heir">1/3 residuary</span><span class="ttag ttag-heir">1/3 Roth IRA</span></div>
-                <div style="font-size:8px;color:#7a7368;margin-top:4px;line-height:1.4;">2015 Rainbow View St<br>Henderson NV 89012</div>
-              </div>
+        <!-- GEN 2 -->
+        <div class="trow" style="gap:20px;">
+          <div class="tcol">
+            <div class="tnode tnode-poa" style="min-width:90px;">
+              <div class="tnode-name">Thomas Borrelli</div>
+              <div class="tnode-role">Brother · No children</div>
+              <div class="tnode-tags"><span class="ttag ttag-poa">POA for Mary Lou</span></div>
+              <div style="font-size:8px;color:#7a7368;margin-top:4px;line-height:1.4;">114 Henley St<br>Rochester NY 14612</div>
+            </div>
+          </div>
+          <div class="tcol">
+            <div class="tnode tnode-deceased" style="min-width:110px;">
+              <div class="tnode-name">Elaine M. Wall</div>
+              <div class="tnode-role">Testatrix</div>
+              <div class="tnode-tags"><span class="ttag ttag-deceased">Deceased</span></div>
+            </div>
+          </div>
+          <div class="tcol">
+            <div class="tnode tnode-poa" style="min-width:90px;">
+              <div class="tnode-name">Susan Tokarz</div>
+              <div class="tnode-role">Sister</div>
+              <div style="font-size:8px;color:#7a7368;margin-top:4px;line-height:1.4;">626 Beach Ave<br>Rochester NY 14612</div>
+            </div>
+            <div class="vl" style="height:16px;"></div>
+            <div style="display:flex;align-items:flex-start;">
+              <div style="width:92px;display:flex;flex-direction:column;align-items:flex-end;"><div class="hl" style="width:92px;"></div></div>
               <div class="vl" style="height:14px;"></div>
-              <!-- H-bar to 2 kids -->
-              <div style="display:flex;align-items:flex-start;">
-                <div style="width:44px;display:flex;flex-direction:column;align-items:flex-end;">
-                  <div class="hl" style="width:44px;"></div>
+              <div style="width:92px;"><div class="hl" style="width:92px;"></div></div>
+            </div>
+            <div style="display:flex;gap:0;">
+              <div style="width:92px;display:flex;justify-content:flex-end;"><div class="vl" style="height:14px;"></div></div>
+              <div style="width:2px;"><div class="vl" style="height:14px;"></div></div>
+              <div style="width:92px;"><div class="vl" style="height:14px;"></div></div>
+            </div>
+
+            <!-- GEN 3 -->
+            <div style="display:flex;gap:8px;align-items:flex-start;">
+              <!-- Stephen -->
+              <div class="tcol">
+                <div class="tnode tnode-heir" style="min-width:86px;">
+                  <div class="tnode-name">Stephen Tokarz</div>
+                  <div class="tnode-role">Nephew</div>
+                  <div class="tnode-tags"><span class="ttag ttag-heir">1/3 residuary</span><span class="ttag ttag-heir">1/3 Roth IRA</span></div>
+                  <div style="font-size:8px;color:#7a7368;margin-top:4px;line-height:1.4;">2015 Rainbow View St<br>Henderson NV 89012</div>
                 </div>
-                <div class="vl" style="height:12px;"></div>
-                <div style="width:44px;"><div class="hl" style="width:44px;"></div></div>
-              </div>
-              <div style="display:flex;gap:0;">
-                <div style="width:44px;display:flex;justify-content:flex-end;"><div class="vl" style="height:12px;"></div></div>
-                <div style="width:2px;"></div>
-                <div style="width:44px;"><div class="vl" style="height:12px;"></div></div>
-              </div>
-              <!-- GEN 4: Kenneth & Nicholas -->
-              <div style="display:flex;gap:5px;">
-                <div class="tnode tnode-heir" style="min-width:72px;">
-                  <div class="tnode-name">Kenneth Tokarz</div>
-                  <div class="tnode-role">Great-Nephew · Age 21</div>
-                  <div class="tnode-tags">
-                    <span class="ttag ttag-heir">Adult</span>
-                    <span class="ttag ttag-house">1/3 house</span>
+                <div class="vl" style="height:14px;"></div>
+                <div style="display:flex;align-items:flex-start;">
+                  <div style="width:44px;display:flex;flex-direction:column;align-items:flex-end;"><div class="hl" style="width:44px;"></div></div>
+                  <div class="vl" style="height:12px;"></div>
+                  <div style="width:44px;"><div class="hl" style="width:44px;"></div></div>
+                </div>
+                <div style="display:flex;gap:0;">
+                  <div style="width:44px;display:flex;justify-content:flex-end;"><div class="vl" style="height:12px;"></div></div>
+                  <div style="width:2px;"></div>
+                  <div style="width:44px;"><div class="vl" style="height:12px;"></div></div>
+                </div>
+                <div style="display:flex;gap:5px;">
+                  <div class="tnode tnode-heir" style="min-width:72px;">
+                    <div class="tnode-name">Kenneth Tokarz</div>
+                    <div class="tnode-role">Great-Nephew · 21</div>
+                    <div class="tnode-tags"><span class="ttag ttag-heir">Adult</span><span class="ttag ttag-house">1/3 house</span></div>
+                  </div>
+                  <div class="tnode tnode-minor" style="min-width:72px;">
+                    <div class="tnode-name">Nicholas Tokarz</div>
+                    <div class="tnode-role">Great-Nephew · Minor</div>
+                    <div class="tnode-tags"><span class="ttag ttag-minor">Minor ⚠️</span><span class="ttag ttag-house">1/3 house</span></div>
                   </div>
                 </div>
-                <div class="tnode tnode-minor" style="min-width:72px;">
-                  <div class="tnode-name">Nicholas Tokarz</div>
-                  <div class="tnode-role">Great-Nephew · Minor</div>
-                  <div class="tnode-tags">
-                    <span class="ttag ttag-minor">Minor ⚠️</span>
-                    <span class="ttag ttag-house">1/3 house</span>
-                  </div>
+              </div>
+              <!-- Chelsea -->
+              <div class="tcol">
+                <div class="tnode tnode-exec" style="min-width:86px;">
+                  <div class="tnode-name">Chelsea Heasman</div>
+                  <div class="tnode-role">Niece (married)</div>
+                  <div class="tnode-tags"><span class="ttag ttag-exec">Executrix</span><span class="ttag ttag-heir">1/3 residuary</span><span class="ttag ttag-heir">1/3 Roth IRA</span></div>
+                  <div style="font-size:8px;color:#7a7368;margin-top:4px;line-height:1.4;">440 NE 4th Ave #621<br>Fort Lauderdale FL 33301</div>
+                </div>
+              </div>
+              <!-- Phill -->
+              <div class="tcol">
+                <div class="tnode tnode-heir" style="min-width:86px;">
+                  <div class="tnode-name">Phillip Tokarz</div>
+                  <div class="tnode-role">Nephew</div>
+                  <div class="tnode-tags"><span class="ttag ttag-heir">1/3 residuary</span><span class="ttag ttag-heir">1/3 Roth IRA</span><span class="ttag ttag-exec">Successor Exec</span></div>
+                  <div style="font-size:8px;color:#7a7368;margin-top:4px;line-height:1.4;">243 Hillbridge Dr<br>Rochester NY 14612</div>
+                </div>
+                <div class="vl" style="height:26px;"></div>
+                <div class="tnode tnode-minor" style="min-width:86px;">
+                  <div class="tnode-name">Brielle Rose Tokarz</div>
+                  <div class="tnode-role">Great-Niece · Minor</div>
+                  <div class="tnode-tags"><span class="ttag ttag-minor">Minor ⚠️</span><span class="ttag ttag-house">1/3 house</span></div>
                 </div>
               </div>
             </div>
-
-            <!-- Chelsea -->
-            <div class="tcol">
-              <div class="tnode tnode-exec" style="min-width:86px;">
-                <div class="tnode-name">Chelsea Heasman</div>
-                <div class="tnode-role">Niece (married)</div>
-                <div class="tnode-tags">
-                  <span class="ttag ttag-exec">Executrix</span>
-                  <span class="ttag ttag-heir">1/3 residuary</span>
-                  <span class="ttag ttag-heir">1/3 Roth IRA</span>
-                </div>
-                <div style="font-size:8px;color:#7a7368;margin-top:4px;line-height:1.4;">440 NE 4th Ave #621<br>Fort Lauderdale FL 33301</div>
-              </div>
-            </div>
-
-            <!-- Phill + his kid -->
-            <div class="tcol">
-              <div class="tnode tnode-heir" style="min-width:86px;">
-                <div class="tnode-name">Phillip Tokarz</div>
-                <div class="tnode-role">Nephew</div>
-                <div class="tnode-tags">
-                  <span class="ttag ttag-heir">1/3 residuary</span>
-                  <span class="ttag ttag-heir">1/3 Roth IRA</span>
-                  <span class="ttag ttag-exec">Successor Exec</span>
-                </div>
-                <div style="font-size:8px;color:#7a7368;margin-top:4px;line-height:1.4;">243 Hillbridge Dr<br>Rochester NY 14612</div>
-              </div>
-              <div class="vl" style="height:26px;"></div>
-              <!-- GEN 4: Brielle -->
-              <div class="tnode tnode-minor" style="min-width:86px;">
-                <div class="tnode-name">Brielle Rose Tokarz</div>
-                <div class="tnode-role">Great-Niece · Minor</div>
-                <div class="tnode-tags">
-                  <span class="ttag ttag-minor">Minor ⚠️</span>
-                  <span class="ttag ttag-house">1/3 house</span>
-                </div>
-              </div>
-            </div>
-
-          </div><!-- end gen3 flex -->
-        </div><!-- end Susan tcol -->
-      </div><!-- end gen2 trow -->
-
-      <!-- Unrelated legatees -->
-      <div style="margin-top:20px;padding-top:16px;border-top:1px solid #2f2d28;">
-        <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:1.4px;color:var(--muted);margin-bottom:10px;">Extended Family — Stephen's Wife's Family · Both Minors</div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;">
-          <div class="tnode tnode-minor" style="min-width:110px;">
-            <div class="tnode-name">Siilen Ekenzul</div>
-            <div class="tnode-role">Step-family · Minor</div>
-            <div class="tnode-tags">
-              <span class="ttag ttag-minor">Minor ⚠️</span>
-              <span class="ttag ttag-house">$5,000 house</span>
-            </div>
           </div>
-          <div class="tnode tnode-minor" style="min-width:110px;">
-            <div class="tnode-name">Ninjin Ekenzul</div>
-            <div class="tnode-role">Step-family · Minor</div>
-            <div class="tnode-tags">
-              <span class="ttag ttag-minor">Minor ⚠️</span>
-              <span class="ttag ttag-house">$5,000 house</span>
+        </div>
+
+        <!-- Ekenzul -->
+        <div style="margin-top:20px;padding-top:16px;border-top:1px solid #2f2d28;">
+          <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:1.4px;color:var(--muted);margin-bottom:10px;">Extended Family — Stephen's Wife's Family · Both Minors</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <div class="tnode tnode-minor" style="min-width:110px;">
+              <div class="tnode-name">Siilen Ekenzul</div>
+              <div class="tnode-role">Step-family · Minor</div>
+              <div class="tnode-tags"><span class="ttag ttag-minor">Minor ⚠️</span><span class="ttag ttag-house">$5,000 house</span></div>
+            </div>
+            <div class="tnode tnode-minor" style="min-width:110px;">
+              <div class="tnode-name">Ninjin Ekenzul</div>
+              <div class="tnode-role">Step-family · Minor</div>
+              <div class="tnode-tags"><span class="ttag ttag-minor">Minor ⚠️</span><span class="ttag ttag-house">$5,000 house</span></div>
             </div>
           </div>
         </div>
+
+        <div class="tree-legend">
+          <div class="tleg"><div class="tleg-dot" style="background:rgba(224,85,64,0.5);"></div>Deceased</div>
+          <div class="tleg"><div class="tleg-dot" style="background:rgba(201,168,76,0.5);"></div>Executrix</div>
+          <div class="tleg"><div class="tleg-dot" style="background:rgba(78,168,122,0.5);"></div>Residuary heir</div>
+          <div class="tleg"><div class="tleg-dot" style="background:rgba(155,126,200,0.5);"></div>Minor (held to 30)</div>
+          <div class="tleg"><div class="tleg-dot" style="background:rgba(212,132,42,0.5);"></div>Dementia/POA</div>
+        </div>
+      </div></div>
+
+      <div class="tnote tnote-red" style="margin-top:14px;">
+        <strong>⚠️ 4 Guardians Ad Litem Required</strong>
+        <ul>
+          <li>Nicholas Tokarz, Brielle Rose Tokarz, Siilen Ekenzul, Ninjin Ekenzul are all confirmed minors</li>
+          <li>Court appoints a Guardian Ad Litem for each before Letters issue</li>
+          <li>All four shares held by Chelsea as Fiduciary until each reaches age 30</li>
+        </ul>
       </div>
 
-      <div class="tree-legend">
-        <div class="tleg"><div class="tleg-dot" style="background:rgba(224,85,64,0.5);"></div>Deceased / Testatrix</div>
-        <div class="tleg"><div class="tleg-dot" style="background:rgba(201,168,76,0.5);"></div>Executrix</div>
-        <div class="tleg"><div class="tleg-dot" style="background:rgba(78,168,122,0.5);"></div>Residuary heir (1/3)</div>
-        <div class="tleg"><div class="tleg-dot" style="background:rgba(155,126,200,0.5);"></div>Minor — house proceeds (age 30)</div>
-        <div class="tleg"><div class="tleg-dot" style="background:rgba(212,132,42,0.5);"></div>Dementia / POA</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     TAB 2 — LAWYER
+═══════════════════════════════════════ -->
+<div class="tab-panel" id="panel-lawyer">
+
+  <div class="section-label">The 7 Steps — In Order</div>
+
+  <div class="card" id="card-0" data-color="red">
+    <div class="card-header" onclick="toggleCard(0)">
+      <div class="step-bubble bubble-red"><span class="num">0</span><span class="lbl">Now</span></div>
+      <div class="card-body"><div class="card-title">Pre-Probate — Do This First</div><div class="card-sub">Secure the home &amp; gather documents</div></div>
+      <div class="card-actions"><div class="check-btn" id="check-0" onclick="toggleCheck(event,0)"></div><span class="pill pill-red">🔴 Urgent</span><span class="chev" id="chev-0">›</span></div>
+    </div>
+    <div class="detail-panel" id="details-0">
+      <div class="detail-section">
+        <h4 style="color:#e05540">Action Items</h4>
+        <ul>
+          <li>Secure <strong>32 Morrow Drive</strong> — change locks, set thermostat to 55°F</li>
+          <li>Set up <strong>mail forwarding</strong> to Chelsea's address at USPS.com</li>
+          <li>Find and safeguard the <strong>original Will</strong> (4 pages, dated July 22, 2024)</li>
+          <li>Ask the funeral home for <strong>10 certified death certificates</strong></li>
+          <li>Collect every <strong>bill, statement, or official letter</strong> — one box</li>
+        </ul>
       </div>
-    </div>
-
-    <div class="tnote tnote-gold">
-      <strong>Will Distribution Summary</strong>
-      <ul>
-        <li><strong>House (32 Morrow Dr):</strong> $5,000 held for Siilen Ekenzul (minor, Stephen's wife's family, until 30) · $5,000 held for Ninjin Ekenzul (minor, until 30) · remainder: 1/3 directly to Kenneth (adult) · 1/3 held for Nicholas (minor, until 30) · 1/3 held for Brielle (minor, until 30)</li>
-        <li><strong>Residuary estate:</strong> 1/3 Stephen Tokarz · 1/3 Phillip Tokarz · 1/3 Chelsea Heasman</li>
-        <li><strong>Executrix:</strong> Chelsea Heasman · <strong>Successor:</strong> Phillip Tokarz · <strong>Bond:</strong> Waived (Clause EIGHTH)</li>
-        <li><strong>Witnesses:</strong> Dan Famy (159 Valley View Crescent, 14617) &amp; Tracy M. Cuell (131 Mosley Road, 14616) — no self-proving affidavit, Form P-3 required from both</li>
-      </ul>
-    </div>
-    <div class="tnote tnote-red">
-      <strong>⚠️ Minors Alert — Action Required</strong>
-      <ul>
-        <li><strong>Kenneth Tokarz (21)</strong> — adult, receives his 1/3 house share directly. No GAL needed.</li>
-        <li><strong>Nicholas Tokarz</strong> — confirmed minor. 1/3 house share held until age 30. <strong>GAL required.</strong></li>
-        <li><strong>Brielle Rose Tokarz</strong> — confirmed minor. 1/3 house share held until age 30. <strong>GAL required.</strong></li>
-        <li><strong>Siilen Ekenzul</strong> — confirmed minor (Stephen's wife's family). $5,000 held until age 30. <strong>GAL required.</strong></li>
-        <li><strong>Ninjin Ekenzul</strong> — confirmed minor (Stephen's wife's family). $5,000 held until age 30. <strong>GAL required.</strong></li>
-        <li>Chelsea as Fiduciary manages all 4 minor shares — <strong>4 Guardian Ad Litems</strong> will be appointed by the court</li>
-        <li>No annual court accountings required (Clause FOURTH waives this)</li>
-      </ul>
-    </div>
-    <div class="tnote tnote-red">
-      <strong>⚠️ Siilen &amp; Ninjin Ekenzul — Confirmed Minors</strong>
-      <ul>
-        <li>Extended family through <strong>Stephen Tokarz's wife's family</strong></li>
-        <li>Both are minors — their $5,000 each is subject to <strong>Clause FOURTH</strong>, held by Chelsea as Fiduciary until each reaches age 30</li>
-        <li>Court will appoint a <strong>Guardian Ad Litem</strong> for each of them</li>
-        <li>Contact details and birth dates needed for the Petition — obtain through Stephen</li>
-      </ul>
-    </div>
-    <div class="tnote tnote-slate">
-      <strong>Mary Lou Borrelli — Impact on Estate</strong>
-      <ul>
-        <li>Not named in the Will — parents have no forced heir right under NY law</li>
-        <li>Thomas Borrelli (114 Henley St, Rochester NY 14612) holds POA for Mary Lou — covers her affairs only, no personal claim on this estate</li>
-        <li>Check the Roth IRA beneficiary form — if Mary Lou Borrelli is named, Thomas Borrelli manages it via POA</li>
-        <li>If Will were overturned, siblings Thomas Borrelli &amp; Susan Tokarz would inherit under NY intestacy; Mary Lou Borrelli would not</li>
-      </ul>
-    </div>
-
-    <!-- DISTRIBUTION BREAKDOWN CARD -->
-    <div style="margin-top:16px;border-radius:12px;overflow:hidden;border:1px solid #2f2d28;">
-
-      <div style="background:linear-gradient(135deg,rgba(201,168,76,0.2),rgba(201,168,76,0.05));padding:14px 16px;border-bottom:1px solid #2f2d28;">
-        <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:#c9a84c;margin-bottom:2px;">⚡ Who Gets What — At a Glance</div>
-        <div style="font-size:11px;color:#7a7368;font-weight:300;">Confirmed from Will dated July 22, 2024</div>
+      <div class="detail-section">
+        <h4 style="color:#e05540">Track Down Will Witnesses — No Self-Proving Affidavit</h4>
+        <ul>
+          <li><strong>Dan Famy</strong> — 159 Valley View Crescent, Rochester NY 14617</li>
+          <li><strong>Tracy M. Cuell</strong> — 131 Mosley Road, Rochester NY 14616</li>
+          <li>Need sworn <strong>Form P-3</strong> from each</li>
+          <li>If a witness cannot be found — file <strong>Form P-8</strong></li>
+          <li>If a witness is deceased — file <strong>Forms P-8 and P-9</strong></li>
+          <li>Witnesses cannot notarize each other's affidavit — use a separate notary</li>
+        </ul>
       </div>
+      <div class="callout callout-gold"><strong>Why 10 death certificates?</strong> Each bank, brokerage, insurance company, and the court requires their own certified original.</div>
+      <div class="sub-accordion">
+        <div class="sub-accordion-header" onclick="toggleSub('atty-q')">
+          <div class="sub-accordion-title">📞 Questions to Ask the Attorney<span>Tap to expand</span></div>
+          <span class="sub-chev" id="sub-chev-atty-q">›</span>
+        </div>
+        <div class="sub-accordion-body" id="sub-body-atty-q">
+          <div class="q-group">
+            <div class="q-group-label">Establish the Relationship</div>
+            <div class="q-item"><span class="q-num">1</span><div class="q-text">Are you <strong>representing the estate</strong>, or just holding the Will?<div class="q-why">Determines if you need to hire someone new.</div></div></div>
+            <div class="q-item"><span class="q-num">2</span><div class="q-text">Do you have a <strong>conflict of interest</strong>?<div class="q-why">An attorney who is also a beneficiary cannot represent you.</div></div></div>
+          </div>
+          <div class="q-group">
+            <div class="q-group-label">About the Will</div>
+            <div class="q-item"><span class="q-num">3</span><div class="q-text">Is this the <strong>most recent Will</strong> — any codicils?</div></div>
+            <div class="q-item"><span class="q-num">4</span><div class="q-text">Was a <strong>self-proving affidavit</strong> attached at signing?<div class="q-why">If yes, no need to track witnesses at all.</div></div></div>
 
-      <!-- Stephen / Chelsea / Phillip -->
-      <div style="padding:14px 16px;border-bottom:1px solid #2f2d28;">
-        <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1.3px;color:#4ea87a;margin-bottom:10px;">Stephen · Chelsea · Phillip — Each receive 1/3 of:</div>
-        <div style="display:flex;flex-direction:column;gap:7px;">
-          <div style="display:flex;align-items:flex-start;gap:10px;padding:10px;background:rgba(78,168,122,0.08);border-radius:8px;border:1px solid rgba(78,168,122,0.2);">
-            <span style="font-size:16px;">🏦</span>
-            <div style="flex:1;">
-              <div style="font-size:12px;font-weight:600;color:#f0ece4;margin-bottom:4px;">Roth IRA — 1/3 each</div>
-              <div style="font-size:11px;color:#c8bfb0;font-weight:300;line-height:1.6;margin-bottom:6px;">Named beneficiaries confirmed — passes directly to Stephen, Chelsea and Phillip outside probate. Does not go through the Will.</div>
-              <div style="background:rgba(107,136,181,0.12);border:1px solid rgba(107,136,181,0.3);border-radius:6px;padding:8px 10px;">
-                <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:#6b88b5;margin-bottom:5px;">What to ask the broker for</div>
-                <div style="font-size:11px;color:#c8bfb0;font-weight:300;line-height:1.6;">Call the broker and ask for the <strong style="color:#f0ece4;">"Beneficiary Designation Form"</strong> or <strong style="color:#f0ece4;">"TOD — Transfer on Death Designation"</strong>. Ask to be transferred to the <strong style="color:#f0ece4;">Deceased Account Holder</strong> department. You will need the <strong style="color:#f0ece4;">death certificate</strong> and <strong style="color:#f0ece4;">Letters Testamentary</strong>.</div>
-                <div style="margin-top:8px;background:rgba(0,0,0,0.2);border-radius:6px;padding:8px 10px;font-size:11px;color:#c9a84c;font-style:italic;line-height:1.5;">"I am the Executrix of the estate of Elaine M. Wall. I need a copy of the beneficiary designation on file for her Roth IRA. The account holder is deceased and I have Letters Testamentary."</div>
-                <div style="margin-top:6px;font-size:10px;color:#7a7368;font-weight:300;">Don't know which broker? Check her last tax return for Form 1099-R or Form 5498 — the institution name will be on there.</div>
-              </div>
-            </div>
           </div>
-          <div style="display:flex;align-items:center;gap:10px;padding:8px 10px;background:rgba(78,168,122,0.08);border-radius:8px;border:1px solid rgba(78,168,122,0.2);">
-            <span style="font-size:16px;">🏦</span>
-            <div>
-              <div style="font-size:12px;font-weight:600;color:#f0ece4;">All Bank Accounts</div>
-              <div style="font-size:10px;color:#7a7368;font-weight:300;">Checking, savings, CDs — after debts paid</div>
-            </div>
+          <div class="q-group">
+            <div class="q-group-label">About the Beneficiaries</div>
+            <div class="q-item"><span class="q-num">6</span><div class="q-text">Exact ages of <strong>Kenneth, Nicholas, Brielle, Siilen &amp; Ninjin</strong>?<div class="q-why">Triggers 4 Guardians Ad Litem and age-30 holding clause.</div></div></div>
+            <div class="q-item"><span class="q-num">7</span><div class="q-text">Contact details for <strong>Siilen and Ninjin Ekenzul</strong>?<div class="q-why">Must be located before distribution.</div></div></div>
+            <div class="q-item"><span class="q-num">8</span><div class="q-text">Any <strong>known creditors or potential contests</strong>?</div></div>
           </div>
-          <div style="display:flex;align-items:flex-start;gap:10px;padding:10px;background:rgba(78,168,122,0.08);border-radius:8px;border:1px solid rgba(78,168,122,0.2);">
-            <span style="font-size:16px;">🚗</span>
-            <div style="flex:1;">
-              <div style="font-size:12px;font-weight:600;color:#f0ece4;margin-bottom:4px;">Car &amp; Vehicle(s) — 1/3 each</div>
-              <div style="font-size:11px;color:#c8bfb0;font-weight:300;line-height:1.6;margin-bottom:6px;">Sale proceeds go into the estate account then split equally between Stephen, Chelsea and Phillip.</div>
-              <div style="background:rgba(212,132,42,0.10);border:1px solid rgba(212,132,42,0.3);border-radius:6px;padding:8px 10px;">
-                <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:#d4842a;margin-bottom:5px;">How to sell the car</div>
-                <div style="font-size:11px;color:#c8bfb0;font-weight:300;line-height:1.7;">
-                  <strong style="color:#f0ece4;">1.</strong> Get <strong style="color:#f0ece4;">Letters Testamentary</strong> first — required before any transfer.<br>
-                  <strong style="color:#f0ece4;">2.</strong> Go to <strong style="color:#f0ece4;">Monroe County DMV</strong> (200 E Henrietta Rd · (585) 753-1600) with the title, death certificate, and Letters Testamentary.<br>
-                  <strong style="color:#f0ece4;">3.</strong> Complete <strong style="color:#f0ece4;">Form MV-349</strong> (Executor's Certificate) — available at DMV or dmv.ny.gov.<br>
-                  <strong style="color:#f0ece4;">4.</strong> Title is reissued in the estate name — Chelsea signs it over to the buyer as <em style="color:#c9a84c;">"Chelsea Heasman, Executrix of the Estate of Elaine M. Wall"</em>.<br>
-                  <strong style="color:#f0ece4;">5.</strong> Cancel the insurance — any unused premium refund goes into the estate account.
-                </div>
-                <div style="margin-top:6px;font-size:10px;color:#7a7368;font-weight:300;">If the title is missing — apply for a duplicate title at the DMV before proceeding.</div>
-              </div>
-            </div>
-          </div>
-          <div style="display:flex;align-items:center;gap:10px;padding:8px 10px;background:rgba(78,168,122,0.08);border-radius:8px;border:1px solid rgba(78,168,122,0.2);">
-            <span style="font-size:16px;">📈</span>
-            <div>
-              <div style="font-size:12px;font-weight:600;color:#f0ece4;">Investments &amp; Brokerage</div>
-              <div style="font-size:10px;color:#7a7368;font-weight:300;">Stocks, bonds, any brokerage accounts</div>
-            </div>
-          </div>
-          <div style="display:flex;align-items:center;gap:10px;padding:8px 10px;background:rgba(78,168,122,0.08);border-radius:8px;border:1px solid rgba(78,168,122,0.2);">
-            <span style="font-size:16px;">💍</span>
-            <div>
-              <div style="font-size:12px;font-weight:600;color:#f0ece4;">Personal Property</div>
-              <div style="font-size:10px;color:#7a7368;font-weight:300;">Jewellery, furniture, belongings — sold or divided</div>
-            </div>
-          </div>
-          <div style="display:flex;align-items:center;gap:10px;padding:8px 10px;background:rgba(78,168,122,0.08);border-radius:8px;border:1px solid rgba(78,168,122,0.2);">
-            <span style="font-size:16px;">🛡️</span>
-            <div>
-              <div style="font-size:12px;font-weight:600;color:#f0ece4;">Life Insurance</div>
-              <div style="font-size:10px;color:#7a7368;font-weight:300;">If no named beneficiary on policy</div>
-            </div>
-          </div>
-          <div style="display:flex;align-items:center;gap:10px;padding:8px 10px;background:rgba(78,168,122,0.08);border-radius:8px;border:1px solid rgba(78,168,122,0.2);">
-            <span style="font-size:16px;">💵</span>
-            <div>
-              <div style="font-size:12px;font-weight:600;color:#f0ece4;">Everything Else</div>
-              <div style="font-size:10px;color:#7a7368;font-weight:300;">Any other asset Elaine owned — Clause FIFTH covers all of it</div>
-            </div>
+          <div class="q-group">
+            <div class="q-group-label">Practical</div>
+            <div class="q-item"><span class="q-num">9</span><div class="q-text">Can you <strong>transfer the original Will today</strong>?</div></div>
           </div>
         </div>
       </div>
-
-      <!-- House only kids -->
-      <div style="padding:14px 16px;border-bottom:1px solid #2f2d28;">
-        <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1.3px;color:#9b7ec8;margin-bottom:10px;">Kenneth · Nicholas · Brielle · Siilen · Ninjin — House proceeds ONLY</div>
-        <div style="display:flex;align-items:flex-start;gap:10px;padding:10px;background:rgba(155,126,200,0.08);border-radius:8px;border:1px solid rgba(155,126,200,0.25);">
-          <span style="font-size:22px;flex-shrink:0;">🏠</span>
-          <div>
-            <div style="font-size:12px;font-weight:600;color:#f0ece4;margin-bottom:4px;">32 Morrow Drive sale proceeds only</div>
-            <div style="font-size:11px;color:#c8bfb0;font-weight:300;line-height:1.6;">
-              First $5,000 → Siilen · First $5,000 → Ninjin<br>
-              Remaining balance: 1/3 Kenneth · 1/3 Nicholas · 1/3 Brielle<br>
-              <span style="color:#9b7ec8;">All 4 minors: held by Chelsea as Fiduciary until age 30</span>
-            </div>
-          </div>
-        </div>
-        <div style="margin-top:10px;padding:10px;background:rgba(224,85,64,0.08);border-radius:8px;border:1px solid rgba(224,85,64,0.25);">
-          <div style="font-size:11px;font-weight:600;color:#e05540;margin-bottom:3px;">⚠️ These five have NO claim on anything else</div>
-          <div style="font-size:11px;color:#c8bfb0;font-weight:300;line-height:1.6;">The car, bank accounts, Roth IRA, investments and all personal property go entirely to Stephen, Chelsea and Phillip. The house is the only asset these five beneficiaries share in.</div>
-        </div>
-      </div>
-
-      <!-- Kenneth exception -->
-      <div style="padding:12px 16px;">
-        <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1.3px;color:#c9a84c;margin-bottom:8px;">Kenneth Tokarz — Special Note</div>
-        <div style="font-size:11px;color:#c8bfb0;font-weight:300;line-height:1.6;">
-          Kenneth is <strong style="color:#f0ece4;">21 and an adult</strong> — he receives his 1/3 of the house proceeds <strong style="color:#f0ece4;">directly</strong> at distribution, no Fiduciary hold needed. Nicholas, Brielle, Siilen and Ninjin remain subject to the age-30 rule.
-        </div>
-      </div>
-
     </div>
   </div>
-</div>
 
-<!-- ══ STEPS ══ -->
-<div class="section-label">The 7 Steps — In Order</div>
-
-<div class="card" id="card-0" data-color="red">
-  <div class="card-header" onclick="toggleCard(0)">
-    <div class="step-bubble bubble-red"><span class="num">0</span><span class="lbl">Now</span></div>
-    <div class="card-body">
-      <div class="card-title">Pre-Probate — Do This First</div>
-      <div class="card-sub">Secure the home &amp; gather documents</div>
+  <div class="card" id="card-1" data-color="amber">
+    <div class="card-header" onclick="toggleCard(1)">
+      <div class="step-bubble bubble-amber"><span class="num">1</span><span class="lbl">Week 1</span></div>
+      <div class="card-body"><div class="card-title">File at Surrogate's Court</div><div class="card-sub">Submit Will, Petition &amp; all required forms</div></div>
+      <div class="card-actions"><div class="check-btn" id="check-1" onclick="toggleCheck(event,1)"></div><span class="pill pill-amber">Next Week</span><span class="chev" id="chev-1">›</span></div>
     </div>
-    <div class="card-actions">
-      <div class="check-btn" id="check-0" onclick="toggleCheck(event,0)"></div>
-      <span class="pill pill-red">🔴 Urgent</span>
-      <span class="chev" id="chev-0">›</span>
-    </div>
-  </div>
-  <div class="detail-panel" id="details-0">
-    <div class="detail-section">
-      <h4 style="color:#e05540">Action Items</h4>
-      <ul>
-        <li>Secure <strong>32 Morrow Drive</strong> — change locks, set thermostat to 55°F</li>
-        <li>Set up <strong>mail forwarding</strong> to Chelsea's address at USPS.com</li>
-        <li>Find and safeguard the <strong>original Will</strong> (4 pages, dated July 22, 2024)</li>
-        <li>Ask the funeral home for <strong>10 certified death certificates</strong></li>
-        <li>Collect every <strong>bill, statement, or official letter</strong> — one box</li>
-      </ul>
-    </div>
-    <div class="detail-section">
-      <h4 style="color:#e05540">Track Down Will Witnesses</h4>
-      <p>No self-proving affidavit was found. You need a sworn <strong>Form P-3</strong> from each witness:</p>
-      <ul>
-        <li><strong>Dan Famy</strong> — 159 Valley View Crescent, Rochester NY 14617</li>
-        <li><strong>Tracy M. Cuell</strong> — 131 Mosley Road, Rochester NY 14616</li>
-        <li>If a witness cannot be found, file <strong>Form P-8</strong></li>
-        <li>If a witness is deceased, file Forms <strong>P-8 and P-9</strong></li>
-        <li>A witness cannot notarize the other witness's affidavit — use a separate notary</li>
-      </ul>
-    </div>
-    <div class="callout callout-gold"><strong>Why 10 death certificates?</strong> Each bank, brokerage, insurance company, and the court requires their own certified original.</div>
-    <div class="sub-accordion">
-      <div class="sub-accordion-header" onclick="toggleSub('atty-q')">
-        <div class="sub-accordion-title">📞 Questions to Ask the Attorney
-          <span>Tap to expand · key questions in order</span>
-        </div>
-        <span class="sub-chev" id="sub-chev-atty-q">›</span>
+    <div class="detail-panel" id="details-1">
+      <div class="detail-section">
+        <h4 style="color:#d4842a">Where To Go</h4>
+        <p><strong>Monroe County Surrogate's Court</strong><br>99 Exchange Blvd, Room 514, Rochester NY 14614<br>Mon–Fri, 9am–5pm · (585) 371-3609</p>
+        <a href="https://maps.apple.com/?address=99+Exchange+Blvd,+Rochester,+NY+14614" class="map-link">📍 Open in Maps</a>
       </div>
-      <div class="sub-accordion-body" id="sub-body-atty-q">
-        <div class="q-group">
-          <div class="q-group-label">First — Establish the Relationship</div>
-          <div class="q-item"><span class="q-num">1</span><div class="q-text">Are you <strong>representing the estate</strong>, or just holding the Will?<div class="q-why">Determines if you need to hire someone new.</div></div></div>
-          <div class="q-item"><span class="q-num">2</span><div class="q-text">Do you have a <strong>conflict of interest</strong> preventing you from representing the Executrix?<div class="q-why">An attorney who is also a beneficiary cannot represent you.</div></div></div>
-        </div>
-        <div class="q-group">
-          <div class="q-group-label">About the Will</div>
-          <div class="q-item"><span class="q-num">3</span><div class="q-text">Is this the <strong>most recent Will</strong> — any earlier versions or codicils?<div class="q-why">Only the most recent valid Will governs.</div></div></div>
-          <div class="q-item"><span class="q-num">4</span><div class="q-text">Was a <strong>self-proving affidavit</strong> attached at signing?<div class="q-why">If yes, no need to track witnesses at all.</div></div></div>
-          <div class="q-item"><span class="q-num">5</span><div class="q-text">Did she have a <strong>living trust</strong> alongside the Will?<div class="q-why">Trust assets bypass probate entirely.</div></div></div>
-          <div class="q-item"><span class="q-num">6</span><div class="q-text">Who is named on the <strong>Roth IRA beneficiary form</strong>?<div class="q-why">Passes outside the Will — critical to check immediately.</div></div></div>
-        </div>
-        <div class="q-group">
-          <div class="q-group-label">About the Beneficiaries</div>
-          <div class="q-item"><span class="q-num">7</span><div class="q-text">Are Kenneth, Nicholas, and Brielle Tokarz confirmed <strong>minors</strong>? What are their ages?<div class="q-why">Triggers Guardian Ad Litem and age-30 holding clause.</div></div></div>
-          <div class="q-item"><span class="q-num">8</span><div class="q-text">Who are <strong>Siilen and Ninjin Ekenzul</strong> — do you have contact details?<div class="q-why">Named legatees ($5,000 each) — must be found before distribution.</div></div></div>
-          <div class="q-item"><span class="q-num">9</span><div class="q-text">Are there any <strong>known creditors or potential contests</strong> to the Will?<div class="q-why">Contested probate is a very different process.</div></div></div>
-        </div>
-        <div class="q-group">
-          <div class="q-group-label">Practical</div>
-          <div class="q-item"><span class="q-num">10</span><div class="q-text">Can you <strong>transfer the original Will today</strong>?<div class="q-why">Court requires the physical original.</div></div></div>
-          <div class="q-item"><span class="q-num">+</span><div class="q-text"><strong>"Do you offer a flat fee for a simple probate in Monroe County?"</strong><div class="q-why">Fees paid from the estate — not your personal money.</div></div></div>
-        </div>
+      <div class="detail-section">
+        <h4 style="color:#d4842a">What To Bring</h4>
+        <ul>
+          <li>The <strong>original Will</strong> (4 pages — they keep it)</li>
+          <li><strong>2–3 certified death certificates</strong></li>
+          <li>Completed <strong>Petition for Probate (Form P-1)</strong></li>
+          <li><strong>Affidavit of Attesting Witnesses (P-3)</strong> from Dan Famy &amp; Tracy M. Cuell</li>
+          <li><strong>Affidavit of Comparison (P-13)</strong></li>
+          <li>Names, addresses and <strong>ages of all beneficiaries</strong></li>
+          <li>Filing fee (see below)</li>
+        </ul>
+      </div>
+      <div class="callout callout-green"><strong>Bond waived:</strong> Clause EIGHTH explicitly waives bond for Chelsea and Phillip.</div>
+      <div class="detail-section" style="margin-top:13px;">
+        <h4 style="color:#d4842a">Filing Fee Schedule (SCPA §2402)</h4>
+        <table class="fee-table">
+          <tr><td>Under $10,000</td><td>$45</td></tr>
+          <tr><td>$10,000 – $49,999</td><td>$75–$215</td></tr>
+          <tr><td>$50,000 – $99,999</td><td>$280</td></tr>
+          <tr><td>$100,000 – $249,999</td><td>$420</td></tr>
+          <tr><td>$250,000 – $499,999</td><td>$625</td></tr>
+          <tr class="fee-highlight"><td>$500,000 and over</td><td>$1,250</td></tr>
+        </table>
+        <p style="font-size:11.5px;margin-top:8px;color:var(--muted);">+ $6 per certified Letters copy. Order 8–10.</p>
       </div>
     </div>
   </div>
-</div>
 
-<div class="card" id="card-1" data-color="amber">
-  <div class="card-header" onclick="toggleCard(1)">
-    <div class="step-bubble bubble-amber"><span class="num">1</span><span class="lbl">Week 1</span></div>
-    <div class="card-body">
-      <div class="card-title">File at Surrogate's Court</div>
-      <div class="card-sub">Submit Will, Petition &amp; all required forms</div>
+  <div class="card" id="card-2" data-color="slate">
+    <div class="card-header" onclick="toggleCard(2)">
+      <div class="step-bubble bubble-slate"><span class="num">2</span><span class="lbl">Court</span></div>
+      <div class="card-body"><div class="card-title">Receive Letters Testamentary</div><div class="card-sub">Chelsea's official legal authority</div></div>
+      <div class="card-actions"><div class="check-btn" id="check-2" onclick="toggleCheck(event,2)"></div><span class="pill pill-slate">Weeks 2–4</span><span class="chev" id="chev-2">›</span></div>
     </div>
-    <div class="card-actions">
-      <div class="check-btn" id="check-1" onclick="toggleCheck(event,1)"></div>
-      <span class="pill pill-amber">Next Week</span>
-      <span class="chev" id="chev-1">›</span>
-    </div>
-  </div>
-  <div class="detail-panel" id="details-1">
-    <div class="detail-section">
-      <h4 style="color:#d4842a">Where To Go</h4>
-      <p><strong>Monroe County Surrogate's Court</strong><br>99 Exchange Blvd, Room 514, Rochester NY 14614<br>Mon–Fri, 9am–5pm · (585) 371-3609</p>
-      <a href="https://maps.apple.com/?address=99+Exchange+Blvd,+Rochester,+NY+14614" class="map-link">📍 Open in Maps</a>
-    </div>
-    <div class="detail-section">
-      <h4 style="color:#d4842a">What To Bring</h4>
-      <ul>
-        <li>The <strong>original Will</strong> (4 pages — they keep it)</li>
-        <li><strong>2–3 certified death certificates</strong></li>
-        <li>Completed <strong>Petition for Probate (Form P-1)</strong></li>
-        <li><strong>Affidavit of Attesting Witnesses (P-3)</strong> from Dan Famy &amp; Tracy M. Cuell</li>
-        <li><strong>Affidavit of Comparison (P-13)</strong></li>
-        <li>Names, addresses and <strong>ages of all beneficiaries</strong> (especially Kenneth, Nicholas &amp; Brielle)</li>
-        <li>Filing fee (see below)</li>
-      </ul>
-    </div>
-    <div class="callout callout-green"><strong>Bond waived:</strong> Clause EIGHTH of the Will explicitly waives bond — no surety bond needed for Chelsea or Phillip. Saves time and money.</div>
-    <div class="detail-section" style="margin-top:13px;">
-      <h4 style="color:#d4842a">Filing Fee Schedule (SCPA §2402)</h4>
-      <table class="fee-table">
-        <tr><td>Under $10,000</td><td>$45</td></tr>
-        <tr><td>$10,000 – $49,999</td><td>$75–$215</td></tr>
-        <tr><td>$50,000 – $99,999</td><td>$280</td></tr>
-        <tr><td>$100,000 – $249,999</td><td>$420</td></tr>
-        <tr><td>$250,000 – $499,999</td><td>$625</td></tr>
-        <tr class="fee-highlight"><td>$500,000 and over</td><td>$1,250</td></tr>
-      </table>
-      <p style="font-size:11.5px;margin-top:8px;color:var(--muted);">+ $6 per certified Letters Testamentary copy. Order 8–10.</p>
-    </div>
-  </div>
-</div>
-
-<div class="card" id="card-2" data-color="slate">
-  <div class="card-header" onclick="toggleCard(2)">
-    <div class="step-bubble bubble-slate"><span class="num">2</span><span class="lbl">Court</span></div>
-    <div class="card-body">
-      <div class="card-title">Receive Letters Testamentary</div>
-      <div class="card-sub">Chelsea's official legal authority as Executrix</div>
-    </div>
-    <div class="card-actions">
-      <div class="check-btn" id="check-2" onclick="toggleCheck(event,2)"></div>
-      <span class="pill pill-slate">Weeks 2–4</span>
-      <span class="chev" id="chev-2">›</span>
-    </div>
-  </div>
-  <div class="detail-panel" id="details-2">
-    <div class="detail-section">
-      <h4 style="color:#6b88b5">Blocker — Notice of Probate First</h4>
-      <p>Letters will not issue until you mail a <strong>Notice of Probate (Form P-6)</strong> to all beneficiaries and file an Affidavit of Mailing. Must notify: Stephen, Phillip, Chelsea, Kenneth, Nicholas, Brielle, Siilen, and Ninjin.</p>
-    </div>
-    <div class="detail-section">
-      <h4 style="color:#6b88b5">Minor Beneficiaries — Extra Step</h4>
-      <ul>
-        <li>If Kenneth, Nicholas, or Brielle are minors, court appoints a <strong>Guardian Ad Litem</strong> for each</li>
-        <li>GAL reviews the Will and reports that minors' interests are protected — adds 2–4 weeks</li>
-        <li>Confirm all three ages before filing</li>
-      </ul>
-    </div>
-    <div class="callout callout-gold"><strong>The golden ticket.</strong> Once issued, Chelsea can legally access all estate assets. Order 8–10 certified copies at $6 each.</div>
-  </div>
-</div>
-
-<div class="card" id="card-3" data-color="gold">
-  <div class="card-header" onclick="toggleCard(3)">
-    <div class="step-bubble bubble-gold"><span class="num">3</span><span class="lbl">Inventory</span></div>
-    <div class="card-body">
-      <div class="card-title">Inventory All Assets</div>
-      <div class="card-sub">List accounts, property &amp; notify institutions</div>
-    </div>
-    <div class="card-actions">
-      <div class="check-btn" id="check-3" onclick="toggleCheck(event,3)"></div>
-      <span class="pill pill-gold">Ongoing</span>
-      <span class="chev" id="chev-3">›</span>
-    </div>
-  </div>
-  <div class="detail-panel" id="details-3">
-    <div class="detail-section">
-      <h4 style="color:#c9a84c">Key Assets From the Will</h4>
-      <ul>
-        <li><strong>32 Morrow Drive</strong> — must be sold. Carrying costs until sale paid from residuary estate</li>
-        <li><strong>Roth IRA</strong> — passes outside the Will via beneficiary designation. Get form from custodian immediately</li>
-        <li><strong>Bank accounts, investments, life insurance</strong> — note any POD/TOD designations</li>
-        <li>Her last <strong>2 years of tax returns</strong> are the best map of all accounts she owned</li>
-      </ul>
-    </div>
-    <div class="detail-section">
-      <h4 style="color:#c9a84c">Notify Locally</h4>
-      <ul>
-        <li><strong>RG&amp;E</strong> — keep ON until house sold: (585) 546-1900</li>
-        <li><strong>Monroe County Water</strong> — keep ON</li>
-        <li><strong>Social Security</strong> — notify of death; return any post-death payments</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<div class="card" id="card-4" data-color="gold">
-  <div class="card-header" onclick="toggleCard(4)">
-    <div class="step-bubble bubble-gold"><span class="num">4</span><span class="lbl">Bank</span></div>
-    <div class="card-body">
-      <div class="card-title">Open an Estate Bank Account</div>
-      <div class="card-sub">Keep estate money separate from yours</div>
-    </div>
-    <div class="card-actions">
-      <div class="check-btn" id="check-4" onclick="toggleCheck(event,4)"></div>
-      <span class="pill pill-gold">After Letters</span>
-      <span class="chev" id="chev-4">›</span>
-    </div>
-  </div>
-  <div class="detail-panel" id="details-4">
-    <div class="detail-section">
-      <h4 style="color:#c9a84c">How To Do It</h4>
-      <ul>
-        <li>Bring <strong>Letters Testamentary</strong> and ID to any bank</li>
-        <li>Open account as <strong>"Estate of Elaine M. Wall"</strong></li>
-        <li>Get a free <strong>EIN</strong> at IRS.gov — takes 5 minutes online</li>
-        <li>All house sale net proceeds flow through here before distributions</li>
-      </ul>
-    </div>
-    <div class="callout callout-red"><strong>Never mix funds.</strong> Reimbursing yourself for expenses must come from the estate account with receipts.</div>
-  </div>
-</div>
-
-<div class="card" id="card-5" data-color="amber">
-  <div class="card-header" onclick="toggleCard(5)">
-    <div class="step-bubble bubble-amber"><span class="num">5</span><span class="lbl">Debts</span></div>
-    <div class="card-body">
-      <div class="card-title">Settle Debts &amp; Taxes</div>
-      <div class="card-sub">Pay valid claims from estate funds — not yours</div>
-    </div>
-    <div class="card-actions">
-      <div class="check-btn" id="check-5" onclick="toggleCheck(event,5)"></div>
-      <span class="pill pill-amber">Months 1–6</span>
-      <span class="chev" id="chev-5">›</span>
-    </div>
-  </div>
-  <div class="detail-panel" id="details-5">
-    <div class="detail-section">
-      <h4 style="color:#d4842a">What To Pay</h4>
-      <ul>
-        <li><strong>Funeral costs</strong> — paid first by law</li>
-        <li><strong>House carrying costs</strong> until sold (per Clause THIRD) — from residuary</li>
-        <li><strong>Estate and inheritance taxes</strong> — paid from residuary, no apportionment to any beneficiary (Clause SECOND)</li>
-        <li><strong>Final income taxes</strong> — file her last Form 1040</li>
-        <li><strong>NY Estate Tax</strong> only if estate exceeds ~$7.16M</li>
-        <li>Valid credit card and medical bills — verify before paying</li>
-      </ul>
-    </div>
-    <div class="detail-section">
-      <h4 style="color:#d4842a">Notice to Creditors</h4>
-      <p>Publish in Democrat &amp; Chronicle. Starts a 7-month clock — creditors who miss the window lose their claim, protecting Chelsea at distribution.</p>
-    </div>
-  </div>
-</div>
-
-<div class="card" id="card-6" data-color="green">
-  <div class="card-header" onclick="toggleCard(6)">
-    <div class="step-bubble bubble-green"><span class="num">6</span><span class="lbl">Final</span></div>
-    <div class="card-body">
-      <div class="card-title">Distribute Assets &amp; Close Estate</div>
-      <div class="card-sub">Follow the Will exactly, then file final papers</div>
-    </div>
-    <div class="card-actions">
-      <div class="check-btn" id="check-6" onclick="toggleCheck(event,6)"></div>
-      <span class="pill pill-green">✓ Finish Line</span>
-      <span class="chev" id="chev-6">›</span>
-    </div>
-  </div>
-  <div class="detail-panel" id="details-6">
-    <div class="detail-section">
-      <h4 style="color:#4ea87a">Distribution Order — Per the Will</h4>
-      <ul>
-        <li><strong>House sale:</strong> $5k held for <strong>Siilen (minor, until 30)</strong> · $5k held for <strong>Ninjin (minor, until 30)</strong> · remainder: 1/3 directly to <strong>Kenneth (adult)</strong> · 1/3 held for <strong>Nicholas (minor, until 30)</strong> · 1/3 held for <strong>Brielle (minor, until 30)</strong></li>
-        <li><strong>Residuary estate:</strong> 1/3 Stephen · 1/3 Phillip · 1/3 Chelsea</li>
-        <li>Per stirpes: if any of Stephen/Phillip/Chelsea had predeceased Elaine, their share goes to their own children</li>
-        <li>Get a signed <strong>receipt and release</strong> from every adult who receives a distribution</li>
-      </ul>
-    </div>
-    <div class="detail-section">
-      <h4 style="color:#4ea87a">Closing</h4>
-      <ul>
-        <li>File a <strong>Final Account</strong> with Surrogate's Court</li>
-        <li>Court issues a discharge order — Chelsea's official release from all duties</li>
-        <li>Close the estate bank account</li>
-      </ul>
-    </div>
-    <div class="callout callout-green"><strong>You're done.</strong> Keep all records for at least 3–5 years after discharge.</div>
-  </div>
-</div>
-
-<!-- ══ SPECIAL SITUATIONS ══ -->
-<div class="section-label">Special Situations</div>
-
-<div class="card" id="card-sp1" data-color="purple">
-  <div class="card-header" onclick="toggleSpecial('sp1')">
-    <div class="step-bubble bubble-purple"><span class="num" style="font-size:18px;">👶</span><span class="lbl">Minors</span></div>
-    <div class="card-body">
-      <div class="card-title">Kenneth, Nicholas &amp; Brielle — Minor Clause</div>
-      <div class="card-sub">Held until age 30 per Clause FOURTH</div>
-    </div>
-    <div class="card-actions">
-      <span class="pill pill-purple">⚠️ Likely Applies</span>
-      <span class="chev" id="chev-sp1">›</span>
-    </div>
-  </div>
-  <div class="detail-panel" id="details-sp1">
-    <div class="detail-section">
-      <h4 style="color:#9b7ec8">What Clause FOURTH Says</h4>
-      <p>Chelsea as Fiduciary holds their share of the house proceeds. She may apply income toward their support, maintenance, and education — but does <strong>not distribute principal until they reach age 30</strong>. No annual court accountings required (Will waives this).</p>
-    </div>
-    <div class="detail-section">
-      <h4 style="color:#9b7ec8">Steps Required</h4>
-      <ul>
-        <li><strong>Kenneth (21)</strong> — adult, distribute his 1/3 house share directly. No Guardian Ad Litem needed.</li>
-        <li><strong>Nicholas &amp; Brielle</strong> — confirmed minors. Petition must include each one's <strong>birth date</strong>, address, and who they live with</li>
-        <li>Court appoints a <strong>Guardian Ad Litem</strong> for Nicholas and for Brielle separately</li>
-        <li>Cannot distribute Nicholas or Brielle's share directly — Chelsea holds as Fiduciary until each reaches age 30</li>
-      </ul>
-    </div>
-    <div class="callout callout-purple"><strong>Age 30 is unusual</strong> — most Wills use 21 or 25. Their shares could be held for many years. Chelsea has an ongoing fiduciary obligation for each of them.</div>
-  </div>
-</div>
-
-<div class="card" id="card-sp2" data-color="purple">
-  <div class="card-header" onclick="toggleSpecial('sp2')">
-    <div class="step-bubble bubble-purple"><span class="num" style="font-size:18px;">🏠</span><span class="lbl">House</span></div>
-    <div class="card-body">
-      <div class="card-title">Selling 32 Morrow Drive</div>
-      <div class="card-sub">Directed sale — 4 of 5 house beneficiaries are minors</div>
-    </div>
-    <div class="card-actions">
-      <span class="pill pill-purple">Applies</span>
-      <span class="chev" id="chev-sp2">›</span>
-    </div>
-  </div>
-  <div class="detail-panel" id="details-sp2">
-    <div class="detail-section">
-      <h4 style="color:#9b7ec8">Distribution from Sale Proceeds</h4>
-      <ul>
-        <li>First: <strong>$5,000 to Siilen Ekenzul</strong></li>
-        <li>Second: <strong>$5,000 to Ninjin Ekenzul</strong></li>
-        <li>Remainder: <strong>1/3 Kenneth · 1/3 Nicholas · 1/3 Brielle</strong> (held if minors)</li>
-        <li>All carrying costs until sale paid from the <strong>residuary estate</strong></li>
-      </ul>
-    </div>
-    <div class="detail-section">
-      <h4 style="color:#9b7ec8">Steps to Sell</h4>
-      <ul>
-        <li>Chelsea has full authority to sell per Clause SIXTH — get Letters first</li>
-        <li>Hire a real estate agent — title companies require Letters Testamentary</li>
-        <li>File a new deed at <strong>Monroe County Clerk's Office</strong> (39 W. Main St)</li>
-        <li>Locate Siilen &amp; Ninjin before the closing date</li>
-      </ul>
-    </div>
-    <div class="callout callout-purple"><strong>Both are minors</strong> — their $5,000 each is held under Clause FOURTH until age 30. Court will appoint a Guardian Ad Litem for each. Get birth dates and addresses through Stephen before filing the Petition.</div>
-  </div>
-</div>
-
-<div class="card" id="card-sp3" data-color="purple">
-  <div class="card-header" onclick="toggleSpecial('sp3')">
-    <div class="step-bubble bubble-purple"><span class="num" style="font-size:18px;">📋</span><span class="lbl">Backup</span></div>
-    <div class="card-body">
-      <div class="card-title">If Chelsea Can't Serve</div>
-      <div class="card-sub">Phillip Tokarz steps in — Clause SEVENTH</div>
-    </div>
-    <div class="card-actions">
-      <span class="pill pill-purple">If Applicable</span>
-      <span class="chev" id="chev-sp3">›</span>
-    </div>
-  </div>
-  <div class="detail-panel" id="details-sp3">
-    <div class="detail-section">
-      <h4 style="color:#9b7ec8">Clause SEVENTH</h4>
-      <p>If Chelsea predeceases Elaine, fails to qualify, renounces, or cannot continue, <strong>Phillip Tokarz</strong> becomes Successor Executor with identical powers. Bond is still waived.</p>
-    </div>
-    <div class="detail-section">
-      <h4 style="color:#9b7ec8">Steps if Phillip Steps In</h4>
-      <ul>
-        <li>Chelsea files formal renunciation — <strong>Form P-10</strong></li>
-        <li>Phillip files a new Petition referencing the same case number</li>
-        <li>Note: Phillip is also a 1/3 residuary beneficiary — attorney should flag any conflict of interest</li>
-      </ul>
-    </div>
-  
-<!-- SELLING THE HOUSE -->
-<div class="card" id="card-sp4" data-color="gold">
-  <div class="card-header" onclick="toggleSpecial('sp4')">
-    <div class="step-bubble bubble-gold"><span class="num" style="font-size:18px;">🏠</span><span class="lbl">House</span></div>
-    <div class="card-body">
-      <div class="card-title">Selling 32 Morrow Drive</div>
-      <div class="card-sub">Step-by-step — no court approval needed</div>
-    </div>
-    <div class="card-actions">
-      <span class="pill pill-gold">Action Required</span>
-      <span class="chev" id="chev-sp4">›</span>
-    </div>
-  </div>
-  <div class="detail-panel" id="details-sp4">
-    <div class="detail-section">
-      <h4 style="color:#c9a84c">Step 1 — Letters Testamentary First</h4>
-      <p>Chelsea <strong>must have Letters Testamentary</strong> before any sale can proceed. Title companies and buyers' attorneys will not proceed without them. No Letters = no sale. Get these from Surrogate's Court first.</p>
-    </div>
-    <div class="detail-section">
-      <h4 style="color:#c9a84c">Step 2 — No Court Approval Needed</h4>
-      <p>Because Clause SIXTH of the Will grants Chelsea <strong>"full power and authority to sell, convey, lease or mortgage any real property"</strong>, she does not need to return to court for a sale order. That authority is already in the Will.</p>
-    </div>
-    <div class="detail-section">
-      <h4 style="color:#c9a84c">Step 3 — The Sale Process</h4>
-      <ul>
-        <li>Hire a <strong>real estate agent</strong> — get the property listed promptly per Clause THIRD ("as soon as reasonably practical")</li>
-        <li>Chelsea signs all documents as <strong>"Chelsea Heasman, Executrix of the Estate of Elaine M. Wall"</strong> — never just her personal name</li>
-        <li>Provide the title company with <strong>Letters Testamentary, the Will, and the death certificate</strong> when an offer is accepted</li>
-        <li>Keep records of all <strong>carrying costs</strong> until sale (utilities, taxes, insurance, cleaning) — these are reimbursed from the residuary estate per Clause THIRD</li>
-      </ul>
-    </div>
-    <div class="detail-section">
-      <h4 style="color:#c9a84c">Step 4 — Proceeds Go to Estate Account</h4>
-      <p>Net proceeds (after liens and closing costs) go straight into the <strong>estate bank account</strong>. They sit there until the 7-month creditor period has passed and all debts are settled. Then distributed in this exact order:</p>
-      <ul>
-        <li><strong>$5,000</strong> → held for Siilen Ekenzul (minor, until age 30)</li>
-        <li><strong>$5,000</strong> → held for Ninjin Ekenzul (minor, until age 30)</li>
-        <li><strong>1/3 of remainder</strong> → Kenneth Tokarz directly (adult, age 21)</li>
-        <li><strong>1/3 of remainder</strong> → held for Nicholas Tokarz (minor, until age 30)</li>
-        <li><strong>1/3 of remainder</strong> → held for Brielle Rose Tokarz (minor, until age 30)</li>
-      </ul>
-    </div>
-    <div class="callout callout-red"><strong>Stephen, Chelsea and Phillip receive nothing from the house sale.</strong> The house proceeds go entirely to the five beneficiaries above. Stephen, Chelsea and Phillip inherit the residuary estate — everything else.</div>
-    <div class="callout callout-slate" style="margin-top:10px;"><strong>Monroe County Clerk's Office</strong> — 39 W. Main St, Rochester NY 14614. New deed must be filed here once the sale completes.</div>
-  </div>
-</div>
-
-<!-- SELLING THE CAR -->
-<div class="card" id="card-sp5" data-color="amber">
-  <div class="card-header" onclick="toggleSpecial('sp5')">
-    <div class="step-bubble bubble-amber"><span class="num" style="font-size:18px;">🚗</span><span class="lbl">Car</span></div>
-    <div class="card-body">
-      <div class="card-title">Selling the Car</div>
-      <div class="card-sub">Proceeds go to residuary — Stephen, Chelsea, Phillip</div>
-    </div>
-    <div class="card-actions">
-      <span class="pill pill-amber">Action Required</span>
-      <span class="chev" id="chev-sp5">›</span>
-    </div>
-  </div>
-  <div class="detail-panel" id="details-sp5">
-    <div class="detail-section">
-      <h4 style="color:#d4842a">Step 1 — Letters Testamentary First</h4>
-      <p>Same as the house — Chelsea needs <strong>Letters Testamentary</strong> before she can legally transfer or sell the vehicle. The DMV and any buyer will require them.</p>
-    </div>
-    <div class="detail-section">
-      <h4 style="color:#d4842a">Step 2 — Transfer the Title</h4>
-      <ul>
-        <li>Go to <strong>Monroe County DMV</strong> with the original vehicle title, death certificate, and Letters Testamentary</li>
-        <li>Complete a <strong>MV-349 form</strong> (Executor's Certificate) — available at the DMV or online at dmv.ny.gov</li>
-        <li>The title gets reissued in the estate's name, which Chelsea can then sign over to a buyer</li>
-        <li>If the title cannot be found, apply for a <strong>duplicate title</strong> at the DMV first</li>
-      </ul>
-    </div>
-    <div class="detail-section">
-      <h4 style="color:#d4842a">Step 3 — Sell the Vehicle</h4>
-      <ul>
-        <li>Chelsea can sell privately, through a dealer, or at auction — her choice as Executrix</li>
-        <li>She signs the title as <strong>"Chelsea Heasman, Executrix of the Estate of Elaine M. Wall"</strong></li>
-        <li>Cancel the insurance policy once sold — get a refund of any unused premium into the estate account</li>
-        <li>Notify the DMV of the sale</li>
-      </ul>
-    </div>
-    <div class="detail-section">
-      <h4 style="color:#d4842a">Step 4 — Proceeds Go to Estate Account</h4>
-      <p>Car sale proceeds go into the <strong>estate bank account</strong> as part of the residuary estate. After debts are settled they are distributed <strong>1/3 each to Stephen, Chelsea and Phillip</strong> — not to the house beneficiaries.</p>
-    </div>
-    <div class="callout callout-gold"><strong>Monroe County DMV</strong> — 200 East Henrietta Rd, Rochester NY 14620. Call ahead: (585) 753-1600. Bring the title, death certificate, Letters Testamentary, and MV-349.</div>
-  </div>
-</div>
-
-<!-- ROTH IRA — BROKER REQUEST -->
-<div class="card" id="card-sp6" data-color="slate">
-  <div class="card-header" onclick="toggleSpecial('sp6')">
-    <div class="step-bubble bubble-slate"><span class="num" style="font-size:18px;">🏦</span><span class="lbl">IRA</span></div>
-    <div class="card-body">
-      <div class="card-title">Roth IRA — Proof for the Lawyer</div>
-      <div class="card-sub">What to ask the broker for</div>
-    </div>
-    <div class="card-actions">
-      <span class="pill pill-slate">Action Required</span>
-      <span class="chev" id="chev-sp6">›</span>
-    </div>
-  </div>
-  <div class="detail-panel" id="details-sp6">
-    <div class="detail-section">
-      <h4 style="color:#6b88b5">What To Ask For</h4>
-      <p>Call the broker/custodian (Fidelity, Vanguard, Schwab etc.) and ask for the:</p>
-      <ul>
-        <li><strong>"Beneficiary Designation Form"</strong> — or —</li>
-        <li><strong>"TOD — Transfer on Death Designation"</strong></li>
-      </ul>
-    </div>
-    <div class="detail-section">
-      <h4 style="color:#6b88b5">Exact Script to Use</h4>
-      <div class="script-line" style="margin-top:0;">"I am the Executrix of the estate of Elaine M. Wall. I need a copy of the beneficiary designation on file for her Roth IRA account. The account holder is deceased and I have Letters Testamentary."</div>
-    </div>
-    <div class="detail-section">
-      <h4 style="color:#6b88b5">What the Lawyer Needs</h4>
-      <ul>
-        <li>Named beneficiaries <strong>confirmed in writing</strong> — Stephen, Chelsea and Phillip each receiving 1/3</li>
-        <li>Proof the designation was on file <strong>before</strong> her death</li>
-        <li>Some brokers issue a formal <strong>"Beneficiary Verification Letter"</strong> — ask for this specifically</li>
-        <li>This document proves the IRA passes <strong>outside the Will</strong> and outside probate</li>
-      </ul>
-    </div>
-    <div class="detail-section">
-      <h4 style="color:#6b88b5">Practical Notes</h4>
-      <ul>
-        <li>Ask to be transferred to the <strong>"Deceased Account Holder"</strong> department</li>
-        <li>You will need to provide the <strong>death certificate</strong> and <strong>Letters Testamentary</strong></li>
-        <li>If you don't know which broker holds it — check her last tax return for <strong>Form 1099-R or Form 5498</strong> — the institution name will be on there</li>
-      </ul>
-    </div>
-    <div class="callout callout-slate"><strong>Once received</strong> — send the original document straight to the lawyer. Keep a copy for the estate file.</div>
-  </div>
-</div>
-
-</div>
-</div>
-
-<!-- ══ FINANCIAL CHECKLIST ══ -->
-<div class="section-label">Financial Checklist</div>
-<div class="big-card">
-  <div class="big-card-header" onclick="toggleChecklist()">
-    <div class="big-card-left">
-      <div class="big-card-icon">💼</div>
-      <div>
-        <div class="big-card-title">What To Find</div>
-        <div class="big-card-sub">Tap items as you locate them</div>
+    <div class="detail-panel" id="details-2">
+      <div class="detail-section">
+        <h4 style="color:#6b88b5">Blocker — Notice of Probate First</h4>
+        <p>Mail <strong>Notice of Probate (Form P-6)</strong> to all beneficiaries and file Affidavit of Mailing. Must notify: Stephen, Phillip, Chelsea, Kenneth, Nicholas, Brielle, Siilen, and Ninjin.</p>
       </div>
-    </div>
-    <span class="chev" id="chev-cl">›</span>
-  </div>
-  <div class="big-card-body" id="checklist-body">
-    <div id="cl-items"></div>
-  </div>
-</div>
-
-<!-- ══ FORMS ══ -->
-<div class="section-label">Court Forms Quick Reference</div>
-<div class="big-card">
-  <div class="big-card-header" onclick="toggleForms()">
-    <div class="big-card-left">
-      <div class="big-card-icon" style="background-color:rgba(212,132,42,0.18);">📄</div>
-      <div>
-        <div class="big-card-title">Required &amp; Common Forms</div>
-        <div class="big-card-sub">NY Surrogate's Court — Monroe County</div>
+      <div class="detail-section">
+        <h4 style="color:#6b88b5">4 Guardians Ad Litem Required</h4>
+        <ul>
+          <li>Nicholas Tokarz — minor, GAL required</li>
+          <li>Brielle Rose Tokarz — minor, GAL required</li>
+          <li>Siilen Ekenzul — minor, GAL required</li>
+          <li>Ninjin Ekenzul — minor, GAL required</li>
+          <li>Adds 2–4 weeks — confirm all birth dates before filing</li>
+        </ul>
       </div>
+      <div class="callout callout-gold"><strong>The golden ticket.</strong> Order 8–10 certified copies at $6 each — every institution needs one.</div>
     </div>
-    <span class="chev" id="chev-forms">›</span>
   </div>
-  <div class="big-card-body" id="forms-body">
-    <div style="padding:6px 16px 12px;">
-      <div class="forms-grid">
-        <div class="form-row"><span class="form-tag">P-1</span><span class="form-desc"><strong>Petition for Probate</strong> — the main filing document. Always required.</span></div>
-        <div class="form-row"><span class="form-tag">P-3</span><span class="form-desc"><strong>Affidavit of Attesting Witnesses</strong> — needed from Dan Famy &amp; Tracy M. Cuell. No self-proving affidavit on this Will.</span></div>
-        <div class="form-row"><span class="form-tag">P-13</span><span class="form-desc"><strong>Affidavit of Comparison</strong> — confirms photocopy matches original Will.</span></div>
-        <div class="form-row"><span class="form-tag">P-4</span><span class="form-desc"><strong>Waiver / Consent to Probate</strong> — signed by each adult beneficiary who agrees without a hearing.</span></div>
-        <div class="form-row"><span class="form-tag">P-6</span><span class="form-desc"><strong>Notice of Probate &amp; Affidavit of Mailing</strong> — send to all 8 named beneficiaries. <strong>Letters not issued until filed.</strong></span></div>
-        <div class="form-row"><span class="form-tag">P-8</span><span class="form-desc"><strong>Application to Dispense with Witness</strong> — if Dan Famy or Tracy M. Cuell cannot be found or are deceased.</span></div>
-        <div class="form-row"><span class="form-tag">P-9</span><span class="form-desc"><strong>Affidavit Proving Handwriting</strong> — used if a witness is deceased, alongside P-8.</span></div>
-        <div class="form-row"><span class="form-tag">P-10</span><span class="form-desc"><strong>Renunciation of Nominated Executor</strong> — if Chelsea steps down and Phillip takes over.</span></div>
-        <div class="form-row"><span class="form-tag">FT-1</span><span class="form-desc"><strong>Family Tree Chart</strong> — confirm ages of Kenneth, Nicholas &amp; Brielle before completing.</span></div>
+
+  <div class="card" id="card-3" data-color="gold">
+    <div class="card-header" onclick="toggleCard(3)">
+      <div class="step-bubble bubble-gold"><span class="num">3</span><span class="lbl">Inventory</span></div>
+      <div class="card-body"><div class="card-title">Inventory All Assets</div><div class="card-sub">List accounts, property &amp; notify institutions</div></div>
+      <div class="card-actions"><div class="check-btn" id="check-3" onclick="toggleCheck(event,3)"></div><span class="pill pill-gold">Ongoing</span><span class="chev" id="chev-3">›</span></div>
+    </div>
+    <div class="detail-panel" id="details-3">
+      <div class="detail-section">
+        <h4 style="color:#c9a84c">Key Assets</h4>
+        <ul>
+          <li><strong>32 Morrow Drive</strong> — must be sold per Clause THIRD. Carrying costs paid from residuary</li>
+          <li><strong>Roth IRA</strong> — passes outside Will via beneficiary designation. Get form from custodian immediately</li>
+          <li><strong>Bank accounts, investments, life insurance</strong> — note any POD/TOD designations</li>
+          <li>Last <strong>2 years of tax returns</strong> — best map of all accounts she owned</li>
+        </ul>
+      </div>
+      <div class="detail-section">
+        <h4 style="color:#c9a84c">Notify Locally</h4>
+        <ul>
+          <li><strong>RG&amp;E</strong> — keep ON until house sold: (585) 546-1900</li>
+          <li><strong>Monroe County Water</strong> — keep ON</li>
+          <li><strong>Social Security</strong> — notify of death; return any post-death payments</li>
+        </ul>
       </div>
     </div>
   </div>
-</div>
 
-<!-- ══ ATTORNEY ══ -->
-<div class="section-label">If You Hire an Attorney</div>
-<div class="info-panel">
-  <div class="info-panel-header">
-    <div class="info-panel-icon">⚖️</div>
-    <h3>Estate Attorney Fees — Monroe County</h3>
+  <div class="card" id="card-4" data-color="gold">
+    <div class="card-header" onclick="toggleCard(4)">
+      <div class="step-bubble bubble-gold"><span class="num">4</span><span class="lbl">Bank</span></div>
+      <div class="card-body"><div class="card-title">Open an Estate Bank Account</div><div class="card-sub">All estate money flows through here</div></div>
+      <div class="card-actions"><div class="check-btn" id="check-4" onclick="toggleCheck(event,4)"></div><span class="pill pill-gold">After Letters</span><span class="chev" id="chev-4">›</span></div>
+    </div>
+    <div class="detail-panel" id="details-4">
+      <div class="detail-section">
+        <h4 style="color:#c9a84c">How To Do It</h4>
+        <ul>
+          <li>Bring <strong>Letters Testamentary</strong> and ID to any bank</li>
+          <li>Open as <strong>"Estate of Elaine M. Wall"</strong></li>
+          <li>Get a free <strong>EIN</strong> at IRS.gov — takes 5 minutes</li>
+          <li>All house and car sale proceeds flow through here</li>
+        </ul>
+      </div>
+      <div class="callout callout-red"><strong>Never mix funds.</strong> All reimbursements must come from the estate account with receipts.</div>
+    </div>
   </div>
-  <p><strong>Hourly:</strong> Most Rochester estate attorneys charge <strong>$200–$500/hr.</strong> Simple estates run $1,500–$3,000 total.</p>
-  <p><strong>Flat fee:</strong> Some offer <strong>$3,500+</strong> for straightforward probate.</p>
-  <p><strong>Who pays?</strong> Attorney fees come from the estate account — <strong>not your personal money.</strong></p>
-  <div class="script-line">"Do you offer a flat fee for a simple probate in Monroe County?"</div>
+
+  <div class="card" id="card-5" data-color="amber">
+    <div class="card-header" onclick="toggleCard(5)">
+      <div class="step-bubble bubble-amber"><span class="num">5</span><span class="lbl">Debts</span></div>
+      <div class="card-body"><div class="card-title">Settle Debts &amp; Taxes</div><div class="card-sub">Pay valid claims from estate — not yours</div></div>
+      <div class="card-actions"><div class="check-btn" id="check-5" onclick="toggleCheck(event,5)"></div><span class="pill pill-amber">Months 1–6</span><span class="chev" id="chev-5">›</span></div>
+    </div>
+    <div class="detail-panel" id="details-5">
+      <div class="detail-section">
+        <h4 style="color:#d4842a">What To Pay</h4>
+        <ul>
+          <li><strong>Funeral costs</strong> — first by law</li>
+          <li><strong>House carrying costs</strong> until sold — from residuary (Clause THIRD)</li>
+          <li><strong>All estate taxes</strong> — from residuary, no apportionment to any beneficiary (Clause SECOND)</li>
+          <li><strong>Final income taxes</strong> — file her last Form 1040</li>
+          <li>Valid credit card and medical bills — verify each</li>
+        </ul>
+      </div>
+      <div class="detail-section">
+        <h4 style="color:#d4842a">Notice to Creditors</h4>
+        <p>Publish in Democrat &amp; Chronicle. Starts 7-month clock — creditors who miss it lose their claim.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-6" data-color="green">
+    <div class="card-header" onclick="toggleCard(6)">
+      <div class="step-bubble bubble-green"><span class="num">6</span><span class="lbl">Final</span></div>
+      <div class="card-body"><div class="card-title">Distribute Assets &amp; Close Estate</div><div class="card-sub">Follow the Will exactly, then file final papers</div></div>
+      <div class="card-actions"><div class="check-btn" id="check-6" onclick="toggleCheck(event,6)"></div><span class="pill pill-green">✓ Finish Line</span><span class="chev" id="chev-6">›</span></div>
+    </div>
+    <div class="detail-panel" id="details-6">
+      <div class="detail-section">
+        <h4 style="color:#4ea87a">Distribution Order</h4>
+        <ul>
+          <li><strong>House:</strong> $5k held Siilen · $5k held Ninjin · remainder: 1/3 direct Kenneth · 1/3 held Nicholas · 1/3 held Brielle</li>
+          <li><strong>Everything else:</strong> 1/3 Stephen · 1/3 Phillip · 1/3 Chelsea</li>
+          <li>Per stirpes: if any of Stephen/Phillip/Chelsea had predeceased, their share passes to their children</li>
+          <li>Get signed <strong>receipt and release</strong> from every adult</li>
+        </ul>
+      </div>
+      <div class="detail-section">
+        <h4 style="color:#4ea87a">Closing</h4>
+        <ul>
+          <li>File <strong>Final Account</strong> with Surrogate's Court</li>
+          <li>Court issues discharge order — Chelsea's official release</li>
+          <li>Close the estate bank account</li>
+        </ul>
+      </div>
+      <div class="callout callout-green"><strong>Done.</strong> Keep all records 3–5 years after discharge.</div>
+    </div>
+  </div>
+
+  <!-- Court Forms -->
+  <div class="section-label">Court Forms Reference</div>
+  <div class="big-card">
+    <div class="big-card-header" onclick="toggleForms()">
+      <div class="big-card-left">
+        <div class="big-card-icon" style="background-color:rgba(212,132,42,0.18);">📄</div>
+        <div><div class="big-card-title">Required &amp; Common Forms</div><div class="big-card-sub">Monroe County Surrogate's Court</div></div>
+      </div>
+      <span class="chev" id="chev-forms">›</span>
+    </div>
+    <div class="big-card-body" id="forms-body">
+      <div style="padding:6px 16px 12px;">
+        <div class="forms-grid">
+          <div class="form-row"><span class="form-tag">P-1</span><span class="form-desc"><strong>Petition for Probate</strong> — main filing. Always required.</span></div>
+          <div class="form-row"><span class="form-tag">P-3</span><span class="form-desc"><strong>Affidavit of Attesting Witnesses</strong> — Dan Famy &amp; Tracy M. Cuell. No self-proving affidavit on this Will.</span></div>
+          <div class="form-row"><span class="form-tag">P-13</span><span class="form-desc"><strong>Affidavit of Comparison</strong> — confirms copy matches original.</span></div>
+          <div class="form-row"><span class="form-tag">P-4</span><span class="form-desc"><strong>Waiver / Consent to Probate</strong> — signed by each adult beneficiary.</span></div>
+          <div class="form-row"><span class="form-tag">P-6</span><span class="form-desc"><strong>Notice of Probate &amp; Affidavit of Mailing</strong> — all 8 beneficiaries. <strong>Letters not issued until filed.</strong></span></div>
+          <div class="form-row"><span class="form-tag">P-8</span><span class="form-desc"><strong>Dispense with Witness</strong> — if Dan Famy or Tracy M. Cuell cannot be found.</span></div>
+          <div class="form-row"><span class="form-tag">P-9</span><span class="form-desc"><strong>Affidavit Proving Handwriting</strong> — if a witness is deceased, alongside P-8.</span></div>
+          <div class="form-row"><span class="form-tag">P-10</span><span class="form-desc"><strong>Renunciation of Executor</strong> — if Chelsea steps down, Phillip takes over.</span></div>
+          <div class="form-row"><span class="form-tag">FT-1</span><span class="form-desc"><strong>Family Tree Chart</strong> — confirm all birth dates before completing.</span></div>
+          <div class="form-row"><span class="form-tag">MV-349</span><span class="form-desc"><strong>Executor's Certificate</strong> — NY DMV form for vehicle title transfer.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div style="height:20px;"></div>
 </div>
 
-<div class="section-label">Remember</div>
-<div class="footer-card">
-  <p>This is a <strong>marathon, not a sprint.</strong><br>
-  You only need to handle Step 0 right now.<br>
-  Each step unlocks the next. You've got this.</p>
+<!-- ═══════════════════════════════════════
+     TAB 3 — FINANCIAL
+═══════════════════════════════════════ -->
+<div class="tab-panel" id="panel-finance">
+
+  <div class="section-label">For Sage Rutty &amp; Financial Team</div>
+
+  <!-- Roth IRA -->
+  <div class="card" id="card-ira" data-color="slate">
+    <div class="card-header" onclick="toggleCard('ira')">
+      <div class="step-bubble bubble-slate"><span class="num" style="font-size:18px;">🏦</span><span class="lbl">IRA</span></div>
+      <div class="card-body"><div class="card-title">Roth IRA — Beneficiary Proof</div><div class="card-sub">What to request from the broker</div></div>
+      <div class="card-actions"><span class="pill pill-red">⚠️ Urgent</span><span class="chev" id="chev-ira">›</span></div>
+    </div>
+    <div class="detail-panel" id="details-ira">
+      <div class="detail-section">
+        <h4 style="color:#6b88b5">Named Beneficiaries</h4>
+        <p>Stephen Tokarz · Chelsea Heasman · Phillip Tokarz — <strong>1/3 each</strong>. Passes directly outside probate via beneficiary designation.</p>
+      </div>
+      <div class="detail-section">
+        <h4 style="color:#6b88b5">What to Ask the Broker For</h4>
+        <ul>
+          <li><strong>"Beneficiary Designation Form"</strong> — or —</li>
+          <li><strong>"TOD — Transfer on Death Designation"</strong></li>
+          <li>Ask to be transferred to <strong>Deceased Account Holder</strong> department</li>
+          <li>Broker needs: <strong>death certificate + Letters Testamentary</strong></li>
+          <li>Some brokers issue a <strong>"Beneficiary Verification Letter"</strong> — ask for this specifically</li>
+        </ul>
+      </div>
+      <div class="detail-section">
+        <h4 style="color:#6b88b5">Script</h4>
+        <div class="script-line" style="margin-top:0;">"I am the Executrix of the estate of Elaine M. Wall. I need the beneficiary designation on file for her Roth IRA. The account holder is deceased and I have Letters Testamentary."</div>
+      </div>
+      <div class="callout callout-slate"><strong>Don't know which broker?</strong> Check her last tax return for Form 1099-R or Form 5498 — the institution name is on there. Send original document to the lawyer; keep a copy for the estate file.</div>
+    </div>
+  </div>
+
+  <!-- House sale -->
+  <div class="card" id="card-house" data-color="gold">
+    <div class="card-header" onclick="toggleCard('house')">
+      <div class="step-bubble bubble-gold"><span class="num" style="font-size:18px;">🏠</span><span class="lbl">House</span></div>
+      <div class="card-body"><div class="card-title">Selling 32 Morrow Drive</div><div class="card-sub">No court approval needed · Letters first</div></div>
+      <div class="card-actions"><span class="pill pill-gold">Action Required</span><span class="chev" id="chev-house">›</span></div>
+    </div>
+    <div class="detail-panel" id="details-house">
+      <div class="detail-section">
+        <h4 style="color:#c9a84c">Step by Step</h4>
+        <ul>
+          <li><strong>Letters Testamentary first</strong> — title companies require them</li>
+          <li>No court approval needed — Clause SIXTH grants full sale authority to Chelsea</li>
+          <li>Chelsea signs all docs as <strong>"Chelsea Heasman, Executrix of the Estate of Elaine M. Wall"</strong></li>
+          <li>Provide title company: <strong>Letters Testamentary, Will, death certificate</strong></li>
+          <li>Track all carrying costs (utilities, taxes, insurance, cleaning) — reimbursed from residuary</li>
+          <li>File new deed at <strong>Monroe County Clerk's Office — 39 W. Main St</strong></li>
+        </ul>
+      </div>
+      <div class="detail-section">
+        <h4 style="color:#c9a84c">Proceeds Distribution — In This Order</h4>
+        <ul>
+          <li><strong>$5,000</strong> → held for Siilen Ekenzul (minor, until age 30)</li>
+          <li><strong>$5,000</strong> → held for Ninjin Ekenzul (minor, until age 30)</li>
+          <li><strong>1/3 remainder</strong> → Kenneth Tokarz directly (adult, age 21)</li>
+          <li><strong>1/3 remainder</strong> → held for Nicholas Tokarz (minor, until age 30)</li>
+          <li><strong>1/3 remainder</strong> → held for Brielle Rose Tokarz (minor, until age 30)</li>
+        </ul>
+      </div>
+      <div class="callout callout-red"><strong>Stephen, Chelsea and Phillip receive nothing from the house.</strong> House proceeds go entirely to the five beneficiaries above.</div>
+      <div class="callout callout-gold" style="margin-top:10px;"><strong>Proceeds go to estate account first</strong> — sit there until 7-month creditor period passes, then distribute.</div>
+    </div>
+  </div>
+
+  <!-- Car sale -->
+  <div class="card" id="card-car" data-color="amber">
+    <div class="card-header" onclick="toggleCard('car')">
+      <div class="step-bubble bubble-amber"><span class="num" style="font-size:18px;">🚗</span><span class="lbl">Car</span></div>
+      <div class="card-body"><div class="card-title">Selling the Car</div><div class="card-sub">Proceeds → residuary → Stephen, Chelsea, Phillip</div></div>
+      <div class="card-actions"><span class="pill pill-amber">Action Required</span><span class="chev" id="chev-car">›</span></div>
+    </div>
+    <div class="detail-panel" id="details-car">
+      <div class="detail-section">
+        <h4 style="color:#d4842a">Step by Step</h4>
+        <ul>
+          <li><strong>Letters Testamentary first</strong></li>
+          <li>Go to <strong>Monroe County DMV</strong> — 200 E Henrietta Rd · (585) 753-1600</li>
+          <li>Complete <strong>Form MV-349</strong> (Executor's Certificate) — dmv.ny.gov</li>
+          <li>Title reissued in estate name — Chelsea signs over to buyer as Executrix</li>
+          <li>Cancel insurance — unused premium refund into estate account</li>
+          <li>If title is missing — apply for <strong>duplicate title</strong> at DMV first</li>
+        </ul>
+      </div>
+      <div class="callout callout-gold"><strong>Proceeds go to estate account</strong> → residuary → 1/3 each Stephen, Chelsea and Phillip after debts settled.</div>
+    </div>
+  </div>
+
+  <!-- Estate bank account -->
+  <div class="card" id="card-bank" data-color="green">
+    <div class="card-header" onclick="toggleCard('bank')">
+      <div class="step-bubble bubble-green"><span class="num" style="font-size:18px;">💵</span><span class="lbl">Account</span></div>
+      <div class="card-body"><div class="card-title">Estate Bank Account</div><div class="card-sub">All estate funds flow through here</div></div>
+      <div class="card-actions"><span class="pill pill-green">After Letters</span><span class="chev" id="chev-bank">›</span></div>
+    </div>
+    <div class="detail-panel" id="details-bank">
+      <div class="detail-section">
+        <h4 style="color:#4ea87a">Setup</h4>
+        <ul>
+          <li>Open as <strong>"Estate of Elaine M. Wall"</strong> at any bank</li>
+          <li>Bring Letters Testamentary + ID</li>
+          <li>Get free <strong>EIN</strong> at IRS.gov — 5 minutes online</li>
+          <li>All proceeds — house, car, accounts — flow here first</li>
+        </ul>
+      </div>
+      <div class="detail-section">
+        <h4 style="color:#4ea87a">What Flows In</h4>
+        <ul>
+          <li>House sale net proceeds</li>
+          <li>Car sale proceeds</li>
+          <li>All bank account transfers</li>
+          <li>Any insurance payouts (if no named beneficiary)</li>
+          <li>Investment account liquidations</li>
+        </ul>
+      </div>
+      <div class="callout callout-red"><strong>Never mix funds.</strong> Every expense reimbursement needs a receipt and comes from this account only.</div>
+    </div>
+  </div>
+
+  <!-- Minor holdings -->
+  <div class="card" id="card-minors" data-color="purple">
+    <div class="card-header" onclick="toggleCard('minors')">
+      <div class="step-bubble bubble-purple"><span class="num" style="font-size:18px;">👶</span><span class="lbl">Minors</span></div>
+      <div class="card-body"><div class="card-title">Minor Beneficiaries — 4 Holdings</div><div class="card-sub">Chelsea holds as Fiduciary until age 30</div></div>
+      <div class="card-actions"><span class="pill pill-purple">⚠️ Ongoing</span><span class="chev" id="chev-minors">›</span></div>
+    </div>
+    <div class="detail-panel" id="details-minors">
+      <div class="detail-section">
+        <h4 style="color:#9b7ec8">The Four Minor Holdings</h4>
+        <ul>
+          <li><strong>Nicholas Tokarz</strong> — 1/3 of house remainder. Held until age 30.</li>
+          <li><strong>Brielle Rose Tokarz</strong> — 1/3 of house remainder. Held until age 30.</li>
+          <li><strong>Siilen Ekenzul</strong> — $5,000 from house. Held until age 30.</li>
+          <li><strong>Ninjin Ekenzul</strong> — $5,000 from house. Held until age 30.</li>
+        </ul>
+      </div>
+      <div class="detail-section">
+        <h4 style="color:#9b7ec8">Chelsea's Fiduciary Obligations</h4>
+        <ul>
+          <li>May apply income toward support, maintenance and <strong>education</strong> for each minor</li>
+          <li>Cannot distribute principal until each reaches <strong>age 30</strong></li>
+          <li>No annual court accountings required — Clause FOURTH waives this</li>
+          <li>If a minor dies before age 30, their share passes to their own estate</li>
+        </ul>
+      </div>
+      <div class="callout callout-purple"><strong>Age 30 is unusual</strong> — most Wills use 21 or 25. Chelsea may be managing these holdings for many years. The attorney should advise on investment strategy for held funds.</div>
+    </div>
+  </div>
+
+  <div style="height:20px;"></div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     TAB 4 — CHECKLIST
+═══════════════════════════════════════ -->
+<div class="tab-panel" id="panel-checklist">
+
+  <div class="progress-wrap">
+    <div class="progress-row">
+      <span class="progress-label">Steps Complete</span>
+      <span class="progress-pct" id="pctLabel">0%</span>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+  </div>
+
+  <div class="section-label">Probate Steps</div>
+  <div style="margin:0 14px 10px;background:#1c1a17;border-radius:16px;border:1px solid #2f2d28;overflow:hidden;">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 16px;border-bottom:1px solid #2f2d28;cursor:pointer;" onclick="toggleCheck2(event,-1)">
+      <div style="font-size:13px;font-weight:500;color:#f0ece4;">Step 0 — Pre-Probate</div>
+      <div class="check-btn" id="check-s0" onclick="toggleCheck(event,0)"></div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 16px;border-bottom:1px solid #2f2d28;">
+      <div><div style="font-size:13px;font-weight:500;color:#f0ece4;">Step 1 — File at Surrogate's Court</div><div style="font-size:11px;color:#7a7368;margin-top:2px;">99 Exchange Blvd, Room 514</div></div>
+      <div class="check-btn" id="check-s1" onclick="toggleCheck(event,1)"></div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 16px;border-bottom:1px solid #2f2d28;">
+      <div><div style="font-size:13px;font-weight:500;color:#f0ece4;">Step 2 — Receive Letters Testamentary</div><div style="font-size:11px;color:#7a7368;margin-top:2px;">Order 8–10 certified copies</div></div>
+      <div class="check-btn" id="check-s2" onclick="toggleCheck(event,2)"></div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 16px;border-bottom:1px solid #2f2d28;">
+      <div><div style="font-size:13px;font-weight:500;color:#f0ece4;">Step 3 — Inventory All Assets</div></div>
+      <div class="check-btn" id="check-s3" onclick="toggleCheck(event,3)"></div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 16px;border-bottom:1px solid #2f2d28;">
+      <div><div style="font-size:13px;font-weight:500;color:#f0ece4;">Step 4 — Open Estate Bank Account</div><div style="font-size:11px;color:#7a7368;margin-top:2px;">Get EIN first at IRS.gov</div></div>
+      <div class="check-btn" id="check-s4" onclick="toggleCheck(event,4)"></div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 16px;border-bottom:1px solid #2f2d28;">
+      <div><div style="font-size:13px;font-weight:500;color:#f0ece4;">Step 5 — Settle Debts &amp; Taxes</div><div style="font-size:11px;color:#7a7368;margin-top:2px;">Publish notice in Democrat &amp; Chronicle</div></div>
+      <div class="check-btn" id="check-s5" onclick="toggleCheck(event,5)"></div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 16px;">
+      <div><div style="font-size:13px;font-weight:500;color:#f0ece4;">Step 6 — Distribute &amp; Close Estate</div><div style="font-size:11px;color:#7a7368;margin-top:2px;">File Final Account with Surrogate's Court</div></div>
+      <div class="check-btn" id="check-s6" onclick="toggleCheck(event,6)"></div>
+    </div>
+  </div>
+
+  <div class="section-label">Documents &amp; Items to Locate</div>
+  <div class="big-card">
+    <div class="big-card-header" onclick="toggleChecklist()">
+      <div class="big-card-left">
+        <div class="big-card-icon">💼</div>
+        <div><div class="big-card-title">Master Document Checklist</div><div class="big-card-sub">Tap items as you locate them</div></div>
+      </div>
+      <span class="chev" id="chev-cl">›</span>
+    </div>
+    <div class="big-card-body" id="checklist-body">
+      <div id="cl-items"></div>
+    </div>
+  </div>
+
+  <div class="section-label">Contacts</div>
+  <div style="margin:0 14px 10px;background:#1c1a17;border-radius:16px;border:1px solid #2f2d28;overflow:hidden;">
+    <div style="padding:14px 16px;border-bottom:1px solid #2f2d28;">
+      <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:1.3px;color:#6b88b5;margin-bottom:10px;">Key Contacts</div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div><div style="font-size:12px;font-weight:600;color:#f0ece4;">Monroe County Surrogate's Court</div><div style="font-size:11px;color:#7a7368;margin-top:2px;">99 Exchange Blvd Rm 514 · (585) 371-3609</div></div>
+        <div><div style="font-size:12px;font-weight:600;color:#f0ece4;">Monroe County DMV</div><div style="font-size:11px;color:#7a7368;margin-top:2px;">200 E Henrietta Rd · (585) 753-1600</div></div>
+        <div><div style="font-size:12px;font-weight:600;color:#f0ece4;">Monroe County Clerk (Deeds)</div><div style="font-size:11px;color:#7a7368;margin-top:2px;">39 W Main St, Rochester NY 14614</div></div>
+        <div><div style="font-size:12px;font-weight:600;color:#f0ece4;">RG&amp;E (Gas &amp; Electric)</div><div style="font-size:11px;color:#7a7368;margin-top:2px;">(585) 546-1900 — keep ON until house sold</div></div>
+        <div><div style="font-size:12px;font-weight:600;color:#f0ece4;">Witness — Dan Famy</div><div style="font-size:11px;color:#7a7368;margin-top:2px;">159 Valley View Crescent, Rochester NY 14617</div></div>
+        <div><div style="font-size:12px;font-weight:600;color:#f0ece4;">Witness — Tracy M. Cuell</div><div style="font-size:11px;color:#7a7368;margin-top:2px;">131 Mosley Road, Rochester NY 14616</div></div>
+      </div>
+    </div>
+    <div style="padding:14px 16px;">
+      <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:1.3px;color:#4ea87a;margin-bottom:10px;">Family Addresses</div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div><div style="font-size:12px;font-weight:600;color:#f0ece4;">Chelsea Heasman (Executrix)</div><div style="font-size:11px;color:#7a7368;margin-top:1px;">440 NE 4th Ave #621, Fort Lauderdale FL 33301</div></div>
+        <div><div style="font-size:12px;font-weight:600;color:#f0ece4;">Stephen Tokarz</div><div style="font-size:11px;color:#7a7368;margin-top:1px;">2015 Rainbow View St, Henderson NV 89012</div></div>
+        <div><div style="font-size:12px;font-weight:600;color:#f0ece4;">Phillip Tokarz</div><div style="font-size:11px;color:#7a7368;margin-top:1px;">243 Hillbridge Dr, Rochester NY 14612</div></div>
+        <div><div style="font-size:12px;font-weight:600;color:#f0ece4;">Thomas Borrelli</div><div style="font-size:11px;color:#7a7368;margin-top:1px;">114 Henley St, Rochester NY 14612</div></div>
+        <div><div style="font-size:12px;font-weight:600;color:#f0ece4;">Susan Tokarz</div><div style="font-size:11px;color:#7a7368;margin-top:1px;">626 Beach Ave, Rochester NY 14612</div></div>
+      </div>
+    </div>
+  </div>
+  <div style="height:20px;"></div>
 </div>
 
 <script>
@@ -1230,25 +1114,81 @@ for (var i = 0; i < STEPS; i++) stepsDone.push(false);
 
 var clItems = [
   { label: "Original Will (4 pages)", detail: "Dated July 22, 2024 — court keeps the physical original" },
-  { label: "10 Death Certificates", detail: "Request certified copies from funeral home" },
+  { label: "10 Death Certificates", detail: "Certified copies from funeral home" },
   { label: "Witness Affidavits (Form P-3)", detail: "Dan Famy — 159 Valley View Crescent 14617 · Tracy M. Cuell — 131 Mosley Road 14616" },
-  { label: "Birth certificates — Nicholas & Brielle", detail: "Both confirmed minors — court needs birth dates for Petition. Kenneth (21) is an adult, no GAL needed for him." },
-  { label: "Birth certificates — Siilen & Ninjin Ekenzul", detail: "Both minors, Stephen's wife's family. $5,000 each held until age 30. Get details through Stephen." },
-  { label: "Roth IRA Beneficiary Form", detail: "Get from custodian immediately — passes outside the Will entirely" },
+  { label: "Birth certificates — Nicholas & Brielle", detail: "Confirmed minors — court needs birth dates for Petition" },
+  { label: "Birth certificates — Siilen & Ninjin Ekenzul", detail: "Both minors, Stephen's wife's family. Get through Stephen." },
+  { label: "Roth IRA Beneficiary Form", detail: "Call broker — ask for TOD form confirming Stephen, Chelsea & Phillip. Need death cert + Letters" },
   { label: "Bank Accounts", detail: "Checking, savings, CDs — note any POD/TOD designations" },
   { label: "Life Insurance Policies", detail: "Call each company with policy number to file a claim" },
-  { label: "Tax Returns (last 2 years)", detail: "Best map of every account Elaine owned" },
-  { label: "32 Morrow Drive Documents", detail: "Mortgage statement, property tax bills — must sell per Will" },
-  { label: "Vehicle Title & Registration", detail: "Monroe County DMV transfer" },
-  { label: "Credit Card & Medical Bills", detail: "Verify each before paying from estate account" },
+  { label: "Tax Returns (last 2 years)", detail: "Best map of every account Elaine owned — shows broker names on 1099-R/5498" },
+  { label: "32 Morrow Drive — mortgage & tax bills", detail: "Must sell as soon as practical per Clause THIRD" },
+  { label: "Vehicle title for Elaine's car", detail: "Monroe County DMV + Form MV-349. If missing, get duplicate title first." },
+  { label: "Credit card & medical bills", detail: "Verify each before paying from estate account" },
   { label: "EIN for Estate", detail: "Free at IRS.gov — needed to open estate bank account" },
   { label: "Letters Testamentary (8–10 copies)", detail: "$6 each — every bank and institution wants one" },
-  { label: "Real estate agent for 32 Morrow Drive", detail: "Must sell as soon as reasonably practical per Clause THIRD — get Letters first" },
-  { label: "Vehicle title for Elaine's car", detail: "Needed for DMV transfer — if missing, apply for duplicate title first" },
-  { label: "Beneficiary Designation Form — Roth IRA", detail: "Call broker, ask for TOD form confirming Stephen, Chelsea and Phillip. Broker needs death cert + Letters Testamentary" }
+  { label: "Real estate agent for 32 Morrow Drive", detail: "Get Letters first — title company requires them" }
 ];
 for (var j = 0; j < clItems.length; j++) clDone.push(false);
 
+// ── TAB SWITCHING ──
+var currentTab = 'family';
+function switchTab(tab) {
+  document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(b) {
+    b.classList.remove('active','active-family','active-lawyer','active-finance','active-checklist');
+  });
+  document.getElementById('panel-' + tab).classList.add('active');
+  document.getElementById('tab-' + tab).classList.add('active', 'active-' + tab);
+  currentTab = tab;
+  try { localStorage.setItem('exec_tab', tab); } catch(e) {}
+}
+
+// ── TREE ──
+function toggleTree() {
+  document.getElementById('tree-panel').classList.toggle('open');
+  document.getElementById('chev-tree').classList.toggle('open');
+}
+
+// ── ACCORDION ──
+function toggleSub(id) {
+  document.getElementById('sub-body-' + id).classList.toggle('open');
+  document.getElementById('sub-chev-' + id).classList.toggle('open');
+}
+function toggleCard(i) {
+  document.getElementById('details-' + i).classList.toggle('open');
+  document.getElementById('chev-' + i).classList.toggle('open');
+}
+function toggleForms() {
+  document.getElementById('forms-body').classList.toggle('open');
+  document.getElementById('chev-forms').classList.toggle('open');
+}
+function toggleChecklist() {
+  document.getElementById('checklist-body').classList.toggle('open');
+  document.getElementById('chev-cl').classList.toggle('open');
+}
+
+// ── STEP CHECKS ──
+function toggleCheck(e, i) {
+  e.stopPropagation();
+  stepsDone[i] = !stepsDone[i];
+  ['check-'+i, 'check-s'+i].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) { stepsDone[i] ? el.classList.add('on') : el.classList.remove('on'); }
+  });
+  updateProgress(); save();
+}
+function updateProgress() {
+  var done = 0;
+  for (var i = 0; i < STEPS; i++) { if (stepsDone[i]) done++; }
+  var pct = Math.round((done / STEPS) * 100);
+  var pf = document.getElementById('progressFill');
+  var pl = document.getElementById('pctLabel');
+  if (pf) pf.style.width = pct + '%';
+  if (pl) pl.textContent = pct + '%';
+}
+
+// ── DOCUMENT CHECKLIST ──
 function renderChecklist() {
   var html = '';
   for (var i = 0; i < clItems.length; i++) {
@@ -1260,46 +1200,8 @@ function renderChecklist() {
   document.getElementById('cl-items').innerHTML = html;
 }
 function toggleCl(i) { clDone[i] = !clDone[i]; renderChecklist(); save(); }
-function toggleTree() {
-  document.getElementById('tree-panel').classList.toggle('open');
-  document.getElementById('chev-tree').classList.toggle('open');
-}
-function toggleSub(id) {
-  document.getElementById('sub-body-' + id).classList.toggle('open');
-  document.getElementById('sub-chev-' + id).classList.toggle('open');
-}
-function toggleCard(i) {
-  document.getElementById('details-' + i).classList.toggle('open');
-  document.getElementById('chev-' + i).classList.toggle('open');
-}
-function toggleSpecial(id) {
-  document.getElementById('details-' + id).classList.toggle('open');
-  document.getElementById('chev-' + id).classList.toggle('open');
-}
-function toggleChecklist() {
-  document.getElementById('checklist-body').classList.toggle('open');
-  document.getElementById('chev-cl').classList.toggle('open');
-}
-function toggleForms() {
-  document.getElementById('forms-body').classList.toggle('open');
-  document.getElementById('chev-forms').classList.toggle('open');
-}
-function toggleCheck(e, i) {
-  e.stopPropagation();
-  stepsDone[i] = !stepsDone[i];
-  var btn = document.getElementById('check-' + i);
-  var card = document.getElementById('card-' + i);
-  if (stepsDone[i]) { btn.classList.add('on'); card.classList.add('done'); }
-  else { btn.classList.remove('on'); card.classList.remove('done'); }
-  updateProgress(); save();
-}
-function updateProgress() {
-  var done = 0;
-  for (var i = 0; i < STEPS; i++) { if (stepsDone[i]) done++; }
-  var pct = Math.round((done / STEPS) * 100);
-  document.getElementById('progressFill').style.width = pct + '%';
-  document.getElementById('pctLabel').textContent = pct + '%';
-}
+
+// ── SAVE / LOAD ──
 function save() {
   try {
     localStorage.setItem('exec_steps', JSON.stringify(stepsDone));
@@ -1310,15 +1212,17 @@ function load() {
   try {
     var s = localStorage.getItem('exec_steps');
     var c = localStorage.getItem('exec_cl');
+    var t = localStorage.getItem('exec_tab');
     if (s) stepsDone = JSON.parse(s);
     if (c) clDone = JSON.parse(c);
-  } catch(e) {}
+    if (t) switchTab(t); else switchTab('family');
+  } catch(e) { switchTab('family'); }
   for (var i = 0; i < STEPS; i++) {
     if (stepsDone[i]) {
-      var btn = document.getElementById('check-' + i);
-      var card = document.getElementById('card-' + i);
-      if (btn) btn.classList.add('on');
-      if (card) card.classList.add('done');
+      ['check-'+i,'check-s'+i].forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) el.classList.add('on');
+      });
     }
   }
   updateProgress();
@@ -1326,71 +1230,48 @@ function load() {
 }
 load();
 
-// ── UPDATE / REFRESH ──────────────────────────────────────
+// ── UPDATE / REFRESH ──
 function checkForUpdate() {
-  var btn = document.getElementById('updateBtn');
   var icon = document.getElementById('updateIcon');
   var label = document.getElementById('updateLabel');
+  var btn = document.getElementById('updateBtn');
   icon.style.animation = 'spin 0.8s linear infinite';
   label.textContent = 'Checking...';
   btn.style.opacity = '0.7';
   btn.style.pointerEvents = 'none';
-  // Force a hard reload bypassing cache — works on GitHub Pages
   setTimeout(function() {
-    // Append cache-busting timestamp to force fresh fetch
     var url = window.location.href.split('?')[0] + '?v=' + Date.now();
     window.location.href = url;
   }, 600);
 }
 
-// Pull-to-refresh
-var pullStartY = 0;
-var pullDist = 0;
-var pulling = false;
+// ── PULL TO REFRESH ──
+var pullStartY = 0, pullDist = 0, pulling = false;
 var PULL_THRESHOLD = 80;
-
 document.addEventListener('touchstart', function(e) {
-  if (window.scrollY === 0) {
-    pullStartY = e.touches[0].clientY;
-    pulling = true;
-  }
+  if (window.scrollY === 0) { pullStartY = e.touches[0].clientY; pulling = true; }
 }, { passive: true });
-
 document.addEventListener('touchmove', function(e) {
   if (!pulling) return;
   pullDist = e.touches[0].clientY - pullStartY;
   if (pullDist > 0 && window.scrollY === 0) {
-    var indicator = document.getElementById('pullIndicator');
-    var pullText = document.getElementById('pullText');
-    indicator.style.display = 'block';
-    if (pullDist > PULL_THRESHOLD) {
-      pullText.textContent = '↑ Release to refresh';
-      pullText.style.color = '#4ea87a';
-    } else {
-      pullText.textContent = '↓ Pull to refresh';
-      pullText.style.color = '#c9a84c';
-    }
+    var ind = document.getElementById('pullIndicator');
+    var txt = document.getElementById('pullText');
+    ind.style.display = 'block';
+    if (pullDist > PULL_THRESHOLD) { txt.textContent = '↑ Release to refresh'; txt.style.color = '#4ea87a'; }
+    else { txt.textContent = '↓ Pull to refresh'; txt.style.color = '#c9a84c'; }
   }
 }, { passive: true });
-
-document.addEventListener('touchend', function(e) {
+document.addEventListener('touchend', function() {
   if (!pulling) return;
   pulling = false;
-  var indicator = document.getElementById('pullIndicator');
-  indicator.style.display = 'none';
+  document.getElementById('pullIndicator').style.display = 'none';
   if (pullDist > PULL_THRESHOLD && window.scrollY === 0) {
-    // Hard reload
     var url = window.location.href.split('?')[0] + '?v=' + Date.now();
     window.location.href = url;
   }
   pullDist = 0;
 }, { passive: true });
-
-// Spin animation for refresh icon
-var style = document.createElement('style');
-style.textContent = '@keyframes spin { from { display:inline-block; transform:rotate(0deg); } to { transform:rotate(360deg); } }';
-document.head.appendChild(style);
-// ─────────────────────────────────────────────────────────
 </script>
 </body>
 </html>
