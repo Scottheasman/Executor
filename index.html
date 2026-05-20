@@ -200,7 +200,14 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
   display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
 .tree-panel { display: none; border-top: 1px solid #2f2d28; padding: 20px 14px 24px; }
 .tree-panel.open { display: block; }
-.tree-scroll { overflow-x: auto; padding-bottom: 4px; }
+.tree-scroll { overflow-x: auto; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
+@media (orientation: portrait) {
+  .tree-scroll { overflow-x: scroll; }
+  .tree-scroll::-webkit-scrollbar { height: 4px; }
+  .tree-scroll::-webkit-scrollbar-track { background: #2f2d28; border-radius: 999px; }
+  .tree-scroll::-webkit-scrollbar-thumb { background: #c9a84c; border-radius: 999px; }
+  .tree-svg-wrap, .tree-scroll > * { min-width: 640px; }
+}
 .trow { display: flex; justify-content: center; align-items: flex-start; gap: 8px; }
 .tcol { display: flex; flex-direction: column; align-items: center; }
 .tnode { border-radius: 10px; padding: 8px 10px; min-width: 86px; text-align: center; border: 1px solid; }
@@ -279,16 +286,16 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
     <span class="chev" id="chev-tree">›</span>
   </div>
   <div class="tree-panel" id="tree-panel">
-    <div class="tree-scroll">
+    <div class="tree-scroll"><div style="min-width:640px;">
 
       <!-- GEN 1 -->
       <div class="trow">
         <div class="tnode tnode-dem" style="min-width:130px;">
-          <div class="tnode-name">Mary Lou</div>
+          <div class="tnode-name">Mary Lou Borrelli</div>
           <div class="tnode-role">Mother (Living)</div>
           <div class="tnode-tags">
             <span class="ttag ttag-dem">Dementia</span>
-            <span class="ttag ttag-poa">POA → Tommy<br>277 Moxon Dr</span>
+            <span class="ttag ttag-poa">POA → Thomas Borrelli<br>277 Moxon Dr</span>
           </div>
         </div>
       </div>
@@ -316,9 +323,9 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
         <!-- Tommy -->
         <div class="tcol">
           <div class="tnode tnode-poa" style="min-width:86px;">
-            <div class="tnode-name">Tommy</div>
+            <div class="tnode-name">Thomas Borrelli</div>
             <div class="tnode-role">Brother · No children</div>
-            <div class="tnode-tags"><span class="ttag ttag-poa">POA for Mary Lou</span></div>
+            <div class="tnode-tags"><span class="ttag ttag-poa">POA for Mary Lou Borrelli</span></div>
             <div style="font-size:8px;color:#7a7368;margin-top:4px;line-height:1.4;">277 Moxon Dr<br>Rochester NY 14612</div>
           </div>
         </div>
@@ -333,7 +340,7 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
         <!-- Susan + her children below -->
         <div class="tcol">
           <div class="tnode tnode-poa" style="min-width:86px;">
-            <div class="tnode-name">Susan</div>
+            <div class="tnode-name">Susan Tokarz</div>
             <div class="tnode-role">Sister</div>
             <div style="font-size:8px;color:#7a7368;margin-top:4px;line-height:1.4;">626 Beach Ave<br>Rochester NY 14612</div>
           </div>
@@ -361,6 +368,7 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
                 <div class="tnode-name">Stephen Tokarz</div>
                 <div class="tnode-role">Nephew</div>
                 <div class="tnode-tags"><span class="ttag ttag-heir">1/3 residuary</span></div>
+                <div style="font-size:8px;color:#7a7368;margin-top:4px;line-height:1.4;">2015 Rainbow View St<br>Henderson NV 89012</div>
               </div>
               <div class="vl" style="height:14px;"></div>
               <!-- H-bar to 2 kids -->
@@ -406,6 +414,7 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
                   <span class="ttag ttag-exec">Executrix</span>
                   <span class="ttag ttag-heir">1/3 residuary</span>
                 </div>
+                <div style="font-size:8px;color:#7a7368;margin-top:4px;line-height:1.4;">440 NE 4th Ave #621<br>Fort Lauderdale FL 33301</div>
               </div>
             </div>
 
@@ -418,6 +427,7 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
                   <span class="ttag ttag-heir">1/3 residuary</span>
                   <span class="ttag ttag-exec">Successor Exec</span>
                 </div>
+                <div style="font-size:8px;color:#7a7368;margin-top:4px;line-height:1.4;">243 Hillbridge Dr<br>Rochester NY 14612</div>
               </div>
               <div class="vl" style="height:26px;"></div>
               <!-- GEN 4: Brielle -->
@@ -498,13 +508,107 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
       </ul>
     </div>
     <div class="tnote tnote-slate">
-      <strong>Mary Lou — Impact on Estate</strong>
+      <strong>Mary Lou Borrelli — Impact on Estate</strong>
       <ul>
         <li>Not named in the Will — parents have no forced heir right under NY law</li>
-        <li>Tommy (277 Moxon Dr, Rochester NY 14612) holds POA for Mary Lou — covers her affairs only, no personal claim on this estate</li>
-        <li>Check the Roth IRA beneficiary form — if Mary Lou is named, Tommy manages it via POA</li>
-        <li>If Will were overturned, siblings Tommy &amp; Susan would inherit under NY intestacy; Mary Lou would not</li>
+        <li>Thomas Borrelli (277 Moxon Dr, Rochester NY 14612) holds POA for Mary Lou — covers her affairs only, no personal claim on this estate</li>
+        <li>Check the Roth IRA beneficiary form — if Mary Lou Borrelli is named, Thomas Borrelli manages it via POA</li>
+        <li>If Will were overturned, siblings Thomas Borrelli &amp; Susan Tokarz would inherit under NY intestacy; Mary Lou Borrelli would not</li>
       </ul>
+    </div>
+
+    <!-- DISTRIBUTION BREAKDOWN CARD -->
+    <div style="margin-top:16px;border-radius:12px;overflow:hidden;border:1px solid #2f2d28;">
+
+      <div style="background:linear-gradient(135deg,rgba(201,168,76,0.2),rgba(201,168,76,0.05));padding:14px 16px;border-bottom:1px solid #2f2d28;">
+        <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:#c9a84c;margin-bottom:2px;">⚡ Who Gets What — At a Glance</div>
+        <div style="font-size:11px;color:#7a7368;font-weight:300;">Confirmed from Will dated July 22, 2024</div>
+      </div>
+
+      <!-- Stephen / Chelsea / Phillip -->
+      <div style="padding:14px 16px;border-bottom:1px solid #2f2d28;">
+        <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1.3px;color:#4ea87a;margin-bottom:10px;">Stephen · Chelsea · Phillip — Each receive 1/3 of:</div>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div style="display:flex;align-items:center;gap:10px;padding:8px 10px;background:rgba(78,168,122,0.08);border-radius:8px;border:1px solid rgba(78,168,122,0.2);">
+            <span style="font-size:16px;">🏦</span>
+            <div>
+              <div style="font-size:12px;font-weight:600;color:#f0ece4;">Roth IRA</div>
+              <div style="font-size:10px;color:#7a7368;font-weight:300;">Named beneficiaries confirmed — passes directly, outside probate</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:8px 10px;background:rgba(78,168,122,0.08);border-radius:8px;border:1px solid rgba(78,168,122,0.2);">
+            <span style="font-size:16px;">🏦</span>
+            <div>
+              <div style="font-size:12px;font-weight:600;color:#f0ece4;">All Bank Accounts</div>
+              <div style="font-size:10px;color:#7a7368;font-weight:300;">Checking, savings, CDs — after debts paid</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:8px 10px;background:rgba(78,168,122,0.08);border-radius:8px;border:1px solid rgba(78,168,122,0.2);">
+            <span style="font-size:16px;">🚗</span>
+            <div>
+              <div style="font-size:12px;font-weight:600;color:#f0ece4;">Car &amp; Vehicle(s)</div>
+              <div style="font-size:10px;color:#7a7368;font-weight:300;">Sale proceeds split equally</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:8px 10px;background:rgba(78,168,122,0.08);border-radius:8px;border:1px solid rgba(78,168,122,0.2);">
+            <span style="font-size:16px;">📈</span>
+            <div>
+              <div style="font-size:12px;font-weight:600;color:#f0ece4;">Investments &amp; Brokerage</div>
+              <div style="font-size:10px;color:#7a7368;font-weight:300;">Stocks, bonds, any brokerage accounts</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:8px 10px;background:rgba(78,168,122,0.08);border-radius:8px;border:1px solid rgba(78,168,122,0.2);">
+            <span style="font-size:16px;">💍</span>
+            <div>
+              <div style="font-size:12px;font-weight:600;color:#f0ece4;">Personal Property</div>
+              <div style="font-size:10px;color:#7a7368;font-weight:300;">Jewellery, furniture, belongings — sold or divided</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:8px 10px;background:rgba(78,168,122,0.08);border-radius:8px;border:1px solid rgba(78,168,122,0.2);">
+            <span style="font-size:16px;">🛡️</span>
+            <div>
+              <div style="font-size:12px;font-weight:600;color:#f0ece4;">Life Insurance</div>
+              <div style="font-size:10px;color:#7a7368;font-weight:300;">If no named beneficiary on policy</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:8px 10px;background:rgba(78,168,122,0.08);border-radius:8px;border:1px solid rgba(78,168,122,0.2);">
+            <span style="font-size:16px;">💵</span>
+            <div>
+              <div style="font-size:12px;font-weight:600;color:#f0ece4;">Everything Else</div>
+              <div style="font-size:10px;color:#7a7368;font-weight:300;">Any other asset Elaine owned — Clause FIFTH covers all of it</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- House only kids -->
+      <div style="padding:14px 16px;border-bottom:1px solid #2f2d28;">
+        <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1.3px;color:#9b7ec8;margin-bottom:10px;">Kenneth · Nicholas · Brielle · Siilen · Ninjin — House proceeds ONLY</div>
+        <div style="display:flex;align-items:flex-start;gap:10px;padding:10px;background:rgba(155,126,200,0.08);border-radius:8px;border:1px solid rgba(155,126,200,0.25);">
+          <span style="font-size:22px;flex-shrink:0;">🏠</span>
+          <div>
+            <div style="font-size:12px;font-weight:600;color:#f0ece4;margin-bottom:4px;">32 Morrow Drive sale proceeds only</div>
+            <div style="font-size:11px;color:#c8bfb0;font-weight:300;line-height:1.6;">
+              First $5,000 → Siilen · First $5,000 → Ninjin<br>
+              Remaining balance: 1/3 Kenneth · 1/3 Nicholas · 1/3 Brielle<br>
+              <span style="color:#9b7ec8;">All 4 minors: held by Chelsea as Fiduciary until age 30</span>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:10px;padding:10px;background:rgba(224,85,64,0.08);border-radius:8px;border:1px solid rgba(224,85,64,0.25);">
+          <div style="font-size:11px;font-weight:600;color:#e05540;margin-bottom:3px;">⚠️ These five have NO claim on anything else</div>
+          <div style="font-size:11px;color:#c8bfb0;font-weight:300;line-height:1.6;">The car, bank accounts, Roth IRA, investments and all personal property go entirely to Stephen, Chelsea and Phillip. The house is the only asset these five beneficiaries share in.</div>
+        </div>
+      </div>
+
+      <!-- Kenneth exception -->
+      <div style="padding:12px 16px;">
+        <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1.3px;color:#c9a84c;margin-bottom:8px;">Kenneth Tokarz — Special Note</div>
+        <div style="font-size:11px;color:#c8bfb0;font-weight:300;line-height:1.6;">
+          Kenneth is <strong style="color:#f0ece4;">21 and an adult</strong> — he receives his 1/3 of the house proceeds <strong style="color:#f0ece4;">directly</strong> at distribution, no Fiduciary hold needed. Nicholas, Brielle, Siilen and Ninjin remain subject to the age-30 rule.
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
