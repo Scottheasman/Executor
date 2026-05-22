@@ -17,7 +17,7 @@ html, body { background-color: #0f0e0c !important; color: #f0ece4; overflow-x: h
   --border: #2f2d28; --border-light: #3c3a32;
   --text: #f0ece4; --text-soft: #c8bfb0; --muted: #7a7368; --cream: #f5f0e6;
   --red: #e05540; --amber: #d4842a; --slate: #6b88b5;
-  --gold: #c9a84c; --green: #4ea87a; --purple: #9b7ec8;
+  --gold: #c9a84c; --green: #4ea87a; --purple: #9b7ec8; --teal: #3aafa9;
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-body: 'Outfit', -apple-system, sans-serif;
   --radius: 16px;
@@ -27,8 +27,6 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
   background-color: var(--bg); min-height: 100vh;
   padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 80px);
   -webkit-font-smoothing: antialiased; }
-
-/* ── HERO ── */
 .hero { position: relative; overflow: hidden; padding: 52px 22px 24px;
   background-color: #1a1710;
   background-image: radial-gradient(ellipse at 85% 20%, rgba(201,168,76,0.18) 0%, transparent 55%),
@@ -47,12 +45,9 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
   background: none; font-family: var(--font-body); }
 .hero-btn-gold  { color: #c9a84c; border-color: rgba(201,168,76,0.35); background-color: rgba(201,168,76,0.09); }
 .hero-btn-slate { color: #6b88b5; border-color: rgba(107,136,181,0.35); background-color: rgba(107,136,181,0.09); }
-
-/* ── TAB BAR ── */
 .tab-bar { position: sticky; top: 0; z-index: 100; background-color: #161410;
   border-bottom: 1px solid var(--border); padding: 0 6px;
-  display: flex; gap: 2px; overflow-x: auto; -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; }
+  display: flex; gap: 2px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
 .tab-bar::-webkit-scrollbar { display: none; }
 .tab-btn { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 3px;
   padding: 10px 16px 8px; cursor: pointer; border: none; background: none;
@@ -61,20 +56,15 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
 .tab-btn .tab-icon { font-size: 18px; }
 .tab-btn .tab-label { font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
-.tab-btn.active-family  { color: #9b7ec8; border-bottom-color: #9b7ec8; }
-.tab-btn.active-lawyer  { color: #d4842a; border-bottom-color: #d4842a; }
-.tab-btn.active-finance { color: #6b88b5; border-bottom-color: #6b88b5; }
+.tab-btn.active-family    { color: #9b7ec8; border-bottom-color: #9b7ec8; }
+.tab-btn.active-lawyer    { color: #d4842a; border-bottom-color: #d4842a; }
+.tab-btn.active-finance   { color: #6b88b5; border-bottom-color: #6b88b5; }
 .tab-btn.active-checklist { color: #4ea87a; border-bottom-color: #4ea87a; }
-
-/* ── TAB PANELS ── */
+.tab-btn.active-mccm      { color: #3aafa9; border-bottom-color: #3aafa9; }
 .tab-panel { display: none; }
 .tab-panel.active { display: block; }
-
-/* ── SECTION LABEL ── */
 .section-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px;
   color: var(--muted); padding: 24px 22px 10px; }
-
-/* ── CARDS ── */
 .card { position: relative; margin: 0 14px 10px; border-radius: var(--radius);
   background-color: var(--surface); border: 1px solid var(--border); overflow: hidden; transition: opacity 0.2s; }
 .card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; }
@@ -84,6 +74,7 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
 .card[data-color="gold"]::before   { background-color: #c9a84c; }
 .card[data-color="green"]::before  { background-color: #4ea87a; }
 .card[data-color="purple"]::before { background-color: #9b7ec8; }
+.card[data-color="teal"]::before   { background-color: #3aafa9; }
 .card:active { opacity: 0.85; }
 .card-header { display: flex; align-items: center; padding: 15px 15px 15px 18px; gap: 13px;
   cursor: pointer; -webkit-user-select: none; user-select: none; }
@@ -97,6 +88,7 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
 .bubble-gold   { background-color: rgba(201,168,76,0.18);  color: #c9a84c; }
 .bubble-green  { background-color: rgba(78,168,122,0.18);  color: #4ea87a; }
 .bubble-purple { background-color: rgba(155,126,200,0.18); color: #9b7ec8; }
+.bubble-teal   { background-color: rgba(58,175,169,0.18);  color: #3aafa9; }
 .card-body { flex: 1; min-width: 0; }
 .card-title { font-size: 15px; font-weight: 500; line-height: 1.3; color: #f0ece4; margin-bottom: 3px; }
 .card-sub { font-size: 12px; color: #7a7368; font-weight: 300; line-height: 1.3; }
@@ -108,6 +100,7 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
 .pill-gold   { color: #c9a84c; background-color: rgba(201,168,76,0.18);  border-color: rgba(201,168,76,0.35); }
 .pill-green  { color: #4ea87a; background-color: rgba(78,168,122,0.18);  border-color: rgba(78,168,122,0.35); }
 .pill-purple { color: #9b7ec8; background-color: rgba(155,126,200,0.18); border-color: rgba(155,126,200,0.35); }
+.pill-teal   { color: #3aafa9; background-color: rgba(58,175,169,0.18);  border-color: rgba(58,175,169,0.35); }
 .check-btn { width: 26px; height: 26px; border-radius: 999px; border: 1.5px solid #3c3a32;
   display: flex; align-items: center; justify-content: center; cursor: pointer;
   background-color: transparent; transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
@@ -139,6 +132,7 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
 .callout-red    { background-color: rgba(224,85,64,0.13);   border-color: #e05540; color: #e87b6a; }
 .callout-purple { background-color: rgba(155,126,200,0.13); border-color: #9b7ec8; color: #b89de0; }
 .callout-amber  { background-color: rgba(212,132,42,0.13);  border-color: #d4842a; color: #e0a060; }
+.callout-teal   { background-color: rgba(58,175,169,0.13);  border-color: #3aafa9; color: #5ecdc7; }
 .map-link { display: inline-flex; align-items: center; gap: 5px; color: #6b88b5; font-size: 12px; font-weight: 500;
   text-decoration: none; margin-top: 10px; padding: 6px 14px; background-color: rgba(107,136,181,0.13);
   border: 1px solid rgba(107,136,181,0.3); border-radius: 999px; }
@@ -195,25 +189,6 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
 .cl-item-text strong { display: block; font-size: 13px; font-weight: 500; color: #f0ece4; margin-bottom: 2px; }
 .cl-item-text span { font-size: 11px; color: #7a7368; font-weight: 300; }
 .cl-item.done .cl-item-text strong { text-decoration: line-through; color: #7a7368; }
-.info-panel { position: relative; overflow: hidden; margin: 0 14px 10px;
-  border-radius: 16px; background-color: #1c1a17; border: 1px solid #2f2d28; padding: 18px 18px 18px 21px; }
-.info-panel::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background-color: #6b88b5; }
-.info-panel-header { display: flex; align-items: center; gap: 11px; margin-bottom: 14px; }
-.info-panel-icon { width: 38px; height: 38px; border-radius: 11px; background-color: rgba(107,136,181,0.18);
-  display: flex; align-items: center; justify-content: center; font-size: 17px; flex-shrink: 0; }
-.info-panel h3 { font-family: var(--font-display); font-size: 18px; font-weight: 600; line-height: 1.2; color: #f0ece4; }
-.info-panel p { font-size: 13.5px; line-height: 1.72; color: #c8bfb0; font-weight: 300; margin-bottom: 9px; }
-.info-panel p:last-of-type { margin-bottom: 0; }
-.info-panel strong { color: #f0ece4; font-weight: 500; }
-.script-line { margin-top: 14px; background-color: rgba(255,255,255,0.04);
-  border: 1px solid #3c3a32; border-radius: 10px; padding: 12px 15px;
-  font-size: 13px; color: #c9a84c; font-style: italic; font-weight: 300; line-height: 1.5; }
-.footer-card { margin: 0 14px; border-radius: 16px; background-color: rgba(78,168,122,0.1);
-  border: 1px solid rgba(78,168,122,0.22); padding: 22px 20px; text-align: center; }
-.footer-card p { font-size: 13.5px; line-height: 1.8; color: #6ec495; font-weight: 300; }
-.footer-card strong { color: #4ea87a; font-weight: 500; }
-
-/* ── PROGRESS ── */
 .progress-wrap { background-color: var(--surface); border-bottom: 1px solid var(--border); padding: 14px 22px; }
 .progress-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
 .progress-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); }
@@ -221,8 +196,6 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
 .progress-track { height: 5px; background-color: var(--border); border-radius: 999px; overflow: hidden; }
 .progress-fill { height: 100%; border-radius: 999px; background-image: linear-gradient(90deg, #d4842a, #c9a84c);
   box-shadow: 0 0 10px rgba(201,168,76,0.45); transition: width 0.55s cubic-bezier(0.4,0,0.2,1); }
-
-/* ── FAMILY TREE ── */
 .tree-outer { margin: 0 14px 10px; border-radius: 16px; background-color: #1c1a17; border: 1px solid #2f2d28; overflow: hidden; }
 .tree-toggle-hdr { display: flex; align-items: center; justify-content: space-between;
   padding: 15px 16px; cursor: pointer; -webkit-user-select: none; user-select: none; }
@@ -252,12 +225,8 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
 .tnode-minor .tnode-name { color: #b89de0; }
 .tnode-poa   { background-color: rgba(107,136,181,0.10); border-color: rgba(107,136,181,0.35); }
 .tnode-poa .tnode-name { color: #8aabd4; }
-.tnode-dem   { background-color: rgba(212,132,42,0.10); border-color: rgba(212,132,42,0.4); }
-.tnode-dem .tnode-name { color: #e0a060; }
 .ttag-exec    { background-color: rgba(201,168,76,0.25);  color: #c9a84c; }
 .ttag-deceased{ background-color: rgba(224,85,64,0.25);   color: #e87b6a; }
-.ttag-poa     { background-color: rgba(107,136,181,0.25); color: #8aabd4; }
-.ttag-dem     { background-color: rgba(212,132,42,0.25);  color: #e0a060; }
 .ttag-minor   { background-color: rgba(155,126,200,0.25); color: #b89de0; }
 .ttag-heir    { background-color: rgba(78,168,122,0.20);  color: #6ec495; }
 .ttag-house   { background-color: rgba(201,168,76,0.18);  color: #c9a84c; }
@@ -274,18 +243,107 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
 .tnote-red    { background-color: rgba(224,85,64,0.08);   border-color: #e05540; color: #e87b6a; }
 .tnote-gold   { background-color: rgba(201,168,76,0.08);  border-color: #c9a84c; color: #d4ba70; }
 .tnote-purple { background-color: rgba(155,126,200,0.08); border-color: #9b7ec8; color: #b89de0; }
-.tnote-slate  { background-color: rgba(107,136,181,0.08); border-color: #6b88b5; color: #8aabd4; }
-
-/* ── PULL TO REFRESH ── */
+.tnote-teal   { background-color: rgba(58,175,169,0.08);  border-color: #3aafa9; color: #5ecdc7; }
+.script-line { margin-top: 14px; background-color: rgba(255,255,255,0.04);
+  border: 1px solid #3c3a32; border-radius: 10px; padding: 12px 15px;
+  font-size: 13px; color: #c9a84c; font-style: italic; font-weight: 300; line-height: 1.5; }
+/* ── PARTIES TAB ── */
+.tab-btn.active-parties { color: #c9a84c; border-bottom-color: #c9a84c; }
+.parties-sheet-tabs { display: flex; gap: 4px; padding: 14px 14px 0; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.parties-sheet-tabs::-webkit-scrollbar { display: none; }
+.sheet-tab { font-size: 10px; font-weight: 600; padding: 6px 14px; border-radius: 8px 8px 0 0;
+  border: 1px solid var(--border); border-bottom: none; cursor: pointer; white-space: nowrap;
+  background: var(--surface); color: var(--muted); font-family: var(--font-body);
+  transition: background 0.15s, color 0.15s; -webkit-user-select: none; user-select: none; }
+.sheet-tab.active { background: #232119; color: var(--gold); border-color: var(--border-light); }
+.sheet-tab.sheet-red { }
+.sheet-tab.active.sheet-red { color: #e05540; }
+.parties-table-wrap { margin: 0 14px; border-radius: 0 12px 12px 12px; overflow: hidden;
+  border: 1px solid var(--border-light); background: var(--surface2); }
+.parties-table { width: 100%; border-collapse: collapse; font-family: var(--font-body); }
+.parties-table th { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.2px;
+  padding: 10px 12px; text-align: left; white-space: nowrap; border-bottom: 1px solid var(--border-light);
+  background: #161410; position: sticky; top: 0; z-index: 2; }
+.parties-table td { font-size: 11.5px; padding: 10px 12px; vertical-align: top;
+  border-bottom: 1px solid rgba(255,255,255,0.035); line-height: 1.5; color: var(--text-soft); font-weight: 300; }
+.parties-table tr:last-child td { border-bottom: none; }
+.parties-table tr:active td { background: rgba(255,255,255,0.02); }
+.pt-name { font-weight: 600; color: var(--text); font-size: 12px; }
+.pt-minor { color: #e05540 !important; font-weight: 600 !important; }
+.pt-deceased { color: #e87b6a !important; }
+.pt-exec { color: #c9a84c !important; }
+.pt-heir { color: #4ea87a !important; }
+.pt-witness { color: #d4842a !important; }
+.pt-sibling { color: #6b88b5 !important; }
+.pt-atty { color: #3aafa9 !important; }
+.pt-pill { display: inline-block; font-size: 9px; font-weight: 600; padding: 2px 7px;
+  border-radius: 999px; border: 1px solid; white-space: nowrap; margin-top: 3px; }
+.pt-pill-red    { color: #e05540; border-color: rgba(224,85,64,0.4); background: rgba(224,85,64,0.12); }
+.pt-pill-gold   { color: #c9a84c; border-color: rgba(201,168,76,0.4); background: rgba(201,168,76,0.12); }
+.pt-pill-green  { color: #4ea87a; border-color: rgba(78,168,122,0.4); background: rgba(78,168,122,0.12); }
+.pt-pill-purple { color: #9b7ec8; border-color: rgba(155,126,200,0.4); background: rgba(155,126,200,0.12); }
+.pt-pill-slate  { color: #6b88b5; border-color: rgba(107,136,181,0.4); background: rgba(107,136,181,0.12); }
+.pt-pill-amber  { color: #d4842a; border-color: rgba(212,132,42,0.4); background: rgba(212,132,42,0.12); }
+.pt-pill-teal   { color: #3aafa9; border-color: rgba(58,175,169,0.4); background: rgba(58,175,169,0.12); }
+.pt-section-hdr { background: #1a1815 !important; }
+.pt-section-hdr td { font-size: 9px !important; font-weight: 700 !important; text-transform: uppercase !important;
+  letter-spacing: 1.5px !important; color: var(--muted) !important; padding: 8px 12px !important;
+  border-bottom: 1px solid var(--border) !important; }
+.download-bar { margin: 12px 14px 0; display: flex; align-items: center; justify-content: space-between;
+  background: linear-gradient(135deg, rgba(201,168,76,0.12), rgba(201,168,76,0.05));
+  border: 1px solid rgba(201,168,76,0.3); border-radius: 12px; padding: 12px 16px; gap: 12px; }
+.download-bar-text { font-size: 12px; color: var(--text-soft); font-weight: 300; line-height: 1.4; }
+.download-bar-text strong { color: var(--text); font-weight: 500; }
+.dl-btn { display: inline-flex; align-items: center; gap: 7px; background: rgba(201,168,76,0.18);
+  border: 1px solid rgba(201,168,76,0.45); color: #c9a84c; font-size: 11px; font-weight: 600;
+  padding: 9px 16px; border-radius: 10px; cursor: pointer; white-space: nowrap;
+  font-family: var(--font-body); letter-spacing: 0.3px; transition: background 0.15s, box-shadow 0.15s; }
+.dl-btn:active { background: rgba(201,168,76,0.28); box-shadow: 0 0 16px rgba(201,168,76,0.3); }
+.ssn-shield { display: inline-flex; align-items: center; gap: 5px; font-size: 10px;
+  color: #e05540; background: rgba(224,85,64,0.12); border: 1px solid rgba(224,85,64,0.3);
+  border-radius: 6px; padding: 3px 8px; margin-bottom: 4px; }
+/* ── McCM CHECKLIST SPECIFIC ── */
+.mccm-item { display: flex; align-items: flex-start; gap: 14px; padding: 14px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.04); cursor: pointer;
+  transition: background-color 0.15s; }
+.mccm-item:last-child { border-bottom: none; }
+.mccm-item:active { background-color: rgba(58,175,169,0.05); }
+.mccm-item-num { font-family: var(--font-display); font-size: 18px; font-weight: 700;
+  color: rgba(58,175,169,0.4); min-width: 22px; padding-top: 2px; flex-shrink: 0; }
+.mccm-item.done .mccm-item-num { color: rgba(78,168,122,0.6); }
+.mccm-item-body { flex: 1; min-width: 0; }
+.mccm-item-label { font-size: 13px; font-weight: 500; color: #f0ece4; line-height: 1.4; margin-bottom: 3px; }
+.mccm-item.done .mccm-item-label { text-decoration: line-through; color: #7a7368; }
+.mccm-item-sub { font-size: 11px; color: #7a7368; font-weight: 300; line-height: 1.4; }
+.mccm-check { width: 28px; height: 28px; border-radius: 999px; border: 1.5px solid #3c3a32;
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+  background-color: transparent; transition: all 0.2s; flex-shrink: 0; margin-top: 2px; }
+.mccm-check.on { background-color: #4ea87a; border-color: #4ea87a; box-shadow: 0 0 12px rgba(78,168,122,0.4); }
+.mccm-check.on::after { content: ''; display: block; width: 6px; height: 10px;
+  border: 2px solid #fff; border-top: none; border-left: none; transform: rotate(45deg) translateY(-1px); }
+.mccm-progress { background: linear-gradient(135deg, rgba(58,175,169,0.15), rgba(58,175,169,0.05));
+  border-bottom: 1px solid rgba(58,175,169,0.2); padding: 16px 20px; }
+.mccm-progress-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.mccm-progress-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: #3aafa9; }
+.mccm-progress-pct { font-size: 13px; font-weight: 600; color: #3aafa9; }
+.mccm-progress-track { height: 5px; background-color: rgba(58,175,169,0.2); border-radius: 999px; overflow: hidden; }
+.mccm-progress-fill { height: 100%; border-radius: 999px;
+  background-image: linear-gradient(90deg, #3aafa9, #5ecdc7);
+  box-shadow: 0 0 10px rgba(58,175,169,0.4); transition: width 0.55s cubic-bezier(0.4,0,0.2,1); }
+.dc-banner { margin: 0 14px 10px; border-radius: 14px;
+  background: linear-gradient(135deg, rgba(78,168,122,0.12), rgba(58,175,169,0.08));
+  border: 1px solid rgba(78,168,122,0.3); padding: 14px 16px; }
+.dc-banner-top { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.dc-badge { background-color: rgba(78,168,122,0.2); border: 1px solid rgba(78,168,122,0.4);
+  border-radius: 8px; padding: 6px 10px; font-size: 11px; font-weight: 600; color: #4ea87a;
+  white-space: nowrap; }
 #pullIndicator { display:none; position:fixed; top:0; left:0; right:0; z-index:999;
   background:linear-gradient(180deg,rgba(201,168,76,0.25),transparent);
   padding:14px; text-align:center; pointer-events:none; }
-@keyframes spin { from { display:inline-block; transform:rotate(0deg); } to { transform:rotate(360deg); } }
+@keyframes spin { from { transform:rotate(0deg); } to { transform:rotate(360deg); } }
 </style>
 </head>
 <body>
-
-<!-- PULL INDICATOR -->
 <div id="pullIndicator"><div style="font-size:11px;font-weight:600;color:#c9a84c;letter-spacing:1px;" id="pullText">↓ Pull to refresh</div></div>
 
 <!-- HERO -->
@@ -303,42 +361,36 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
 <!-- TAB BAR -->
 <div class="tab-bar" id="tabBar">
   <button class="tab-btn" id="tab-family" onclick="switchTab('family')">
-    <span class="tab-icon">👨‍👩‍👧</span>
-    <span class="tab-label">Family</span>
+    <span class="tab-icon">👨‍👩‍👧</span><span class="tab-label">Family</span>
   </button>
   <button class="tab-btn" id="tab-lawyer" onclick="switchTab('lawyer')">
-    <span class="tab-icon">⚖️</span>
-    <span class="tab-label">Lawyer</span>
+    <span class="tab-icon">⚖️</span><span class="tab-label">Lawyer</span>
   </button>
   <button class="tab-btn" id="tab-finance" onclick="switchTab('finance')">
-    <span class="tab-icon">🏦</span>
-    <span class="tab-label">Financial</span>
+    <span class="tab-icon">🏦</span><span class="tab-label">Financial</span>
   </button>
   <button class="tab-btn" id="tab-checklist" onclick="switchTab('checklist')">
-    <span class="tab-icon">✅</span>
-    <span class="tab-label">Checklist</span>
+    <span class="tab-icon">✅</span><span class="tab-label">Checklist</span>
+  </button>
+  <button class="tab-btn" id="tab-mccm" onclick="switchTab('mccm')">
+    <span class="tab-icon">🏛️</span><span class="tab-label">McCM Law</span>
+  </button>
+  <button class="tab-btn" id="tab-parties" onclick="switchTab('parties')">
+    <span class="tab-icon">👥</span><span class="tab-label">Parties</span>
   </button>
 </div>
 
-<!-- ═══════════════════════════════════════
-     TAB 1 — FAMILY
-═══════════════════════════════════════ -->
+<!-- ═══ TAB 1 — FAMILY ═══ -->
 <div class="tab-panel" id="panel-family">
-
-  <!-- WHO GETS WHAT -->
   <div class="section-label">Who Gets What</div>
-
   <div style="margin: 0 14px 10px; border-radius: 16px; overflow: hidden; border: 1px solid #2f2d28; background:#1c1a17;">
     <div style="background:linear-gradient(135deg,rgba(201,168,76,0.2),rgba(201,168,76,0.05));padding:14px 16px;border-bottom:1px solid #2f2d28;">
       <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:#c9a84c;margin-bottom:2px;">⚡ At a Glance — Confirmed from Will</div>
       <div style="font-size:11px;color:#7a7368;font-weight:300;">Dated July 22, 2024 · 32 Morrow Drive, Greece NY</div>
     </div>
-
-    <!-- Stephen / Chelsea / Phillip -->
     <div style="padding:14px 16px;border-bottom:1px solid #2f2d28;">
       <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1.3px;color:#4ea87a;margin-bottom:10px;">Stephen · Chelsea · Phillip — Each receive 1/3 of:</div>
       <div style="display:flex;flex-direction:column;gap:7px;">
-
         <div style="display:flex;align-items:flex-start;gap:10px;padding:10px;background:rgba(78,168,122,0.08);border-radius:8px;border:1px solid rgba(78,168,122,0.2);">
           <span style="font-size:16px;">🏦</span>
           <div style="flex:1;">
@@ -352,13 +404,11 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
             </div>
           </div>
         </div>
-
         <div style="display:flex;align-items:flex-start;gap:10px;padding:10px;background:rgba(78,168,122,0.08);border-radius:8px;border:1px solid rgba(78,168,122,0.2);">
           <span style="font-size:16px;">🏦</span>
           <div><div style="font-size:12px;font-weight:600;color:#f0ece4;">All Bank Accounts</div>
           <div style="font-size:10px;color:#7a7368;font-weight:300;margin-top:2px;">Checking, savings, CDs — after debts paid</div></div>
         </div>
-
         <div style="display:flex;align-items:flex-start;gap:10px;padding:10px;background:rgba(78,168,122,0.08);border-radius:8px;border:1px solid rgba(78,168,122,0.2);">
           <span style="font-size:16px;">🚗</span>
           <div style="flex:1;">
@@ -366,23 +416,20 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
             <div style="font-size:11px;color:#c8bfb0;font-weight:300;line-height:1.6;margin-bottom:6px;">Sale proceeds into estate account then split equally.</div>
             <div style="background:rgba(212,132,42,0.10);border:1px solid rgba(212,132,42,0.3);border-radius:6px;padding:8px 10px;">
               <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:#d4842a;margin-bottom:5px;">How to sell</div>
-              <div style="font-size:11px;color:#c8bfb0;font-weight:300;line-height:1.7;"><strong style="color:#f0ece4;">1.</strong> Letters Testamentary first.<br><strong style="color:#f0ece4;">2.</strong> Monroe County DMV — 200 E Henrietta Rd · (585) 753-1600.<br><strong style="color:#f0ece4;">3.</strong> Complete <strong style="color:#f0ece4;">Form MV-349</strong> (Executor's Certificate).<br><strong style="color:#f0ece4;">4.</strong> Chelsea signs as <em style="color:#c9a84c;">"Chelsea Heasman, Executrix of the Estate of Elaine M. Wall"</em>.<br><strong style="color:#f0ece4;">5.</strong> Cancel insurance — refund into estate account.</div>
+              <div style="font-size:11px;color:#c8bfb0;font-weight:300;line-height:1.7;"><strong style="color:#f0ece4;">1.</strong> Letters Testamentary first.<br><strong style="color:#f0ece4;">2.</strong> Monroe County DMV — 200 E Henrietta Rd · (585) 753-1600.<br><strong style="color:#f0ece4;">3.</strong> Complete <strong style="color:#f0ece4;">Form MV-349</strong> (Executor's Certificate).<br><strong style="color:#f0ece4;">4.</strong> Chelsea signs as <em style="color:#c9a84c;">"Chelsea Heasman, Executrix of the Estate of Elaine M. Wall"</em>.</div>
             </div>
           </div>
         </div>
-
         <div style="display:flex;align-items:center;gap:10px;padding:8px 10px;background:rgba(78,168,122,0.08);border-radius:8px;border:1px solid rgba(78,168,122,0.2);">
           <span style="font-size:16px;">📈</span>
           <div><div style="font-size:12px;font-weight:600;color:#f0ece4;">Investments &amp; Brokerage</div>
           <div style="font-size:10px;color:#7a7368;font-weight:300;margin-top:2px;">Stocks, bonds, brokerage accounts</div></div>
         </div>
-
         <div style="display:flex;align-items:center;gap:10px;padding:8px 10px;background:rgba(78,168,122,0.08);border-radius:8px;border:1px solid rgba(78,168,122,0.2);">
           <span style="font-size:16px;">💍</span>
           <div><div style="font-size:12px;font-weight:600;color:#f0ece4;">Personal Property</div>
           <div style="font-size:10px;color:#7a7368;font-weight:300;margin-top:2px;">Jewellery, furniture, belongings</div></div>
         </div>
-
         <div style="display:flex;align-items:center;gap:10px;padding:8px 10px;background:rgba(78,168,122,0.08);border-radius:8px;border:1px solid rgba(78,168,122,0.2);">
           <span style="font-size:16px;">💵</span>
           <div><div style="font-size:12px;font-weight:600;color:#f0ece4;">Everything Else</div>
@@ -390,8 +437,6 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
         </div>
       </div>
     </div>
-
-    <!-- House only kids -->
     <div style="padding:14px 16px;border-bottom:1px solid #2f2d28;">
       <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1.3px;color:#9b7ec8;margin-bottom:10px;">Kenneth · Nicholas · Brielle · Siilen · Ninjin — House proceeds ONLY</div>
       <div style="display:flex;align-items:flex-start;gap:10px;padding:10px;background:rgba(155,126,200,0.08);border-radius:8px;border:1px solid rgba(155,126,200,0.25);">
@@ -406,32 +451,24 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
         <div style="font-size:11px;color:#c8bfb0;font-weight:300;line-height:1.6;">The car, bank accounts, Roth IRA, investments and all personal property go entirely to Stephen, Chelsea and Phillip.</div>
       </div>
     </div>
-
-    <!-- Kenneth note -->
     <div style="padding:12px 16px;">
-      <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1.3px;color:#c9a84c;margin-bottom:6px;">Kenneth Tokarz — Special Note</div>
-      <div style="font-size:11px;color:#c8bfb0;font-weight:300;line-height:1.6;"><strong style="color:#f0ece4;">Age 21 — adult.</strong> Receives his 1/3 of house proceeds directly at distribution. Nicholas, Brielle, Siilen and Ninjin wait until age 30.</div>
+      <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1.3px;color:#c9a84c;margin-bottom:6px;">Kenneth Sky Lee Tokarz — Special Note</div>
+      <div style="font-size:11px;color:#c8bfb0;font-weight:300;line-height:1.6;"><strong style="color:#f0ece4;">Age 21 — adult.</strong> Full legal name: <strong style="color:#f0ece4;">Kenneth Sky Lee Tokarz</strong>. Receives his 1/3 of house proceeds directly at distribution.<br><span style="color:#7a7368;">📍 555 Greenbrier Dr Apt 26, Oceanside CA 92054 · SSN on file in XLSX (sensitive tab)</span></div>
     </div>
   </div>
 
-  <!-- FAMILY TREE -->
   <div class="section-label">Family Tree</div>
   <div class="tree-outer">
     <div class="tree-toggle-hdr" onclick="toggleTree()">
       <div class="tree-toggle-left">
         <div class="tree-icon">🌳</div>
-        <div>
-          <div class="big-card-title">Wall · Borrelli · Tokarz Family</div>
-          <div class="big-card-sub">3 generations · tap to expand</div>
-        </div>
+        <div><div class="big-card-title">Wall · Borrelli · Tokarz Family</div><div class="big-card-sub">3 generations · tap to expand</div></div>
       </div>
       <span class="chev" id="chev-tree">›</span>
     </div>
     <div class="tree-panel" id="tree-panel">
       <div style="font-size:9px;color:#7a7368;text-align:right;margin-bottom:6px;font-style:italic;">← swipe to scroll →</div>
       <div class="tree-scroll"><div style="min-width:580px;width:max-content;">
-
-        <!-- GEN 2 — Siblings -->
         <div class="trow" style="gap:20px;">
           <div class="tcol">
             <div class="tnode tnode-poa" style="min-width:90px;">
@@ -464,10 +501,7 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
               <div style="width:2px;"><div class="vl" style="height:14px;"></div></div>
               <div style="width:92px;"><div class="vl" style="height:14px;"></div></div>
             </div>
-
-            <!-- GEN 3 -->
             <div style="display:flex;gap:8px;align-items:flex-start;">
-              <!-- Stephen -->
               <div class="tcol">
                 <div class="tnode tnode-heir" style="min-width:86px;">
                   <div class="tnode-name">Stephen Tokarz</div>
@@ -488,9 +522,10 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
                 </div>
                 <div style="display:flex;gap:5px;">
                   <div class="tnode tnode-heir" style="min-width:72px;">
-                    <div class="tnode-name">Kenneth Tokarz</div>
+                    <div class="tnode-name">Kenneth Sky Lee Tokarz</div>
                     <div class="tnode-role">Great-Nephew</div>
                     <div style="font-size:8px;color:#c9a84c;margin-top:2px;font-weight:500;">DOB: May 7, 2003</div>
+                    <div style="font-size:8px;color:#7a7368;margin-top:3px;line-height:1.4;">555 Greenbrier Dr Apt 26<br>Oceanside, CA 92054</div>
                     <div class="tnode-tags"><span class="ttag ttag-heir">Adult</span><span class="ttag ttag-house">1/3 house</span></div>
                   </div>
                   <div class="tnode tnode-minor" style="min-width:72px;">
@@ -501,21 +536,19 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
                   </div>
                 </div>
               </div>
-              <!-- Chelsea -->
               <div class="tcol">
                 <div class="tnode tnode-exec" style="min-width:86px;">
                   <div class="tnode-name">Chelsea Heasman</div>
                   <div class="tnode-role">Niece (married)</div>
-                  <div class="tnode-tags"><span class="ttag ttag-exec">Executrix</span><span class="ttag ttag-heir">1/3 residuary</span><span class="ttag ttag-heir">1/3 Roth IRA</span></div>
+                  <div class="tnode-tags"><span class="ttag ttag-exec">Executrix</span><span class="ttag ttag-heir">1/3 residuary</span></div>
                   <div style="font-size:8px;color:#7a7368;margin-top:4px;line-height:1.4;">440 NE 4th Ave #621<br>Fort Lauderdale FL 33301</div>
                 </div>
               </div>
-              <!-- Phillip -->
               <div class="tcol">
                 <div class="tnode tnode-heir" style="min-width:86px;">
                   <div class="tnode-name">Phillip Tokarz</div>
                   <div class="tnode-role">Nephew</div>
-                  <div class="tnode-tags"><span class="ttag ttag-heir">1/3 residuary</span><span class="ttag ttag-heir">1/3 Roth IRA</span><span class="ttag ttag-exec">Successor Exec</span></div>
+                  <div class="tnode-tags"><span class="ttag ttag-heir">1/3 residuary</span><span class="ttag ttag-exec">Successor Exec</span></div>
                   <div style="font-size:8px;color:#7a7368;margin-top:4px;line-height:1.4;">243 Hillbridge Dr<br>Rochester NY 14612</div>
                 </div>
                 <div class="vl" style="height:26px;"></div>
@@ -529,26 +562,23 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
             </div>
           </div>
         </div>
-
-        <!-- Enkhzul -->
         <div style="margin-top:20px;padding-top:16px;border-top:1px solid #2f2d28;">
           <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:1.4px;color:var(--muted);margin-bottom:10px;">Extended Family — Stephen's Wife's Family · Both Minors</div>
           <div style="display:flex;gap:8px;flex-wrap:wrap;">
             <div class="tnode tnode-minor" style="min-width:110px;">
-              <div class="tnode-name">Siilen Enkhzul</div>
-              <div class="tnode-role">Step-family · Minor</div>
+              <div class="tnode-name">Siilen Enkhzul</div><div class="tnode-role">Step-family · Minor</div>
               <div style="font-size:8px;color:#b89de0;margin-top:2px;font-weight:500;">DOB: Oct 8, 2008</div>
+              <div style="font-size:8px;color:#7a7368;margin-top:3px;line-height:1.4;">Mother: Tuvshinjargal Gonjav<br>Father: Enkhzul Puntsag<br>431 S Burnside Ave 9E<br>Los Angeles CA 90036</div>
               <div class="tnode-tags"><span class="ttag ttag-minor">Minor ⚠️</span><span class="ttag ttag-house">$5,000 house</span></div>
             </div>
             <div class="tnode tnode-minor" style="min-width:110px;">
-              <div class="tnode-name">Ninjin Enkhzul</div>
-              <div class="tnode-role">Step-family · Minor</div>
+              <div class="tnode-name">Ninjin Enkhzul</div><div class="tnode-role">Step-family · Minor</div>
               <div style="font-size:8px;color:#b89de0;margin-top:2px;font-weight:500;">DOB: Sep 27, 2020</div>
+              <div style="font-size:8px;color:#7a7368;margin-top:3px;line-height:1.4;">Mother: Tuvshinjargal Gonjav<br>Father: Enkhzul Puntsag<br>431 S Burnside Ave 9E<br>Los Angeles CA 90036</div>
               <div class="tnode-tags"><span class="ttag ttag-minor">Minor ⚠️</span><span class="ttag ttag-house">$5,000 house</span></div>
             </div>
           </div>
         </div>
-
         <div class="tree-legend">
           <div class="tleg"><div class="tleg-dot" style="background:rgba(224,85,64,0.5);"></div>Deceased</div>
           <div class="tleg"><div class="tleg-dot" style="background:rgba(201,168,76,0.5);"></div>Executrix</div>
@@ -556,7 +586,6 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
           <div class="tleg"><div class="tleg-dot" style="background:rgba(155,126,200,0.5);"></div>Minor (held to 30)</div>
         </div>
       </div></div>
-
       <div class="tnote tnote-red" style="margin-top:14px;">
         <strong>⚠️ 4 Guardians Ad Litem Required</strong>
         <ul>
@@ -565,18 +594,13 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
           <li>All four shares held by Chelsea as Fiduciary until each reaches age 30</li>
         </ul>
       </div>
-
     </div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════
-     TAB 2 — LAWYER
-═══════════════════════════════════════ -->
+<!-- ═══ TAB 2 — LAWYER ═══ -->
 <div class="tab-panel" id="panel-lawyer">
-
   <div class="section-label">The 7 Steps — In Order</div>
-
   <div class="card" id="card-0" data-color="red">
     <div class="card-header" onclick="toggleCard(0)">
       <div class="step-bubble bubble-red"><span class="num">0</span><span class="lbl">Now</span></div>
@@ -601,42 +625,12 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
           <li><strong>Tracy M. Cuell</strong> — 131 Mosley Road, Rochester NY 14616</li>
           <li>Need sworn <strong>Form P-3</strong> from each</li>
           <li>If a witness cannot be found — file <strong>Form P-8</strong></li>
-          <li>If a witness is deceased — file <strong>Forms P-8 and P-9</strong></li>
           <li>Witnesses cannot notarize each other's affidavit — use a separate notary</li>
         </ul>
       </div>
       <div class="callout callout-gold"><strong>Why 10 death certificates?</strong> Each bank, brokerage, insurance company, and the court requires their own certified original.</div>
-      <div class="sub-accordion">
-        <div class="sub-accordion-header" onclick="toggleSub('atty-q')">
-          <div class="sub-accordion-title">📞 Questions to Ask the Attorney<span>Tap to expand</span></div>
-          <span class="sub-chev" id="sub-chev-atty-q">›</span>
-        </div>
-        <div class="sub-accordion-body" id="sub-body-atty-q">
-          <div class="q-group">
-            <div class="q-group-label">Establish the Relationship</div>
-            <div class="q-item"><span class="q-num">1</span><div class="q-text">Are you <strong>representing the estate</strong>, or just holding the Will?<div class="q-why">Determines if you need to hire someone new.</div></div></div>
-            <div class="q-item"><span class="q-num">2</span><div class="q-text">Do you have a <strong>conflict of interest</strong>?<div class="q-why">An attorney who is also a beneficiary cannot represent you.</div></div></div>
-          </div>
-          <div class="q-group">
-            <div class="q-group-label">About the Will</div>
-            <div class="q-item"><span class="q-num">3</span><div class="q-text">Is this the <strong>most recent Will</strong> — any codicils?</div></div>
-            <div class="q-item"><span class="q-num">4</span><div class="q-text">Was a <strong>self-proving affidavit</strong> attached at signing?<div class="q-why">If yes, no need to track witnesses at all.</div></div></div>
-          </div>
-          <div class="q-group">
-            <div class="q-group-label">About the Beneficiaries</div>
-            <div class="q-item"><span class="q-num">6</span><div class="q-text">Exact ages of <strong>Kenneth, Nicholas, Brielle, Siilen &amp; Ninjin</strong>?<div class="q-why">Triggers 4 Guardians Ad Litem and age-30 holding clause.</div></div></div>
-            <div class="q-item"><span class="q-num">7</span><div class="q-text">Contact details for <strong>Siilen and Ninjin Enkhzul</strong>?<div class="q-why">Must be located before distribution.</div></div></div>
-            <div class="q-item"><span class="q-num">8</span><div class="q-text">Any <strong>known creditors or potential contests</strong>?</div></div>
-          </div>
-          <div class="q-group">
-            <div class="q-group-label">Practical</div>
-            <div class="q-item"><span class="q-num">9</span><div class="q-text">Can you <strong>transfer the original Will today</strong>?</div></div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
-
   <div class="card" id="card-1" data-color="amber">
     <div class="card-header" onclick="toggleCard(1)">
       <div class="step-bubble bubble-amber"><span class="num">1</span><span class="lbl">Week 1</span></div>
@@ -658,7 +652,7 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
           <li><strong>Affidavit of Attesting Witnesses (P-3)</strong> from Dan Famy &amp; Tracy M. Cuell</li>
           <li><strong>Affidavit of Comparison (P-13)</strong></li>
           <li>Names, addresses and <strong>ages of all beneficiaries</strong></li>
-          <li>Filing fee (see below)</li>
+          <li>Filing fee</li>
         </ul>
       </div>
       <div class="callout callout-green"><strong>Bond waived:</strong> Clause EIGHTH explicitly waives bond for Chelsea and Phillip.</div>
@@ -676,7 +670,6 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
       </div>
     </div>
   </div>
-
   <div class="card" id="card-2" data-color="slate">
     <div class="card-header" onclick="toggleCard(2)">
       <div class="step-bubble bubble-slate"><span class="num">2</span><span class="lbl">Court</span></div>
@@ -701,7 +694,6 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
       <div class="callout callout-gold"><strong>The golden ticket.</strong> Order 8–10 certified copies at $6 each — every institution needs one.</div>
     </div>
   </div>
-
   <div class="card" id="card-3" data-color="gold">
     <div class="card-header" onclick="toggleCard(3)">
       <div class="step-bubble bubble-gold"><span class="num">3</span><span class="lbl">Inventory</span></div>
@@ -728,7 +720,6 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
       </div>
     </div>
   </div>
-
   <div class="card" id="card-4" data-color="gold">
     <div class="card-header" onclick="toggleCard(4)">
       <div class="step-bubble bubble-gold"><span class="num">4</span><span class="lbl">Bank</span></div>
@@ -748,7 +739,6 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
       <div class="callout callout-red"><strong>Never mix funds.</strong> All reimbursements must come from the estate account with receipts.</div>
     </div>
   </div>
-
   <div class="card" id="card-5" data-color="amber">
     <div class="card-header" onclick="toggleCard(5)">
       <div class="step-bubble bubble-amber"><span class="num">5</span><span class="lbl">Debts</span></div>
@@ -761,7 +751,7 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
         <ul>
           <li><strong>Funeral costs</strong> — first by law</li>
           <li><strong>House carrying costs</strong> until sold — from residuary (Clause THIRD)</li>
-          <li><strong>All estate taxes</strong> — from residuary, no apportionment to any beneficiary (Clause SECOND)</li>
+          <li><strong>All estate taxes</strong> — from residuary (Clause SECOND)</li>
           <li><strong>Final income taxes</strong> — file her last Form 1040</li>
           <li>Valid credit card and medical bills — verify each</li>
         </ul>
@@ -772,7 +762,6 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
       </div>
     </div>
   </div>
-
   <div class="card" id="card-6" data-color="green">
     <div class="card-header" onclick="toggleCard(6)">
       <div class="step-bubble bubble-green"><span class="num">6</span><span class="lbl">Final</span></div>
@@ -783,9 +772,8 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
       <div class="detail-section">
         <h4 style="color:#4ea87a">Distribution Order</h4>
         <ul>
-          <li><strong>House:</strong> $5k held Siilen · $5k held Ninjin · remainder: 1/3 direct Kenneth · 1/3 held Nicholas · 1/3 held Brielle</li>
+          <li><strong>House:</strong> $5k held Siilen · $5k held Ninjin · 1/3 direct Kenneth · 1/3 held Nicholas · 1/3 held Brielle</li>
           <li><strong>Everything else:</strong> 1/3 Stephen · 1/3 Phillip · 1/3 Chelsea</li>
-          <li>Per stirpes: if any of Stephen/Phillip/Chelsea had predeceased, their share passes to their children</li>
           <li>Get signed <strong>receipt and release</strong> from every adult</li>
         </ul>
       </div>
@@ -801,7 +789,6 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
     </div>
   </div>
 
-  <!-- Court Forms -->
   <div class="section-label">Court Forms Reference</div>
   <div class="big-card">
     <div class="big-card-header" onclick="toggleForms()">
@@ -815,12 +802,11 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
       <div style="padding:6px 16px 12px;">
         <div class="forms-grid">
           <div class="form-row"><span class="form-tag">P-1</span><span class="form-desc"><strong>Petition for Probate</strong> — main filing. Always required.</span></div>
-          <div class="form-row"><span class="form-tag">P-3</span><span class="form-desc"><strong>Affidavit of Attesting Witnesses</strong> — Dan Famy &amp; Tracy M. Cuell. No self-proving affidavit on this Will.</span></div>
+          <div class="form-row"><span class="form-tag">P-3</span><span class="form-desc"><strong>Affidavit of Attesting Witnesses</strong> — Dan Famy &amp; Tracy M. Cuell.</span></div>
           <div class="form-row"><span class="form-tag">P-13</span><span class="form-desc"><strong>Affidavit of Comparison</strong> — confirms copy matches original.</span></div>
           <div class="form-row"><span class="form-tag">P-4</span><span class="form-desc"><strong>Waiver / Consent to Probate</strong> — signed by each adult beneficiary.</span></div>
-          <div class="form-row"><span class="form-tag">P-6</span><span class="form-desc"><strong>Notice of Probate &amp; Affidavit of Mailing</strong> — all 8 beneficiaries. <strong>Letters not issued until filed.</strong></span></div>
-          <div class="form-row"><span class="form-tag">P-8</span><span class="form-desc"><strong>Dispense with Witness</strong> — if Dan Famy or Tracy M. Cuell cannot be found.</span></div>
-          <div class="form-row"><span class="form-tag">P-9</span><span class="form-desc"><strong>Affidavit Proving Handwriting</strong> — if a witness is deceased, alongside P-8.</span></div>
+          <div class="form-row"><span class="form-tag">P-6</span><span class="form-desc"><strong>Notice of Probate &amp; Affidavit of Mailing</strong> — all 8 beneficiaries.</span></div>
+          <div class="form-row"><span class="form-tag">P-8</span><span class="form-desc"><strong>Dispense with Witness</strong> — if a witness cannot be found.</span></div>
           <div class="form-row"><span class="form-tag">P-10</span><span class="form-desc"><strong>Renunciation of Executor</strong> — if Chelsea steps down, Phillip takes over.</span></div>
           <div class="form-row"><span class="form-tag">FT-1</span><span class="form-desc"><strong>Family Tree Chart</strong> — confirm all birth dates before completing.</span></div>
           <div class="form-row"><span class="form-tag">MV-349</span><span class="form-desc"><strong>Executor's Certificate</strong> — NY DMV form for vehicle title transfer.</span></div>
@@ -828,18 +814,12 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
       </div>
     </div>
   </div>
-
   <div style="height:20px;"></div>
 </div>
 
-<!-- ═══════════════════════════════════════
-     TAB 3 — FINANCIAL
-═══════════════════════════════════════ -->
+<!-- ═══ TAB 3 — FINANCIAL ═══ -->
 <div class="tab-panel" id="panel-finance">
-
   <div class="section-label">For Sage Rutty &amp; Financial Team</div>
-
-  <!-- Roth IRA -->
   <div class="card" id="card-ira" data-color="slate">
     <div class="card-header" onclick="toggleCard('ira')">
       <div class="step-bubble bubble-slate"><span class="num" style="font-size:18px;">🏦</span><span class="lbl">IRA</span></div>
@@ -849,27 +829,23 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
     <div class="detail-panel" id="details-ira">
       <div class="detail-section">
         <h4 style="color:#6b88b5">Named Beneficiaries</h4>
-        <p>Stephen Tokarz · Chelsea Heasman · Phillip Tokarz — <strong>1/3 each</strong>. Passes directly outside probate via beneficiary designation.</p>
+        <p>Stephen Tokarz · Chelsea Heasman · Phillip Tokarz — <strong>1/3 each</strong>. Passes directly outside probate.</p>
       </div>
       <div class="detail-section">
         <h4 style="color:#6b88b5">What to Ask the Broker For</h4>
         <ul>
           <li><strong>"Beneficiary Designation Form"</strong> — or —</li>
           <li><strong>"TOD — Transfer on Death Designation"</strong></li>
-          <li>Ask to be transferred to <strong>Deceased Account Holder</strong> department</li>
-          <li>Broker needs: <strong>death certificate + Letters Testamentary</strong></li>
-          <li>Some brokers issue a <strong>"Beneficiary Verification Letter"</strong> — ask for this specifically</li>
+          <li>Ask for the <strong>Deceased Account Holder</strong> department</li>
+          <li>Bring: <strong>death certificate + Letters Testamentary</strong></li>
         </ul>
       </div>
-      <div class="detail-section">
-        <h4 style="color:#6b88b5">Script</h4>
+      <div class="detail-section"><h4 style="color:#6b88b5">Script</h4>
         <div class="script-line" style="margin-top:0;">"I am the Executrix of the estate of Elaine M. Wall. I need the beneficiary designation on file for her Roth IRA. The account holder is deceased and I have Letters Testamentary."</div>
       </div>
-      <div class="callout callout-slate"><strong>Don't know which broker?</strong> Check her last tax return for Form 1099-R or Form 5498 — the institution name is on there. Send original document to the lawyer; keep a copy for the estate file.</div>
+      <div class="callout callout-slate"><strong>Don't know which broker?</strong> Check her last tax return for Form 1099-R or Form 5498.</div>
     </div>
   </div>
-
-  <!-- House sale -->
   <div class="card" id="card-house" data-color="gold">
     <div class="card-header" onclick="toggleCard('house')">
       <div class="step-bubble bubble-gold"><span class="num" style="font-size:18px;">🏠</span><span class="lbl">House</span></div>
@@ -881,10 +857,9 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
         <h4 style="color:#c9a84c">Step by Step</h4>
         <ul>
           <li><strong>Letters Testamentary first</strong> — title companies require them</li>
-          <li>No court approval needed — Clause SIXTH grants full sale authority to Chelsea</li>
           <li>Chelsea signs all docs as <strong>"Chelsea Heasman, Executrix of the Estate of Elaine M. Wall"</strong></li>
           <li>Provide title company: <strong>Letters Testamentary, Will, death certificate</strong></li>
-          <li>Track all carrying costs (utilities, taxes, insurance, cleaning) — reimbursed from residuary</li>
+          <li>Track all carrying costs — reimbursed from residuary</li>
           <li>File new deed at <strong>Monroe County Clerk's Office — 39 W. Main St</strong></li>
         </ul>
       </div>
@@ -893,17 +868,14 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
         <ul>
           <li><strong>$5,000</strong> → held for Siilen Enkhzul (minor, until age 30)</li>
           <li><strong>$5,000</strong> → held for Ninjin Enkhzul (minor, until age 30)</li>
-          <li><strong>1/3 remainder</strong> → Kenneth Tokarz directly (adult, age 21)</li>
+          <li><strong>1/3 remainder</strong> → Kenneth Sky Lee Tokarz directly (adult)</li>
           <li><strong>1/3 remainder</strong> → held for Nicholas Tokarz (minor, until age 30)</li>
           <li><strong>1/3 remainder</strong> → held for Brielle Rose Tokarz (minor, until age 30)</li>
         </ul>
       </div>
-      <div class="callout callout-red"><strong>Stephen, Chelsea and Phillip receive nothing from the house.</strong> House proceeds go entirely to the five beneficiaries above.</div>
-      <div class="callout callout-gold" style="margin-top:10px;"><strong>Proceeds go to estate account first</strong> — sit there until 7-month creditor period passes, then distribute.</div>
+      <div class="callout callout-red"><strong>Stephen, Chelsea and Phillip receive nothing from the house.</strong></div>
     </div>
   </div>
-
-  <!-- Car sale -->
   <div class="card" id="card-car" data-color="amber">
     <div class="card-header" onclick="toggleCard('car')">
       <div class="step-bubble bubble-amber"><span class="num" style="font-size:18px;">🚗</span><span class="lbl">Car</span></div>
@@ -916,17 +888,13 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
         <ul>
           <li><strong>Letters Testamentary first</strong></li>
           <li>Go to <strong>Monroe County DMV</strong> — 200 E Henrietta Rd · (585) 753-1600</li>
-          <li>Complete <strong>Form MV-349</strong> (Executor's Certificate) — dmv.ny.gov</li>
-          <li>Title reissued in estate name — Chelsea signs over to buyer as Executrix</li>
+          <li>Complete <strong>Form MV-349</strong> (Executor's Certificate)</li>
           <li>Cancel insurance — unused premium refund into estate account</li>
-          <li>If title is missing — apply for <strong>duplicate title</strong> at DMV first</li>
         </ul>
       </div>
       <div class="callout callout-gold"><strong>Proceeds go to estate account</strong> → residuary → 1/3 each Stephen, Chelsea and Phillip after debts settled.</div>
     </div>
   </div>
-
-  <!-- Estate bank account -->
   <div class="card" id="card-bank" data-color="green">
     <div class="card-header" onclick="toggleCard('bank')">
       <div class="step-bubble bubble-green"><span class="num" style="font-size:18px;">💵</span><span class="lbl">Account</span></div>
@@ -939,25 +907,12 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
         <ul>
           <li>Open as <strong>"Estate of Elaine M. Wall"</strong> at any bank</li>
           <li>Bring Letters Testamentary + ID</li>
-          <li>Get free <strong>EIN</strong> at IRS.gov — 5 minutes online</li>
-          <li>All proceeds — house, car, accounts — flow here first</li>
-        </ul>
-      </div>
-      <div class="detail-section">
-        <h4 style="color:#4ea87a">What Flows In</h4>
-        <ul>
-          <li>House sale net proceeds</li>
-          <li>Car sale proceeds</li>
-          <li>All bank account transfers</li>
-          <li>Any insurance payouts (if no named beneficiary)</li>
-          <li>Investment account liquidations</li>
+          <li>Get free <strong>EIN</strong> at IRS.gov</li>
         </ul>
       </div>
       <div class="callout callout-red"><strong>Never mix funds.</strong> Every expense reimbursement needs a receipt and comes from this account only.</div>
     </div>
   </div>
-
-  <!-- Minor holdings -->
   <div class="card" id="card-minors" data-color="purple">
     <div class="card-header" onclick="toggleCard('minors')">
       <div class="step-bubble bubble-purple"><span class="num" style="font-size:18px;">👶</span><span class="lbl">Minors</span></div>
@@ -974,27 +929,14 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
           <li><strong>Ninjin Enkhzul</strong> — $5,000 from house. Held until age 30.</li>
         </ul>
       </div>
-      <div class="detail-section">
-        <h4 style="color:#9b7ec8">Chelsea's Fiduciary Obligations</h4>
-        <ul>
-          <li>May apply income toward support, maintenance and <strong>education</strong> for each minor</li>
-          <li>Cannot distribute principal until each reaches <strong>age 30</strong></li>
-          <li>No annual court accountings required — Clause FOURTH waives this</li>
-          <li>If a minor dies before age 30, their share passes to their own estate</li>
-        </ul>
-      </div>
-      <div class="callout callout-purple"><strong>Age 30 is unusual</strong> — most Wills use 21 or 25. Chelsea may be managing these holdings for many years. The attorney should advise on investment strategy for held funds.</div>
+      <div class="callout callout-purple"><strong>Age 30 is unusual</strong> — Chelsea may be managing these holdings for many years. The attorney should advise on investment strategy for held funds.</div>
     </div>
   </div>
-
   <div style="height:20px;"></div>
 </div>
 
-<!-- ═══════════════════════════════════════
-     TAB 4 — CHECKLIST
-═══════════════════════════════════════ -->
+<!-- ═══ TAB 4 — CHECKLIST ═══ -->
 <div class="tab-panel" id="panel-checklist">
-
   <div class="progress-wrap">
     <div class="progress-row">
       <span class="progress-label">Steps Complete</span>
@@ -1002,10 +944,9 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
     </div>
     <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
   </div>
-
   <div class="section-label">Probate Steps</div>
   <div style="margin:0 14px 10px;background:#1c1a17;border-radius:16px;border:1px solid #2f2d28;overflow:hidden;">
-    <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 16px;border-bottom:1px solid #2f2d28;cursor:pointer;" onclick="toggleCheck2(event,-1)">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 16px;border-bottom:1px solid #2f2d28;">
       <div style="font-size:13px;font-weight:500;color:#f0ece4;">Step 0 — Pre-Probate</div>
       <div class="check-btn" id="check-s0" onclick="toggleCheck(event,0)"></div>
     </div>
@@ -1034,12 +975,10 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
       <div class="check-btn" id="check-s6" onclick="toggleCheck(event,6)"></div>
     </div>
   </div>
-
   <div class="section-label">Documents &amp; Items to Locate</div>
   <div class="big-card">
     <div class="big-card-header" onclick="toggleChecklist()">
-      <div class="big-card-left">
-        <div class="big-card-icon">💼</div>
+      <div class="big-card-left"><div class="big-card-icon">💼</div>
         <div><div class="big-card-title">Master Document Checklist</div><div class="big-card-sub">Tap items as you locate them</div></div>
       </div>
       <span class="chev" id="chev-cl">›</span>
@@ -1048,13 +987,13 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
       <div id="cl-items"></div>
     </div>
   </div>
-
   <div class="section-label">Contacts</div>
   <div style="margin:0 14px 10px;background:#1c1a17;border-radius:16px;border:1px solid #2f2d28;overflow:hidden;">
     <div style="padding:14px 16px;border-bottom:1px solid #2f2d28;">
       <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:1.3px;color:#6b88b5;margin-bottom:10px;">Key Contacts</div>
       <div style="display:flex;flex-direction:column;gap:10px;">
         <div><div style="font-size:12px;font-weight:600;color:#f0ece4;">Monroe County Surrogate's Court</div><div style="font-size:11px;color:#7a7368;margin-top:2px;">99 Exchange Blvd Rm 514 · (585) 371-3609</div></div>
+        <div><div style="font-size:12px;font-weight:600;color:#f0ece4;">McConville Considine Cooman &amp; Morin PC</div><div style="font-size:11px;color:#7a7368;margin-top:2px;">Estate Attorney — see McCM Law tab for full checklist</div></div>
         <div><div style="font-size:12px;font-weight:600;color:#f0ece4;">Monroe County DMV</div><div style="font-size:11px;color:#7a7368;margin-top:2px;">200 E Henrietta Rd · (585) 753-1600</div></div>
         <div><div style="font-size:12px;font-weight:600;color:#f0ece4;">Monroe County Clerk (Deeds)</div><div style="font-size:11px;color:#7a7368;margin-top:2px;">39 W Main St, Rochester NY 14614</div></div>
         <div><div style="font-size:12px;font-weight:600;color:#f0ece4;">RG&amp;E (Gas &amp; Electric)</div><div style="font-size:11px;color:#7a7368;margin-top:2px;">(585) 546-1900 — keep ON until house sold</div></div>
@@ -1066,13 +1005,112 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
       <div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:1.3px;color:#4ea87a;margin-bottom:10px;">Family Addresses</div>
       <div style="display:flex;flex-direction:column;gap:8px;">
         <div><div style="font-size:12px;font-weight:600;color:#f0ece4;">Chelsea Heasman (Executrix)</div><div style="font-size:11px;color:#7a7368;margin-top:1px;">440 NE 4th Ave #621, Fort Lauderdale FL 33301</div></div>
-        <div><div style="font-size:12px;font-weight:600;color:#f0ece4;">Stephen Tokarz</div><div style="font-size:11px;color:#7a7368;margin-top:1px;">2015 Rainbow View St, Henderson NV 89012</div></div>
-        <div><div style="font-size:12px;font-weight:600;color:#f0ece4;">Phillip Tokarz</div><div style="font-size:11px;color:#7a7368;margin-top:1px;">243 Hillbridge Dr, Rochester NY 14612</div></div>
+        <div><div style="font-size:12px;font-weight:600;color:#f0ece4;">Stephen Tokarz</div><div style="font-size:11px;color:#7a7368;margin-top:1px;">2015 Rainbow View St, Henderson NV 89012 · DOB: May 7, 1983</div></div>
+        <div><div style="font-size:12px;font-weight:600;color:#f0ece4;">Phillip Tokarz</div><div style="font-size:11px;color:#7a7368;margin-top:1px;">243 Hillbridge Dr, Rochester NY 14612 · DOB: Oct 12, 1991</div></div>
         <div><div style="font-size:12px;font-weight:600;color:#f0ece4;">Thomas Borrelli</div><div style="font-size:11px;color:#7a7368;margin-top:1px;">114 Henley St, Rochester NY 14612</div></div>
         <div><div style="font-size:12px;font-weight:600;color:#f0ece4;">Susan Tokarz</div><div style="font-size:11px;color:#7a7368;margin-top:1px;">626 Beach Ave, Rochester NY 14612</div></div>
       </div>
     </div>
   </div>
+  <div style="height:20px;"></div>
+</div>
+
+<!-- ═══ TAB 5 — McCM LAW ═══ -->
+<div class="tab-panel" id="panel-mccm">
+
+  <!-- Death Certificate Banner -->
+  <div style="margin: 16px 14px 0; border-radius: 14px; background: linear-gradient(135deg, rgba(78,168,122,0.15), rgba(58,175,169,0.08)); border: 1px solid rgba(78,168,122,0.35); padding: 14px 16px;">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+      <div style="background:rgba(78,168,122,0.2);border:1px solid rgba(78,168,122,0.4);border-radius:8px;padding:6px 10px;font-size:11px;font-weight:600;color:#4ea87a;white-space:nowrap;">✅ DC IN HAND</div>
+      <div style="font-size:12px;font-weight:600;color:#f0ece4;">Death Certificate #736385</div>
+    </div>
+    <div style="font-size:11px;color:#c8bfb0;font-weight:300;line-height:1.6;">Issued <strong style="color:#f0ece4;">April 27, 2026</strong> · Monroe County Dept of Public Health · Office of Vital Records, Rochester NY. Registrar: Marielena Vélez de Brown MD. Bring this to the attorney along with the original Will.</div>
+  </div>
+
+  <!-- Firm Info -->
+  <div style="margin: 12px 14px 0; border-radius: 14px; background: rgba(58,175,169,0.08); border: 1px solid rgba(58,175,169,0.25); padding: 14px 16px;">
+    <div style="display:flex;align-items:center;gap:11px;margin-bottom:10px;">
+      <div style="width:38px;height:38px;border-radius:11px;background:rgba(58,175,169,0.18);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">🏛️</div>
+      <div>
+        <div style="font-size:14px;font-weight:600;color:#3aafa9;line-height:1.2;">McConville Considine Cooman &amp; Morin PC</div>
+        <div style="font-size:11px;color:#7a7368;font-weight:300;margin-top:2px;">Rochester, NY · Estate Administration</div>
+      </div>
+    </div>
+    <div style="font-size:12px;color:#c8bfb0;font-weight:300;line-height:1.65;">This checklist was provided directly by the firm. Gather every item below before your first meeting. The more you bring, the faster the estate moves.</div>
+    <div style="margin-top:10px;background:rgba(58,175,169,0.1);border-radius:8px;padding:9px 12px;font-size:11.5px;color:#5ecdc7;font-style:italic;line-height:1.5;">"Additional items may be requested by our office."</div>
+  </div>
+
+  <!-- Progress bar -->
+  <div class="mccm-progress" style="margin-top:12px;">
+    <div class="mccm-progress-row">
+      <span class="mccm-progress-label">Items Provided to McCM</span>
+      <span class="mccm-progress-pct" id="mccmPctLabel">0 / 17</span>
+    </div>
+    <div class="mccm-progress-track"><div class="mccm-progress-fill" id="mccmProgressFill" style="width:0%"></div></div>
+  </div>
+
+  <!-- Checklist -->
+  <div style="margin: 12px 14px 0; border-radius: 16px; background: #1c1a17; border: 1px solid #2f2d28; overflow: hidden;">
+    <div id="mccm-items"></div>
+  </div>
+
+  <div class="section-label">What Happens at First Meeting</div>
+  <div class="card" data-color="teal">
+    <div class="card-header" onclick="toggleCard('mccm-mtg')">
+      <div class="step-bubble bubble-teal"><span class="num" style="font-size:18px;">📋</span><span class="lbl">Prep</span></div>
+      <div class="card-body"><div class="card-title">First Meeting Prep</div><div class="card-sub">What to bring, what to expect</div></div>
+      <div class="card-actions"><span class="pill pill-teal">Before You Go</span><span class="chev" id="chev-mccm-mtg">›</span></div>
+    </div>
+    <div class="detail-panel" id="details-mccm-mtg">
+      <div class="detail-section">
+        <h4 style="color:#3aafa9">Must Bring</h4>
+        <ul>
+          <li><strong>Original Will</strong> (4 pages, July 22, 2024) — they keep it</li>
+          <li><strong>Death Certificate</strong> DC 736385 — bring at least 3 certified copies</li>
+          <li>Every financial statement you've found so far</li>
+          <li>The estate checklist with items already gathered checked off</li>
+          <li>List of all beneficiaries with <strong>DOBs for the 4 minors</strong></li>
+        </ul>
+      </div>
+      <div class="detail-section">
+        <h4 style="color:#3aafa9">Questions to Ask</h4>
+        <ul>
+          <li>What is your fee structure — flat fee or hourly?</li>
+          <li>Did the firm draft this Will, or are you seeing it for the first time?</li>
+          <li>Can you locate Will witnesses Dan Famy and Tracy M. Cuell?</li>
+          <li>How do we handle 4 Guardian Ad Litem appointments efficiently?</li>
+          <li>Was Elaine on Medicaid? (Medicaid estate recovery risk)</li>
+          <li>Should we publish creditor notice immediately?</li>
+        </ul>
+      </div>
+      <div class="callout callout-teal"><strong>Key point:</strong> The attorney files the Petition for Probate on your behalf. You don't have to navigate the court forms alone — that's what you're paying them for.</div>
+    </div>
+  </div>
+
+  <div class="card" data-color="teal" style="margin-top:0;">
+    <div class="card-header" onclick="toggleCard('mccm-medicaid')">
+      <div class="step-bubble bubble-teal"><span class="num" style="font-size:18px;">⚠️</span><span class="lbl">Risk</span></div>
+      <div class="card-body"><div class="card-title">Medicaid Estate Recovery</div><div class="card-sub">Ask the attorney about this immediately</div></div>
+      <div class="card-actions"><span class="pill pill-red">Ask First</span><span class="chev" id="chev-mccm-medicaid">›</span></div>
+    </div>
+    <div class="detail-panel" id="details-mccm-medicaid">
+      <div class="detail-section">
+        <h4 style="color:#3aafa9">What Is It</h4>
+        <p>If Elaine received Medicaid benefits at any point, New York State has a right to file a claim against the estate to recover those costs — potentially from the house sale proceeds.</p>
+      </div>
+      <div class="detail-section">
+        <h4 style="color:#3aafa9">What To Do</h4>
+        <ul>
+          <li>Ask the attorney at the first meeting: <strong>"Was Elaine on Medicaid?"</strong></li>
+          <li>The McCM checklist specifically flags this — it's a real risk</li>
+          <li>If yes, NY OMIG (Office of Medicaid Inspector General) must be notified</li>
+          <li>This can delay or reduce the house sale distribution</li>
+        </ul>
+      </div>
+      <div class="callout callout-red"><strong>Do not distribute house proceeds</strong> until the attorney confirms Medicaid recovery status is cleared.</div>
+    </div>
+  </div>
+
   <div style="height:20px;"></div>
 </div>
 
@@ -1084,11 +1122,11 @@ for (var i = 0; i < STEPS; i++) stepsDone.push(false);
 
 var clItems = [
   { label: "Original Will (4 pages)", detail: "Dated July 22, 2024 — court keeps the physical original" },
-  { label: "10 Death Certificates", detail: "Certified copies from funeral home" },
+  { label: "10 Death Certificates (DC 736385)", detail: "Issued Apr 27, 2026 · Monroe County Dept of Public Health" },
   { label: "Witness Affidavits (Form P-3)", detail: "Dan Famy — 159 Valley View Crescent 14617 · Tracy M. Cuell — 131 Mosley Road 14616" },
   { label: "Birth certificates — Nicholas & Brielle", detail: "Confirmed minors — court needs birth dates for Petition" },
   { label: "Birth certificates — Siilen & Ninjin Enkhzul", detail: "Both minors, Stephen's wife's family. Get through Stephen." },
-  { label: "Roth IRA Beneficiary Form", detail: "Call broker — ask for TOD form confirming Stephen, Chelsea & Phillip. Need death cert + Letters" },
+  { label: "Roth IRA Beneficiary Form", detail: "Call broker — ask for TOD form confirming Stephen, Chelsea & Phillip" },
   { label: "Bank Accounts", detail: "Checking, savings, CDs — note any POD/TOD designations" },
   { label: "Life Insurance Policies", detail: "Call each company with policy number to file a claim" },
   { label: "Tax Returns (last 2 years)", detail: "Best map of every account Elaine owned — shows broker names on 1099-R/5498" },
@@ -1101,12 +1139,35 @@ var clItems = [
 ];
 for (var j = 0; j < clItems.length; j++) clDone.push(false);
 
+// McCM checklist items (from the actual firm checklist)
+var mccmItems = [
+  { label: "Original Death Certificate", sub: "DC 736385 · APR 27 2026 · Monroe County · ✅ In hand" },
+  { label: "Original Will (if not drafted by McCM)", sub: "4 pages, dated July 22, 2024 — bring physical original" },
+  { label: "All family info — names, addresses, DOB for under-18, DOD for predeceased", sub: "✅ Enkhzul parents confirmed: Tuvshinjargal Gonjav (904-859-0909) & Enkhzul Puntsag (424-415-1888) · 431 S Burnside Ave 9E, Los Angeles CA 90036" },
+  { label: "Trust Agreement (Revocable or Irrevocable), if any — include EIN", sub: "Check with attorney — no trust mentioned in Will but confirm" },
+  { label: "Tax Returns from past year, including copies of any 1099s", sub: "Best source for finding all accounts (1099-R shows IRA broker)" },
+  { label: "Statements from all brokerage accounts, mutual funds, dividend reinvestment — individual, joint or TOD (active or closed within past year)", sub: "Includes Roth IRA — need to confirm custodian name" },
+  { label: "Information on US Savings Bonds, if any", sub: "Physical bonds or Treasury Direct account (treasurydirect.gov)" },
+  { label: "Stock holdings with Transfer Agent — copies of statements for physical stock certificates", sub: "Any paper stock certificates in the house?" },
+  { label: "List of miscellaneous assets — automobile(s) with titles, art, jewelry, firearms, safe deposit box", sub: "Vehicle title for car(s) · Check for safe deposit box at her bank" },
+  { label: "Information on any Group Life Policies — individually owned or from current/past employers", sub: "Check with prior employer HR departments if applicable" },
+  { label: "Abstract of Title for 32 Morrow Drive", sub: "Real estate owned — needed for house sale. Check with Monroe County Clerk." },
+  { label: "Copies of Annuity statements, if any, with most recent statements", sub: "Check tax returns and mail for annuity company names" },
+  { label: "Information on any joint assets not listed above — joint with spouse/children/siblings/anyone", sub: "Check bank statements for any joint account holders" },
+  { label: "Copies of Statements on Individual Retirement Accounts", sub: "Roth IRA — confirm custodian. Ask broker for beneficiary designation form." },
+  { label: "Copies of any Pension statements or benefits from current/former employers", sub: "Contact any prior employers' HR / benefits departments" },
+  { label: "Statements from creditors — any unpaid bills", sub: "Medical bills, credit cards, utilities — collect everything" },
+  { label: "If decedent was on Medicaid — information regarding coverage", sub: "⚠️ Critical — Medicaid estate recovery can claim against house proceeds" },
+];
+var mccmDone = [];
+for (var k = 0; k < mccmItems.length; k++) mccmDone.push(false);
+
 // ── TAB SWITCHING ──
 var currentTab = 'family';
 function switchTab(tab) {
   document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
   document.querySelectorAll('.tab-btn').forEach(function(b) {
-    b.classList.remove('active','active-family','active-lawyer','active-finance','active-checklist');
+    b.classList.remove('active','active-family','active-lawyer','active-finance','active-checklist','active-mccm','active-parties');
   });
   document.getElementById('panel-' + tab).classList.add('active');
   document.getElementById('tab-' + tab).classList.add('active', 'active-' + tab);
@@ -1114,20 +1175,19 @@ function switchTab(tab) {
   try { localStorage.setItem('exec_tab', tab); } catch(e) {}
 }
 
-// ── TREE ──
 function toggleTree() {
   document.getElementById('tree-panel').classList.toggle('open');
   document.getElementById('chev-tree').classList.toggle('open');
 }
-
-// ── ACCORDION ──
 function toggleSub(id) {
   document.getElementById('sub-body-' + id).classList.toggle('open');
   document.getElementById('sub-chev-' + id).classList.toggle('open');
 }
 function toggleCard(i) {
-  document.getElementById('details-' + i).classList.toggle('open');
-  document.getElementById('chev-' + i).classList.toggle('open');
+  var d = document.getElementById('details-' + i);
+  var c = document.getElementById('chev-' + i);
+  if (d) d.classList.toggle('open');
+  if (c) c.classList.toggle('open');
 }
 function toggleForms() {
   document.getElementById('forms-body').classList.toggle('open');
@@ -1171,20 +1231,51 @@ function renderChecklist() {
 }
 function toggleCl(i) { clDone[i] = !clDone[i]; renderChecklist(); save(); }
 
+// ── McCM CHECKLIST ──
+function renderMccm() {
+  var html = '';
+  var total = mccmItems.length;
+  var done = 0;
+  for (var i = 0; i < mccmItems.length; i++) { if (mccmDone[i]) done++; }
+  for (var i = 0; i < mccmItems.length; i++) {
+    var isDone = mccmDone[i];
+    var isRed = mccmItems[i].sub.indexOf('⚠️') >= 0;
+    html += '<div class="mccm-item' + (isDone ? ' done' : '') + '" onclick="toggleMccm(' + i + ')">' +
+      '<div class="mccm-item-num">' + (i + 1) + '</div>' +
+      '<div class="mccm-item-body">' +
+        '<div class="mccm-item-label">' + mccmItems[i].label + '</div>' +
+        '<div class="mccm-item-sub" style="' + (isRed && !isDone ? 'color:#e87b6a;' : '') + '">' + mccmItems[i].sub + '</div>' +
+      '</div>' +
+      '<div class="mccm-check' + (isDone ? ' on' : '') + '"></div>' +
+    '</div>';
+  }
+  document.getElementById('mccm-items').innerHTML = html;
+  // Update progress
+  var pct = total > 0 ? Math.round((done / total) * 100) : 0;
+  var pf = document.getElementById('mccmProgressFill');
+  var pl = document.getElementById('mccmPctLabel');
+  if (pf) pf.style.width = pct + '%';
+  if (pl) pl.textContent = done + ' / ' + total;
+}
+function toggleMccm(i) { mccmDone[i] = !mccmDone[i]; renderMccm(); save(); }
+
 // ── SAVE / LOAD ──
 function save() {
   try {
     localStorage.setItem('exec_steps', JSON.stringify(stepsDone));
     localStorage.setItem('exec_cl', JSON.stringify(clDone));
+    localStorage.setItem('exec_mccm', JSON.stringify(mccmDone));
   } catch(e) {}
 }
 function load() {
   try {
     var s = localStorage.getItem('exec_steps');
     var c = localStorage.getItem('exec_cl');
+    var m = localStorage.getItem('exec_mccm');
     var t = localStorage.getItem('exec_tab');
     if (s) stepsDone = JSON.parse(s);
     if (c) clDone = JSON.parse(c);
+    if (m) mccmDone = JSON.parse(m);
     if (t) switchTab(t); else switchTab('family');
   } catch(e) { switchTab('family'); }
   for (var i = 0; i < STEPS; i++) {
@@ -1197,10 +1288,10 @@ function load() {
   }
   updateProgress();
   renderChecklist();
+  renderMccm();
 }
 load();
 
-// ── UPDATE / REFRESH ──
 function checkForUpdate() {
   var icon = document.getElementById('updateIcon');
   var label = document.getElementById('updateLabel');
@@ -1215,7 +1306,6 @@ function checkForUpdate() {
   }, 600);
 }
 
-// ── PULL TO REFRESH ──
 var pullStartY = 0, pullDist = 0, pulling = false;
 var PULL_THRESHOLD = 80;
 document.addEventListener('touchstart', function(e) {
@@ -1242,6 +1332,248 @@ document.addEventListener('touchend', function() {
   }
   pullDist = 0;
 }, { passive: true });
+
+// ── PARTIES DATA ──────────────────────────────────────────────────────────────
+var SHEETS = [
+  {
+    name: "All Parties",
+    title: "Estate of Elaine M. Wall — All Parties & Beneficiaries",
+    sub: "Monroe County, NY · Will dated July 22, 2024 · Chelsea Heasman, Executrix",
+    titleColor: "C9A84C",
+    headers: ["Full Name","Role","Relationship","Date of Birth","Age / Status","Address","City / State / ZIP","Phone","Parent / Guardian","Parent Address","Notes"],
+    sections: [
+      { label: "Deceased", color: "E05540", rows: [
+        { name: "Elaine M. Wall", role: "Testatrix (Deceased)", rel: "Decedent", dob: "", status: "Deceased", addr: "32 Morrow Drive", city: "Greece, NY", phone: "", parent: "", parentAddr: "", notes: "DC 736385 · APR 27 2026", nameClass: "pt-deceased", pills: [{t:"Deceased",c:"pt-pill-red"}] }
+      ]},
+      { label: "Executrix & Primary Heirs", color: "C9A84C", rows: [
+        { name: "Chelsea Heasman", role: "Executrix · 1/3 Residuary · 1/3 Roth IRA", rel: "Niece (married)", dob: "", status: "Adult", addr: "440 NE 4th Ave #621", city: "Fort Lauderdale, FL 33301", phone: "", parent: "", parentAddr: "", notes: "Primary Executrix per Clause SEVENTH", nameClass: "pt-exec", pills: [{t:"Executrix",c:"pt-pill-gold"},{t:"1/3 residuary",c:"pt-pill-green"}] },
+        { name: "Stephen Tokarz", role: "1/3 Residuary · 1/3 Roth IRA", rel: "Nephew", dob: "May 7, 1983", status: "Adult (age 43)", addr: "2015 Rainbow View St", city: "Henderson, NV 89012", phone: "", parent: "", parentAddr: "", notes: "Susan Tokarz's son", nameClass: "pt-heir", pills: [{t:"1/3 residuary",c:"pt-pill-green"},{t:"1/3 Roth IRA",c:"pt-pill-green"}] },
+        { name: "Phillip Tokarz", role: "1/3 Residuary · 1/3 Roth IRA · Successor Executor", rel: "Nephew", dob: "Oct 12, 1991", status: "Adult (age 34)", addr: "243 Hillbridge Dr", city: "Rochester, NY 14612", phone: "", parent: "", parentAddr: "", notes: "Successor Executor if Chelsea steps down", nameClass: "pt-heir", pills: [{t:"1/3 residuary",c:"pt-pill-green"},{t:"Successor Exec",c:"pt-pill-gold"}] }
+      ]},
+      { label: "House Beneficiaries — Adult", color: "4EA87A", rows: [
+        { name: "Kenneth Sky Lee Tokarz", role: "1/3 House Proceeds — direct (adult)", rel: "Great-Nephew", dob: "May 7, 2003", status: "Adult (age 21)", addr: "555 Greenbrier Dr, Apt 26", city: "Oceanside, CA 92054", phone: "", parent: "Stephen Tokarz (father)", parentAddr: "2015 Rainbow View St, Henderson NV 89012", notes: "SSN on file — Sensitive tab", nameClass: "pt-heir", pills: [{t:"1/3 house",c:"pt-pill-green"},{t:"Adult — direct",c:"pt-pill-green"}] }
+      ]},
+      { label: "House Beneficiaries — Minors (held to age 30)", color: "9B7EC8", rows: [
+        { name: "Nicholas Tokarz", role: "1/3 House Remainder — HELD TO AGE 30", rel: "Great-Nephew (Minor)", dob: "Oct 23, 2021", status: "MINOR \u26a0\ufe0f", addr: "", city: "", phone: "", parent: "Stephen Tokarz (father)", parentAddr: "2015 Rainbow View St, Henderson NV 89012", notes: "GAL required · Held by Chelsea until age 30", nameClass: "pt-minor", pills: [{t:"Minor \u26a0\ufe0f",c:"pt-pill-red"},{t:"1/3 house",c:"pt-pill-purple"}] },
+        { name: "Brielle Rose Tokarz", role: "1/3 House Remainder — HELD TO AGE 30", rel: "Great-Niece (Minor)", dob: "Apr 4, 2024", status: "MINOR \u26a0\ufe0f", addr: "", city: "", phone: "", parent: "Phillip Tokarz (father)", parentAddr: "243 Hillbridge Dr, Rochester NY 14612", notes: "GAL required · Held by Chelsea until age 30", nameClass: "pt-minor", pills: [{t:"Minor \u26a0\ufe0f",c:"pt-pill-red"},{t:"1/3 house",c:"pt-pill-purple"}] },
+        { name: "Siilen Enkhzul", role: "$5,000 from House — HELD TO AGE 30", rel: "Step-family (Minor)", dob: "Oct 8, 2008", status: "MINOR \u26a0\ufe0f", addr: "", city: "", phone: "Mom: (904) 859-0909<br>Dad: (424) 415-1888", parent: "Mother: Tuvshinjargal Gonjav<br>Father: Enkhzul Puntsag", parentAddr: "431 S Burnside Ave Apt 9E<br>Los Angeles, CA 90036", notes: "GAL required · Turns 18 Oct 2026 · Held until age 30", nameClass: "pt-minor", pills: [{t:"Minor \u26a0\ufe0f",c:"pt-pill-red"},{t:"$5,000 house",c:"pt-pill-purple"}] },
+        { name: "Ninjin Enkhzul", role: "$5,000 from House — HELD TO AGE 30", rel: "Step-family (Minor)", dob: "Sep 27, 2020", status: "MINOR \u26a0\ufe0f", addr: "", city: "", phone: "Mom: (904) 859-0909<br>Dad: (424) 415-1888", parent: "Mother: Tuvshinjargal Gonjav<br>Father: Enkhzul Puntsag", parentAddr: "431 S Burnside Ave Apt 9E<br>Los Angeles, CA 90036", notes: "GAL required · Held until age 30", nameClass: "pt-minor", pills: [{t:"Minor \u26a0\ufe0f",c:"pt-pill-red"},{t:"$5,000 house",c:"pt-pill-purple"}] }
+      ]},
+      { label: "Siblings — Notice of Probate Required", color: "6B88B5", rows: [
+        { name: "Thomas Borrelli", role: "Brother of Decedent — No inheritance", rel: "Sibling", dob: "", status: "Adult", addr: "114 Henley St", city: "Rochester, NY 14612", phone: "", parent: "", parentAddr: "", notes: "Must receive Notice of Probate (Form P-6). No children.", nameClass: "pt-sibling", pills: [{t:"No inheritance",c:"pt-pill-slate"},{t:"Notice P-6",c:"pt-pill-amber"}] },
+        { name: "Susan Tokarz", role: "Sister of Decedent — No direct inheritance", rel: "Sibling", dob: "", status: "Adult", addr: "626 Beach Ave", city: "Rochester, NY 14612", phone: "", parent: "", parentAddr: "", notes: "Mother of Stephen, Chelsea & Phillip. Must receive Notice of Probate.", nameClass: "pt-sibling", pills: [{t:"No inheritance",c:"pt-pill-slate"},{t:"Notice P-6",c:"pt-pill-amber"}] }
+      ]},
+      { label: "Will Witnesses", color: "D4842A", rows: [
+        { name: "Dan Famy", role: "Will Witness — Form P-3 Required", rel: "Witness", dob: "", status: "Adult", addr: "159 Valley View Crescent", city: "Rochester, NY 14617", phone: "", parent: "", parentAddr: "", notes: "Must sign Form P-3 before separate notary", nameClass: "pt-witness", pills: [{t:"Witness",c:"pt-pill-amber"},{t:"P-3 needed",c:"pt-pill-red"}] },
+        { name: "Tracy M. Cuell", role: "Will Witness — Form P-3 Required", rel: "Witness", dob: "", status: "Adult", addr: "131 Mosley Road", city: "Rochester, NY 14616", phone: "", parent: "", parentAddr: "", notes: "Must sign Form P-3. Witnesses cannot notarize each other.", nameClass: "pt-witness", pills: [{t:"Witness",c:"pt-pill-amber"},{t:"P-3 needed",c:"pt-pill-red"}] }
+      ]},
+      { label: "Attorney", color: "3AAFA9", rows: [
+        { name: "McConville Considine Cooman & Morin PC", role: "Estate Attorney", rel: "Law Firm", dob: "", status: "", addr: "", city: "Rochester, NY", phone: "", parent: "", parentAddr: "", notes: "Provided Estate Administration Checklist", nameClass: "pt-atty", pills: [{t:"Attorney",c:"pt-pill-teal"}] }
+      ]}
+    ]
+  },
+  {
+    name: "Minors",
+    title: "Minor Beneficiaries — Guardian & GAL Detail",
+    sub: "4 Guardians Ad Litem required · All shares held by Chelsea as Fiduciary until age 30",
+    titleColor: "9B7EC8",
+    headers: ["Minor's Name","DOB","Age","Inheritance","Parent / Guardian","Parent Address","Parent Phone","GAL Status / Notes"],
+    sections: [
+      { label: "", color: "9B7EC8", rows: [
+        {cells:["Nicholas Tokarz","Oct 23, 2021","4 years old","1/3 house remainder after $10k set-asides","Stephen Tokarz (father)","2015 Rainbow View St, Henderson NV 89012","","GAL REQUIRED · Court appoints before Letters issue · Held to age 30"], nameClass:"pt-minor"},
+        {cells:["Brielle Rose Tokarz","Apr 4, 2024","2 years old","1/3 house remainder after $10k set-asides","Phillip Tokarz (father)","243 Hillbridge Dr, Rochester NY 14612","","GAL REQUIRED · Court appoints before Letters issue · Held to age 30"], nameClass:"pt-minor"},
+        {cells:["Siilen Enkhzul","Oct 8, 2008","17 years old","$5,000 from house proceeds","Mother: Tuvshinjargal Gonjav<br>Father: Enkhzul Puntsag","431 S Burnside Ave Apt 9E<br>Los Angeles, CA 90036","Mom: (904) 859-0909<br>Dad: (424) 415-1888","GAL REQUIRED · Turns 18 Oct 2026 · Held to age 30"], nameClass:"pt-minor"},
+        {cells:["Ninjin Enkhzul","Sep 27, 2020","5 years old","$5,000 from house proceeds","Mother: Tuvshinjargal Gonjav<br>Father: Enkhzul Puntsag","431 S Burnside Ave Apt 9E<br>Los Angeles, CA 90036","Mom: (904) 859-0909<br>Dad: (424) 415-1888","GAL REQUIRED · Court appoints before Letters issue · Held to age 30"], nameClass:"pt-minor"}
+      ]}
+    ]
+  },
+  {
+    name: "McCM Checklist",
+    title: "McConville Considine Cooman & Morin PC — Checklist",
+    sub: "Track submission of each item. Additional items may be requested by the office.",
+    titleColor: "3AAFA9",
+    headers: ["#","Item Required","Status","Date Provided","Notes"],
+    sections: [{ label: "", color: "3AAFA9", rows: [
+      {cells:["1","Original Death Certificate","","",""]},
+      {cells:["2","Original Will (if not drafted by McCM)","","",""]},
+      {cells:["3","All family information — names, addresses, DOD/DOB","","",""]},
+      {cells:["4","Trust Agreement (if any) — include EIN","","",""]},
+      {cells:["5","Tax Returns from past year + 1099s","","",""]},
+      {cells:["6","Brokerage/mutual fund/dividend statements — all accounts","","",""]},
+      {cells:["7","US Savings Bonds (Physical or Treasury Direct)","","",""]},
+      {cells:["8","Stock Holdings with Transfer Agent","","",""]},
+      {cells:["9","Miscellaneous assets — car titles, art, jewelry, firearms, safe deposit box","","",""]},
+      {cells:["10","Group Life Policies (individual or employer)","","",""]},
+      {cells:["11","Abstract of Title — 32 Morrow Drive","","",""]},
+      {cells:["12","Annuity statements + most recent","","",""]},
+      {cells:["13","Joint assets (spouse/children/siblings/anyone)","","",""]},
+      {cells:["14","IRA Statements — Roth IRA confirm beneficiaries","","",""]},
+      {cells:["15","Pension statements / employer benefits","","",""]},
+      {cells:["16","Creditor statements — unpaid bills","","",""]},
+      {cells:["17","Medicaid coverage info (if applicable)","","",""]}
+    ]}]
+  },
+  {
+    name: "Contacts",
+    title: "Key Contacts & Institutions",
+    sub: "Estate of Elaine M. Wall",
+    titleColor: "C9A84C",
+    headers: ["Institution / Person","Role","Address / Phone","Notes"],
+    sections: [{ label: "", color: "C9A84C", rows: [
+      {cells:["Monroe County Surrogate's Court","Probate Filing","99 Exchange Blvd Rm 514 · (585) 371-3609","Mon–Fri 9am–5pm · P-1, P-3, P-6 filed here"]},
+      {cells:["McConville Considine Cooman & Morin PC","Estate Attorney","Rochester NY","Provided Estate Administration Checklist"]},
+      {cells:["Monroe County DMV","Vehicle Title Transfer","200 E Henrietta Rd · (585) 753-1600","Form MV-349 for car title"]},
+      {cells:["Monroe County Clerk","Real Estate Deeds","39 W Main St, Rochester NY 14614","Deed transfer after house sale"]},
+      {cells:["RG&E","Utilities — Keep ON","(585) 546-1900","Keep on until 32 Morrow Drive sold"]},
+      {cells:["Monroe County Water","Utilities — Keep ON","","Keep on until house sold"]},
+      {cells:["Social Security Administration","Notify of Death","1-800-772-1213","Return any post-death payments immediately"]},
+      {cells:["IRS.gov","EIN for Estate","irs.gov/businesses/small-businesses","Free EIN — needed to open estate bank account"]},
+      {cells:["Democrat & Chronicle","Creditor Notice","Rochester NY","Starts 7-month creditor clock"]},
+      {cells:["Dan Famy (Witness)","Will Witness","159 Valley View Crescent, Rochester NY 14617","Form P-3 — before separate notary"]},
+      {cells:["Tracy M. Cuell (Witness)","Will Witness","131 Mosley Road, Rochester NY 14616","Form P-3 — witnesses cannot notarize each other"]}
+    ]}]
+  },
+  {
+    name: "Sensitive",
+    title: "Sensitive Information — Handle with Care",
+    sub: "\u26a0\ufe0f Contains Social Security Numbers. Store securely. Provide to attorney only. Do not share electronically.",
+    titleColor: "E05540",
+    isSensitive: true,
+    headers: ["Full Name","Role","DOB","SSN","Address","Notes"],
+    sections: [{ label: "", color: "E05540", rows: [
+      {cells:["Kenneth Sky Lee Tokarz","Beneficiary — 1/3 house proceeds (adult, direct)","May 7, 2003","613-39-5992","555 Greenbrier Dr Apt 26, Oceanside CA 92054","Son of Stephen Tokarz · Full name: Kenneth Sky Lee Tokarz"], nameClass:"pt-minor"}
+    ]}]
+  }
+];
+
+var currentSheetIdx = 0;
+var sensitiveUnlocked = false;
+
+function showSheet(idx) {
+  if (idx === 4 && !sensitiveUnlocked) {
+    if (!confirm('This sheet contains Social Security Numbers.\n\nOnly view on a secure private device.\n\nContinue?')) return;
+    sensitiveUnlocked = true;
+  }
+  currentSheetIdx = idx;
+  for (var i = 0; i < 5; i++) {
+    var t = document.getElementById('stab-' + i);
+    if (t) t.classList.toggle('active', i === idx);
+  }
+  renderSheet(idx);
+}
+
+function renderSheet(idx) {
+  var sheet = SHEETS[idx];
+  var thead = document.getElementById('partiesHead');
+  var tbody = document.getElementById('partiesBody');
+  if (!thead || !tbody) return;
+  var isSens = !!sheet.isSensitive;
+  var accentColor = sheet.titleColor;
+  var colCount = sheet.headers.length;
+
+  // Title header
+  var hhtml = '<tr><th colspan="' + colCount + '" style="padding:14px 16px;background:#161410;border-bottom:1px solid #2f2d28;white-space:normal;">';
+  hhtml += '<div style="font-family:\'Cormorant Garamond\',serif;font-size:16px;font-weight:700;color:#' + accentColor + ';margin-bottom:3px;">' + sheet.title + '</div>';
+  if (isSens) hhtml += '<div style="display:inline-flex;align-items:center;gap:5px;font-size:10px;color:#e05540;background:rgba(224,85,64,0.12);border:1px solid rgba(224,85,64,0.3);border-radius:6px;padding:3px 8px;margin-bottom:5px;">&#9888;&#65039; SENSITIVE — ATTORNEY EYES ONLY</div><br>';
+  hhtml += '<div style="font-size:10px;color:#7a7368;font-weight:300;">' + sheet.sub + '</div>';
+  hhtml += '</th></tr><tr>';
+  sheet.headers.forEach(function(h) { hhtml += '<th style="color:#' + accentColor + ';">' + h + '</th>'; });
+  hhtml += '</tr>';
+  thead.innerHTML = hhtml;
+
+  var bhtml = '';
+  sheet.sections.forEach(function(section) {
+    if (section.label) {
+      bhtml += '<tr class="pt-section-hdr"><td colspan="' + colCount + '">' + section.label + '</td></tr>';
+    }
+    section.rows.forEach(function(row) {
+      bhtml += '<tr>';
+      if (row.cells) {
+        row.cells.forEach(function(cell, ci) {
+          var cls = (ci === 0) ? ((row.nameClass||'') + ' pt-name') : '';
+          var style = '';
+          if (idx === 4 && ci === 3) style = 'color:#c9a84c;font-weight:700;font-size:13px;letter-spacing:1px;';
+          if (typeof cell === 'string' && cell.indexOf('GAL REQUIRED') >= 0) style = 'color:#e87b6a;font-weight:500;';
+          bhtml += '<td class="' + cls + '" style="' + style + '">' + (cell||'') + '</td>';
+        });
+      } else {
+        bhtml += '<td class="' + (row.nameClass||'') + ' pt-name" style="white-space:nowrap;">';
+        bhtml += (row.name||'');
+        if (row.pills && row.pills.length) {
+          bhtml += '<div style="margin-top:5px;display:flex;flex-wrap:wrap;gap:3px;">';
+          row.pills.forEach(function(p) { bhtml += '<span class="pt-pill ' + p.c + '">' + p.t + '</span>'; });
+          bhtml += '</div>';
+        }
+        bhtml += '</td>';
+        bhtml += '<td>' + (row.role||'') + '</td>';
+        bhtml += '<td style="white-space:nowrap;">' + (row.rel||'') + '</td>';
+        bhtml += '<td style="white-space:nowrap;">' + (row.dob||'') + '</td>';
+        var sStyle = (row.status||'').indexOf('MINOR') >= 0 ? 'color:#e05540;font-weight:600;' : '';
+        bhtml += '<td style="white-space:nowrap;' + sStyle + '">' + (row.status||'') + '</td>';
+        bhtml += '<td style="white-space:nowrap;">' + (row.addr||'') + '</td>';
+        bhtml += '<td style="white-space:nowrap;">' + (row.city||'') + '</td>';
+        bhtml += '<td>' + (row.phone||'') + '</td>';
+        bhtml += '<td>' + (row.parent||'') + '</td>';
+        bhtml += '<td>' + (row.parentAddr||'') + '</td>';
+        bhtml += '<td>' + (row.notes||'') + '</td>';
+      }
+      bhtml += '</tr>';
+    });
+  });
+  tbody.innerHTML = bhtml;
+}
+
+function downloadXLSX() {
+  var btn = document.querySelector('.dl-btn');
+  if (btn) { btn.textContent = '\u23f3 Preparing...'; btn.style.opacity = '0.7'; btn.style.pointerEvents = 'none'; }
+  var base = window.location.href.split('?')[0].replace(/index\.html$/, '');
+  var link = document.createElement('a');
+  link.href = base + 'Estate_Wall_Parties.xlsx';
+  link.download = 'Estate_Wall_Parties.xlsx';
+  link.style.display = 'none';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  setTimeout(function() {
+    if (btn) { btn.textContent = '\u2b07 Download XLSX'; btn.style.opacity = ''; btn.style.pointerEvents = ''; }
+  }, 2000);
+}
+
+renderSheet(0);
+
 </script>
+
+<!-- ═══ TAB 6 — PARTIES ═══ -->
+<div class="tab-panel" id="panel-parties">
+
+  <!-- Download Bar -->
+  <div class="download-bar">
+    <div class="download-bar-text">
+      <strong>Estate_Wall_Parties.xlsx</strong><br>5 sheets · All parties, minors, contacts &amp; sensitive info
+    </div>
+    <button class="dl-btn" onclick="downloadXLSX()">⬇ Download XLSX</button>
+  </div>
+
+  <!-- Sheet Tabs -->
+  <div class="parties-sheet-tabs" id="sheetTabs">
+    <button class="sheet-tab active" onclick="showSheet(0)" id="stab-0">All Parties</button>
+    <button class="sheet-tab" onclick="showSheet(1)" id="stab-1">Minors</button>
+    <button class="sheet-tab" onclick="showSheet(2)" id="stab-2">McCM Checklist</button>
+    <button class="sheet-tab" onclick="showSheet(3)" id="stab-3">Contacts</button>
+    <button class="sheet-tab sheet-red" onclick="showSheet(4)" id="stab-4">🔒 Sensitive</button>
+  </div>
+
+  <!-- Table Container -->
+  <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 14px 10px;">
+    <div class="parties-table-wrap" style="margin:0; min-width: fit-content;">
+      <table class="parties-table" id="partiesTable">
+        <thead id="partiesHead"></thead>
+        <tbody id="partiesBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div style="height:20px;"></div>
+</div>
 </body>
 </html>
