@@ -299,6 +299,43 @@ body { font-family: var(--font-body); font-weight: 400; color: var(--text);
   padding: 9px 16px; border-radius: 10px; cursor: pointer; white-space: nowrap;
   font-family: var(--font-body); letter-spacing: 0.3px; transition: background 0.15s, box-shadow 0.15s; }
 .dl-btn:active { background: rgba(201,168,76,0.28); box-shadow: 0 0 16px rgba(201,168,76,0.3); }
+
+/* ── INLINE EDITING ── */
+.pt-edit-hint { font-size:9px; color:var(--muted); text-align:right; padding:6px 16px 0;
+  font-style:italic; letter-spacing:0.3px; }
+.pt-cell-editing { outline: none !important; }
+td[contenteditable="true"] { cursor: text; transition: background 0.15s; position: relative; }
+td[contenteditable="true"]:hover { background: rgba(201,168,76,0.06) !important; }
+td[contenteditable="true"]:focus {
+  background: rgba(201,168,76,0.12) !important;
+  box-shadow: inset 0 0 0 1.5px rgba(201,168,76,0.5);
+  border-radius: 4px;
+  outline: none;
+}
+td[contenteditable="true"].sensitive-field:focus {
+  box-shadow: inset 0 0 0 1.5px rgba(224,85,64,0.5);
+  background: rgba(224,85,64,0.1) !important;
+}
+.edit-saved-flash { animation: savedFlash 0.6s ease forwards; }
+@keyframes savedFlash {
+  0%   { background: rgba(78,168,122,0.3) !important; }
+  100% { background: transparent; }
+}
+.parties-toolbar { display:flex; align-items:center; gap:8px; padding:10px 14px 0; flex-wrap:wrap; }
+.toolbar-btn { font-size:10px; font-weight:600; padding:5px 12px; border-radius:8px; cursor:pointer;
+  border:1px solid; font-family:var(--font-body); transition:opacity 0.15s; white-space:nowrap; }
+.toolbar-btn:active { opacity:0.7; }
+.toolbar-btn-gold { color:#c9a84c; border-color:rgba(201,168,76,0.4); background:rgba(201,168,76,0.12); }
+.toolbar-btn-red  { color:#e05540; border-color:rgba(224,85,64,0.4); background:rgba(224,85,64,0.1); }
+.toolbar-btn-green{ color:#4ea87a; border-color:rgba(78,168,122,0.4); background:rgba(78,168,122,0.1); }
+.edit-mode-badge { font-size:9px; font-weight:600; padding:3px 8px; border-radius:999px;
+  background:rgba(201,168,76,0.2); color:#c9a84c; border:1px solid rgba(201,168,76,0.4);
+  display:none; align-items:center; gap:4px; }
+.edit-mode-badge.visible { display:inline-flex; }
+.unsaved-dot { width:6px; height:6px; border-radius:50%; background:#e05540;
+  display:inline-block; animation: pulse 1.2s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+
 .ssn-shield { display: inline-flex; align-items: center; gap: 5px; font-size: 10px;
   color: #e05540; background: rgba(224,85,64,0.12); border: 1px solid rgba(224,85,64,0.3);
   border-radius: 6px; padding: 3px 8px; margin-bottom: 4px; }
@@ -1334,6 +1371,8 @@ document.addEventListener('touchend', function() {
 }, { passive: true });
 
 // ── PARTIES DATA ──────────────────────────────────────────────────────────────
+
+// ── PARTIES DATA ──────────────────────────────────────────────────────────────
 var SHEETS = [
   {
     name: "All Parties",
@@ -1356,8 +1395,8 @@ var SHEETS = [
       { label: "House Beneficiaries — Minors (held to age 30)", color: "9B7EC8", rows: [
         { name: "Nicholas Tokarz", role: "1/3 House Remainder — HELD TO AGE 30", rel: "Great-Nephew (Minor)", dob: "Oct 23, 2021", status: "MINOR \u26a0\ufe0f", addr: "", city: "", phone: "", parent: "Stephen Tokarz (father)", parentAddr: "2015 Rainbow View St, Henderson NV 89012", notes: "GAL required · Held by Chelsea until age 30", nameClass: "pt-minor", pills: [{t:"Minor \u26a0\ufe0f",c:"pt-pill-red"},{t:"1/3 house",c:"pt-pill-purple"}] },
         { name: "Brielle Rose Tokarz", role: "1/3 House Remainder — HELD TO AGE 30", rel: "Great-Niece (Minor)", dob: "Apr 4, 2024", status: "MINOR \u26a0\ufe0f", addr: "", city: "", phone: "", parent: "Phillip Tokarz (father)", parentAddr: "243 Hillbridge Dr, Rochester NY 14612", notes: "GAL required · Held by Chelsea until age 30", nameClass: "pt-minor", pills: [{t:"Minor \u26a0\ufe0f",c:"pt-pill-red"},{t:"1/3 house",c:"pt-pill-purple"}] },
-        { name: "Siilen Enkhzul", role: "$5,000 from House — HELD TO AGE 30", rel: "Step-family (Minor)", dob: "Oct 8, 2008", status: "MINOR \u26a0\ufe0f", addr: "", city: "", phone: "Mom: (904) 859-0909<br>Dad: (424) 415-1888", parent: "Mother: Tuvshinjargal Gonjav<br>Father: Enkhzul Puntsag", parentAddr: "431 S Burnside Ave Apt 9E<br>Los Angeles, CA 90036", notes: "GAL required · Turns 18 Oct 2026 · Held until age 30", nameClass: "pt-minor", pills: [{t:"Minor \u26a0\ufe0f",c:"pt-pill-red"},{t:"$5,000 house",c:"pt-pill-purple"}] },
-        { name: "Ninjin Enkhzul", role: "$5,000 from House — HELD TO AGE 30", rel: "Step-family (Minor)", dob: "Sep 27, 2020", status: "MINOR \u26a0\ufe0f", addr: "", city: "", phone: "Mom: (904) 859-0909<br>Dad: (424) 415-1888", parent: "Mother: Tuvshinjargal Gonjav<br>Father: Enkhzul Puntsag", parentAddr: "431 S Burnside Ave Apt 9E<br>Los Angeles, CA 90036", notes: "GAL required · Held until age 30", nameClass: "pt-minor", pills: [{t:"Minor \u26a0\ufe0f",c:"pt-pill-red"},{t:"$5,000 house",c:"pt-pill-purple"}] }
+        { name: "Siilen Enkhzul", role: "$5,000 from House — HELD TO AGE 30", rel: "Step-family (Minor)", dob: "Oct 8, 2008", status: "MINOR \u26a0\ufe0f", addr: "", city: "", phone: "Mom: (904) 859-0909\nDad: (424) 415-1888", parent: "Mother: Tuvshinjargal Gonjav\nFather: Enkhzul Puntsag", parentAddr: "431 S Burnside Ave Apt 9E, Los Angeles CA 90036", notes: "GAL required · Turns 18 Oct 2026 · Held until age 30", nameClass: "pt-minor", pills: [{t:"Minor \u26a0\ufe0f",c:"pt-pill-red"},{t:"$5,000 house",c:"pt-pill-purple"}] },
+        { name: "Ninjin Enkhzul", role: "$5,000 from House — HELD TO AGE 30", rel: "Step-family (Minor)", dob: "Sep 27, 2020", status: "MINOR \u26a0\ufe0f", addr: "", city: "", phone: "Mom: (904) 859-0909\nDad: (424) 415-1888", parent: "Mother: Tuvshinjargal Gonjav\nFather: Enkhzul Puntsag", parentAddr: "431 S Burnside Ave Apt 9E, Los Angeles CA 90036", notes: "GAL required · Held until age 30", nameClass: "pt-minor", pills: [{t:"Minor \u26a0\ufe0f",c:"pt-pill-red"},{t:"$5,000 house",c:"pt-pill-purple"}] }
       ]},
       { label: "Siblings — Notice of Probate Required", color: "6B88B5", rows: [
         { name: "Thomas Borrelli", role: "Brother of Decedent — No inheritance", rel: "Sibling", dob: "", status: "Adult", addr: "114 Henley St", city: "Rochester, NY 14612", phone: "", parent: "", parentAddr: "", notes: "Must receive Notice of Probate (Form P-6). No children.", nameClass: "pt-sibling", pills: [{t:"No inheritance",c:"pt-pill-slate"},{t:"Notice P-6",c:"pt-pill-amber"}] },
@@ -1378,14 +1417,12 @@ var SHEETS = [
     sub: "4 Guardians Ad Litem required · All shares held by Chelsea as Fiduciary until age 30",
     titleColor: "9B7EC8",
     headers: ["Minor's Name","DOB","Age","Inheritance","Parent / Guardian","Parent Address","Parent Phone","GAL Status / Notes"],
-    sections: [
-      { label: "", color: "9B7EC8", rows: [
-        {cells:["Nicholas Tokarz","Oct 23, 2021","4 years old","1/3 house remainder after $10k set-asides","Stephen Tokarz (father)","2015 Rainbow View St, Henderson NV 89012","","GAL REQUIRED · Court appoints before Letters issue · Held to age 30"], nameClass:"pt-minor"},
-        {cells:["Brielle Rose Tokarz","Apr 4, 2024","2 years old","1/3 house remainder after $10k set-asides","Phillip Tokarz (father)","243 Hillbridge Dr, Rochester NY 14612","","GAL REQUIRED · Court appoints before Letters issue · Held to age 30"], nameClass:"pt-minor"},
-        {cells:["Siilen Enkhzul","Oct 8, 2008","17 years old","$5,000 from house proceeds","Mother: Tuvshinjargal Gonjav<br>Father: Enkhzul Puntsag","431 S Burnside Ave Apt 9E<br>Los Angeles, CA 90036","Mom: (904) 859-0909<br>Dad: (424) 415-1888","GAL REQUIRED · Turns 18 Oct 2026 · Held to age 30"], nameClass:"pt-minor"},
-        {cells:["Ninjin Enkhzul","Sep 27, 2020","5 years old","$5,000 from house proceeds","Mother: Tuvshinjargal Gonjav<br>Father: Enkhzul Puntsag","431 S Burnside Ave Apt 9E<br>Los Angeles, CA 90036","Mom: (904) 859-0909<br>Dad: (424) 415-1888","GAL REQUIRED · Court appoints before Letters issue · Held to age 30"], nameClass:"pt-minor"}
-      ]}
-    ]
+    sections: [{ label: "", color: "9B7EC8", rows: [
+      {cells:["Nicholas Tokarz","Oct 23, 2021","4 years old","1/3 house remainder after $10k set-asides","Stephen Tokarz (father)","2015 Rainbow View St, Henderson NV 89012","","GAL REQUIRED · Court appoints before Letters issue · Held to age 30"], nameClass:"pt-minor"},
+      {cells:["Brielle Rose Tokarz","Apr 4, 2024","2 years old","1/3 house remainder after $10k set-asides","Phillip Tokarz (father)","243 Hillbridge Dr, Rochester NY 14612","","GAL REQUIRED · Court appoints before Letters issue · Held to age 30"], nameClass:"pt-minor"},
+      {cells:["Siilen Enkhzul","Oct 8, 2008","17 years old","$5,000 from house proceeds","Mother: Tuvshinjargal Gonjav\nFather: Enkhzul Puntsag","431 S Burnside Ave Apt 9E, Los Angeles CA 90036","Mom: (904) 859-0909\nDad: (424) 415-1888","GAL REQUIRED · Turns 18 Oct 2026 · Held to age 30"], nameClass:"pt-minor"},
+      {cells:["Ninjin Enkhzul","Sep 27, 2020","5 years old","$5,000 from house proceeds","Mother: Tuvshinjargal Gonjav\nFather: Enkhzul Puntsag","431 S Burnside Ave Apt 9E, Los Angeles CA 90036","Mom: (904) 859-0909\nDad: (424) 415-1888","GAL REQUIRED · Court appoints before Letters issue · Held to age 30"], nameClass:"pt-minor"}
+    ]}]
   },
   {
     name: "McCM Checklist",
@@ -1446,8 +1483,52 @@ var SHEETS = [
   }
 ];
 
+// ── EDIT STATE ────────────────────────────────────────────────────────────────
 var currentSheetIdx = 0;
 var sensitiveUnlocked = false;
+var editMode = false;
+var hasUnsaved = false;
+var EDIT_KEY = 'exec_parties_edits';
+
+// Load saved edits and merge into SHEETS
+function loadSavedEdits() {
+  try {
+    var saved = localStorage.getItem(EDIT_KEY);
+    if (!saved) return;
+    var edits = JSON.parse(saved);
+    edits.forEach(function(e) {
+      var sheet = SHEETS[e.si];
+      if (!sheet) return;
+      var rowCount = 0;
+      var found = false;
+      sheet.sections.forEach(function(sec) {
+        sec.rows.forEach(function(row, ri) {
+          if (rowCount === e.ri) {
+            if (row.cells) {
+              if (e.ci < row.cells.length) row.cells[e.ci] = e.val;
+            } else {
+              var keys = ['name','role','rel','dob','status','addr','city','phone','parent','parentAddr','notes'];
+              if (e.ci < keys.length) row[keys[e.ci]] = e.val;
+            }
+            found = true;
+          }
+          rowCount++;
+        });
+      });
+    });
+  } catch(err) {}
+}
+
+function saveEditToStorage(si, ri, ci, val) {
+  try {
+    var saved = localStorage.getItem(EDIT_KEY);
+    var edits = saved ? JSON.parse(saved) : [];
+    // Remove existing entry for same cell
+    edits = edits.filter(function(e) { return !(e.si===si && e.ri===ri && e.ci===ci); });
+    edits.push({si:si, ri:ri, ci:ci, val:val});
+    localStorage.setItem(EDIT_KEY, JSON.stringify(edits));
+  } catch(err) {}
+}
 
 function showSheet(idx) {
   if (idx === 4 && !sensitiveUnlocked) {
@@ -1462,6 +1543,98 @@ function showSheet(idx) {
   renderSheet(idx);
 }
 
+function toggleEditMode() {
+  editMode = !editMode;
+  var lbl = document.getElementById('editModeLabel');
+  var badge = document.getElementById('editBadge');
+  var hint = document.getElementById('editHint');
+  var saveBtn = document.getElementById('saveBtn');
+  var resetBtn = document.getElementById('resetBtn');
+  if (lbl) lbl.textContent = editMode ? 'Done Editing' : 'Enable Editing';
+  if (badge) badge.classList.toggle('visible', editMode);
+  if (hint) hint.style.display = editMode ? 'block' : 'none';
+  if (saveBtn) saveBtn.style.display = editMode ? 'inline-flex' : 'none';
+  if (resetBtn) resetBtn.style.display = editMode ? 'inline-flex' : 'none';
+  renderSheet(currentSheetIdx);
+}
+
+function saveEdits() {
+  // Collect all current td values back into SHEETS and persist
+  var tbody = document.getElementById('partiesBody');
+  if (!tbody) return;
+  var sheet = SHEETS[currentSheetIdx];
+  var tds = tbody.querySelectorAll('td[contenteditable="true"]');
+  tds.forEach(function(td) {
+    var si = parseInt(td.dataset.si);
+    var ri = parseInt(td.dataset.ri);
+    var ci = parseInt(td.dataset.ci);
+    var val = td.innerText.trim();
+    // Update SHEETS in memory
+    var rowCount = 0;
+    SHEETS[si].sections.forEach(function(sec) {
+      sec.rows.forEach(function(row) {
+        if (rowCount === ri) {
+          if (row.cells) { row.cells[ci] = val; }
+          else {
+            var keys = ['name','role','rel','dob','status','addr','city','phone','parent','parentAddr','notes'];
+            if (ci < keys.length) row[keys[ci]] = val;
+          }
+        }
+        rowCount++;
+      });
+    });
+    saveEditToStorage(si, ri, ci, val);
+  });
+  hasUnsaved = false;
+  updateUnsavedDot();
+  // Flash feedback
+  var badge = document.getElementById('editBadgeText');
+  if (badge) { badge.textContent = 'Saved ✓'; setTimeout(function(){ badge.textContent = 'Editing'; }, 1500); }
+}
+
+function resetEdits() {
+  if (!confirm('Reset all your edits to the original data?\n\nThis cannot be undone.')) return;
+  try { localStorage.removeItem(EDIT_KEY); } catch(e) {}
+  location.reload();
+}
+
+function updateUnsavedDot() {
+  var dot = document.getElementById('unsavedDot');
+  if (dot) dot.style.display = hasUnsaved ? 'inline-block' : 'none';
+}
+
+function onCellInput(td) {
+  hasUnsaved = true;
+  updateUnsavedDot();
+}
+
+function onCellBlur(td) {
+  var si = parseInt(td.dataset.si);
+  var ri = parseInt(td.dataset.ri);
+  var ci = parseInt(td.dataset.ci);
+  var val = td.innerText.trim();
+  // Update in memory immediately
+  var rowCount = 0;
+  SHEETS[si].sections.forEach(function(sec) {
+    sec.rows.forEach(function(row) {
+      if (rowCount === ri) {
+        if (row.cells) { if(ci<row.cells.length) row.cells[ci] = val; }
+        else {
+          var keys = ['name','role','rel','dob','status','addr','city','phone','parent','parentAddr','notes'];
+          if (ci < keys.length) row[keys[ci]] = val;
+        }
+      }
+      rowCount++;
+    });
+  });
+  saveEditToStorage(si, ri, ci, val);
+  hasUnsaved = false;
+  updateUnsavedDot();
+  // Flash
+  td.classList.add('edit-saved-flash');
+  setTimeout(function(){ td.classList.remove('edit-saved-flash'); }, 600);
+}
+
 function renderSheet(idx) {
   var sheet = SHEETS[idx];
   var thead = document.getElementById('partiesHead');
@@ -1471,7 +1644,6 @@ function renderSheet(idx) {
   var accentColor = sheet.titleColor;
   var colCount = sheet.headers.length;
 
-  // Title header
   var hhtml = '<tr><th colspan="' + colCount + '" style="padding:14px 16px;background:#161410;border-bottom:1px solid #2f2d28;white-space:normal;">';
   hhtml += '<div style="font-family:\'Cormorant Garamond\',serif;font-size:16px;font-weight:700;color:#' + accentColor + ';margin-bottom:3px;">' + sheet.title + '</div>';
   if (isSens) hhtml += '<div style="display:inline-flex;align-items:center;gap:5px;font-size:10px;color:#e05540;background:rgba(224,85,64,0.12);border:1px solid rgba(224,85,64,0.3);border-radius:6px;padding:3px 8px;margin-bottom:5px;">&#9888;&#65039; SENSITIVE — ATTORNEY EYES ONLY</div><br>';
@@ -1482,64 +1654,60 @@ function renderSheet(idx) {
   thead.innerHTML = hhtml;
 
   var bhtml = '';
+  var globalRowIdx = 0;
   sheet.sections.forEach(function(section) {
     if (section.label) {
       bhtml += '<tr class="pt-section-hdr"><td colspan="' + colCount + '">' + section.label + '</td></tr>';
     }
     section.rows.forEach(function(row) {
       bhtml += '<tr>';
+      var ri = globalRowIdx;
+      var si = idx;
       if (row.cells) {
         row.cells.forEach(function(cell, ci) {
           var cls = (ci === 0) ? ((row.nameClass||'') + ' pt-name') : '';
           var style = '';
-          if (idx === 4 && ci === 3) style = 'color:#c9a84c;font-weight:700;font-size:13px;letter-spacing:1px;';
+          var isSensCell = isSens && ci === 3;
+          if (isSensCell) style = 'color:#c9a84c;font-weight:700;font-size:13px;letter-spacing:1px;';
           if (typeof cell === 'string' && cell.indexOf('GAL REQUIRED') >= 0) style = 'color:#e87b6a;font-weight:500;';
-          bhtml += '<td class="' + cls + '" style="' + style + '">' + (cell||'') + '</td>';
+          var editable = editMode && !(ci===0 && idx===2); // col 0 of McCM is row number
+          var editAttrs = editable ? ' contenteditable="true" data-si="'+si+'" data-ri="'+ri+'" data-ci="'+ci+'"'
+            + ' oninput="onCellInput(this)" onblur="onCellBlur(this)"'
+            + (isSensCell ? ' class="'+cls+' sensitive-field"' : ' class="'+cls+'"') : ' class="'+cls+'"';
+          bhtml += '<td'+editAttrs+' style="'+style+'">' + (cell||'') + '</td>';
         });
       } else {
-        bhtml += '<td class="' + (row.nameClass||'') + ' pt-name" style="white-space:nowrap;">';
-        bhtml += (row.name||'');
-        if (row.pills && row.pills.length) {
-          bhtml += '<div style="margin-top:5px;display:flex;flex-wrap:wrap;gap:3px;">';
-          row.pills.forEach(function(p) { bhtml += '<span class="pt-pill ' + p.c + '">' + p.t + '</span>'; });
-          bhtml += '</div>';
-        }
-        bhtml += '</td>';
-        bhtml += '<td>' + (row.role||'') + '</td>';
-        bhtml += '<td style="white-space:nowrap;">' + (row.rel||'') + '</td>';
-        bhtml += '<td style="white-space:nowrap;">' + (row.dob||'') + '</td>';
-        var sStyle = (row.status||'').indexOf('MINOR') >= 0 ? 'color:#e05540;font-weight:600;' : '';
-        bhtml += '<td style="white-space:nowrap;' + sStyle + '">' + (row.status||'') + '</td>';
-        bhtml += '<td style="white-space:nowrap;">' + (row.addr||'') + '</td>';
-        bhtml += '<td style="white-space:nowrap;">' + (row.city||'') + '</td>';
-        bhtml += '<td>' + (row.phone||'') + '</td>';
-        bhtml += '<td>' + (row.parent||'') + '</td>';
-        bhtml += '<td>' + (row.parentAddr||'') + '</td>';
-        bhtml += '<td>' + (row.notes||'') + '</td>';
+        var fields = [row.name||'', row.role||'', row.rel||'', row.dob||'', row.status||'',
+                      row.addr||'', row.city||'', row.phone||'', row.parent||'', row.parentAddr||'', row.notes||''];
+        fields.forEach(function(val, ci) {
+          var isMINOR = ci===4 && (val||'').indexOf('MINOR') >= 0;
+          var fStyle = isMINOR ? 'color:#e05540;font-weight:600;white-space:nowrap;' : (ci<=4 ? 'white-space:nowrap;' : '');
+          var fCls = (ci === 0) ? ((row.nameClass||'') + ' pt-name') : '';
+          var editable = editMode;
+          var editAttrs = editable
+            ? ' contenteditable="true" data-si="'+si+'" data-ri="'+ri+'" data-ci="'+ci+'"'
+              + ' oninput="onCellInput(this)" onblur="onCellBlur(this)" class="'+fCls+'"'
+            : ' class="'+fCls+'"';
+          var content = val;
+          // First col: show pills below when NOT editing
+          if (ci === 0 && !editMode && row.pills && row.pills.length) {
+            content += '<div style="margin-top:5px;display:flex;flex-wrap:wrap;gap:3px;">';
+            row.pills.forEach(function(p) { content += '<span class="pt-pill ' + p.c + '">' + p.t + '</span>'; });
+            content += '</div>';
+          }
+          bhtml += '<td'+editAttrs+' style="'+fStyle+'">' + content + '</td>';
+        });
       }
       bhtml += '</tr>';
+      globalRowIdx++;
     });
   });
   tbody.innerHTML = bhtml;
 }
 
-function downloadXLSX() {
-  var btn = document.querySelector('.dl-btn');
-  if (btn) { btn.textContent = '\u23f3 Preparing...'; btn.style.opacity = '0.7'; btn.style.pointerEvents = 'none'; }
-  var base = window.location.href.split('?')[0].replace(/index\.html$/, '');
-  var link = document.createElement('a');
-  link.href = base + 'Estate_Wall_Parties.xlsx';
-  link.download = 'Estate_Wall_Parties.xlsx';
-  link.style.display = 'none';
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-  setTimeout(function() {
-    if (btn) { btn.textContent = '\u2b07 Download XLSX'; btn.style.opacity = ''; btn.style.pointerEvents = ''; }
-  }, 2000);
-}
-
+loadSavedEdits();
 renderSheet(0);
+
 
 </script>
 
@@ -1553,6 +1721,15 @@ renderSheet(0);
     </div>
     <button class="dl-btn" onclick="downloadXLSX()">⬇ Download XLSX</button>
   </div>
+
+  <!-- Toolbar -->
+  <div class="parties-toolbar">
+    <button class="toolbar-btn toolbar-btn-gold" onclick="toggleEditMode()">✏️ <span id="editModeLabel">Enable Editing</span></button>
+    <span class="edit-mode-badge" id="editBadge"><span class="unsaved-dot" id="unsavedDot"></span><span id="editBadgeText">Editing</span></span>
+    <button class="toolbar-btn toolbar-btn-green" onclick="saveEdits()" id="saveBtn" style="display:none;">💾 Save</button>
+    <button class="toolbar-btn toolbar-btn-red" onclick="resetEdits()" id="resetBtn" style="display:none;">↩ Reset</button>
+  </div>
+  <div class="pt-edit-hint" id="editHint" style="display:none;">Tap any cell to edit · Changes saved to device</div>
 
   <!-- Sheet Tabs -->
   <div class="parties-sheet-tabs" id="sheetTabs">
